@@ -1435,29 +1435,30 @@
   }
 
   /* ── Instructors Carousel (Auto-scroll like image gallery) ── */
-  (function() {
+  setTimeout(function() {
     var track = document.getElementById('instructorsTrack');
+    console.log('Track found:', !!track);
     if (!track) return;
 
     var orig = Array.from(track.children);
     var N = orig.length;
+    console.log('Original items:', N);
     if (!N) return;
 
-    console.log('Carousel init: ' + N + ' items, cloning 4x');
     // Clone enough copies to fill screen several times (like image gallery)
     for (var c = 0; c < 4; c++) {
       orig.forEach(function(el) { track.appendChild(el.cloneNode(true)); });
     }
+    console.log('Total items after clone:', track.children.length);
 
     var x = 0;
     var loopAt = 0;
 
     function measure() {
-      // offsetLeft of the N-th child = width of one full set
       loopAt = track.children[N] ? track.children[N].offsetLeft : 0;
+      console.log('Loop at:', loopAt);
     }
 
-    // measure after paint so layout is complete
     requestAnimationFrame(function() {
       requestAnimationFrame(function() {
         measure();
@@ -1469,7 +1470,7 @@
         })();
       });
     });
-  })();
+  }, 500);
 
   function scrollInstructorsCarousel(direction) {
     const track = document.getElementById('instructorsTrack');
