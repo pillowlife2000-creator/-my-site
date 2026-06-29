@@ -1439,20 +1439,24 @@
     var track = document.getElementById('instructorsTrack');
     if (!track) return;
 
-    var origItems = Array.from(track.querySelectorAll('.instructor-card'));
-    var N = origItems.length;
+    var orig = Array.from(track.children);
+    var N = orig.length;
     if (!N) return;
 
-    // Clone items at end for seamless loop
-    origItems.forEach(function(el) { track.appendChild(el.cloneNode(true)); });
+    // Clone enough copies to fill screen several times (like image gallery)
+    for (var c = 0; c < 4; c++) {
+      orig.forEach(function(el) { track.appendChild(el.cloneNode(true)); });
+    }
 
     var x = 0;
     var loopAt = 0;
 
     function measure() {
+      // offsetLeft of the N-th child = width of one full set
       loopAt = track.children[N] ? track.children[N].offsetLeft : 0;
     }
 
+    // measure after paint so layout is complete
     requestAnimationFrame(function() {
       requestAnimationFrame(function() {
         measure();
