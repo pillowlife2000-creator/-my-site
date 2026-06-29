@@ -1179,6 +1179,14 @@
 
 <script async src="https://www.instagram.com/embed.js"></script>
 
+<script>
+  /* ── FAQ Toggle ── */
+  function toggleFaq(element) {
+    const faqItem = element.parentElement;
+    faqItem.classList.toggle('open');
+  }
+</script>
+
 <script type="module">
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
@@ -1493,11 +1501,6 @@
     document.addEventListener('touchmove', updateSlider, { passive: false });
   })();
 
-  /* ── FAQ Toggle ── */
-  function toggleFaq(element) {
-    const faqItem = element.parentElement;
-    faqItem.classList.toggle('open');
-  }
 </script>
 </body>
 </html>
