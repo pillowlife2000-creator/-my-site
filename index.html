@@ -797,10 +797,9 @@
     .carousel-track {
       display: flex;
       gap: 1rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
+      overflow: hidden;
       padding: 1rem 0;
-      scroll-snap-type: x mandatory;
+      width: max-content;
     }
 
     .carousel-track::-webkit-scrollbar {
@@ -818,10 +817,10 @@
     }
 
     .instructor-card {
-      flex: 0 0 200px;
+      flex-shrink: 0;
+      width: 200px;
       border-radius: 8px;
       overflow: hidden;
-      scroll-snap-align: center;
     }
 
     .instructor-card img {
@@ -1435,29 +1434,36 @@
     faqItem.classList.toggle('open');
   }
 
-  /* ── Instructors Carousel ── */
+  /* ── Instructors Carousel (Auto-scroll like image gallery) ── */
   (function() {
-    const track = document.getElementById('instructorsTrack');
+    var track = document.getElementById('instructorsTrack');
     if (!track) return;
 
-    let scrollPos = 0;
-    const cardWidth = 220; // 200px + 20px gap
-    const cardCount = 4;
+    var origItems = Array.from(track.querySelectorAll('.instructor-card'));
+    var N = origItems.length;
+    if (!N) return;
 
-    function autoScroll() {
-      scrollPos += cardWidth;
-      track.scrollLeft = scrollPos;
+    // Clone items at end for seamless loop
+    origItems.forEach(function(el) { track.appendChild(el.cloneNode(true)); });
 
-      // Loop back to start
-      if (scrollPos >= cardWidth * cardCount) {
-        setTimeout(() => {
-          scrollPos = 0;
-          track.scrollLeft = 0;
-        }, 300);
-      }
+    var x = 0;
+    var loopAt = 0;
+
+    function measure() {
+      loopAt = track.children[N] ? track.children[N].offsetLeft : 0;
     }
 
-    setInterval(autoScroll, 3000); // Auto-scroll every 3 seconds
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        measure();
+        (function tick() {
+          x -= 0.8;
+          if (loopAt > 0 && x <= -loopAt) x += loopAt;
+          track.style.transform = 'translateX(' + x + 'px)';
+          requestAnimationFrame(tick);
+        })();
+      });
+    });
   })();
 
   function scrollInstructorsCarousel(direction) {
