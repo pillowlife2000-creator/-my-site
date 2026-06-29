@@ -622,6 +622,16 @@
       .car-prev { right: 4px; }
       .car-next { left: 4px; }
     }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    .problem h2.t .y {
+      animation: breathe 2.5s ease-in-out infinite;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
