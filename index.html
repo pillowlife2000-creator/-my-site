@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tzarich_ai — תוכן ופרסומות בבינה מלאכותית</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
+
+    :root {
+      --y: #d4ff00;
+      --black: #0a0a0a;
+      --dark: #111;
+      --olive: #2a3a10;
+      --border: #2a2a2a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: #fff; font-family: 'Heebo', sans-serif; overflow-x: hidden; }
+
+    /* GRID BG */
+    .grid-bg {
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 65px, rgba(255,255,255,0.06) 65px, rgba(255,255,255,0.06) 66px),
+        repeating-linear-gradient(90deg, transparent, transparent 65px, rgba(255,255,255,0.06) 65px, rgba(255,255,255,0.06) 66px);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; right: 0; left: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-brand {
+      font-size: 0.95rem; font-weight: 900; color: #fff;
+      letter-spacing: 2px; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .nav-dot { width: 7px; height: 7px; background: var(--y); border-radius: 50%; flex-shrink: 0; }
+    .nav-btn {
+      background: var(--y); color: var(--black);
+      font-family: 'Heebo', sans-serif; font-weight: 900; font-size: 0.9rem;
+      padding: 0.55rem 1.4rem; border-radius: 100px; border: none;
+      cursor: pointer; text-decoration: none; display: inline-block;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 6rem 1.5rem 4rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 11vw, 5rem);
+      font-weight: 900; line-height: 1.05;
+      margin-bottom: 1.25rem; max-width: 640px;
+    }
+    .y { color: var(--y); }
+    .hero-sub {
+      font-size: 1rem; color: #bbb; line-height: 1.75;
+      max-width: 440px; margin-bottom: 0;
+    }
+    .hero-sub-title {
+      font-size: 1.05rem; font-weight: 900; color: #fff;
+      text-decoration: underline; text-decoration-color: var(--y);
+      text-underline-offset: 5px; margin-bottom: 0.6rem;
+    }
+    .btn-full {
+      display: block; width: 100%; max-width: 400px;
+      padding: 1.15rem; background: var(--y); color: var(--black);
+      font-family: 'Heebo', sans-serif; font-weight: 900; font-size: 1.2rem;
+      border-radius: 100px; border: none; cursor: pointer;
+      text-decoration: none; text-align: center;
+      box-shadow: 0 0 60px rgba(212,255,0,0.35), 0 0 120px rgba(212,255,0,0.15);
+      margin: 1.75rem auto 1.5rem;
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+    .btn-full:hover { box-shadow: 0 0 80px rgba(212,255,0,0.55); }
+    .btn-full:active { transform: scale(0.98); }
+
+    /* בלי grid */
+    .beli-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 2.5rem; max-width: 320px; margin: 0 auto;
+    }
+    .beli-item {
+      font-size: 0.88rem; color: #fff; text-align: center; font-weight: 500;
+    }
+    .beli-item strong { color: var(--y); font-weight: 900; }
+
+    /* ── COMMON ── */
+    .sec { padding: 5rem 1.5rem; }
+    .inner { max-width: 680px; margin: 0 auto; }
+    .c { text-align: center; }
+    h2.t { font-size: clamp(2rem, 7vw, 3.2rem); font-weight: 900; line-height: 1.05; margin-bottom: 1.2rem; }
+    p.b { font-size: 1rem; color: #aaa; line-height: 1.85; margin-bottom: 0.9rem; }
+    p.b strong { color: #fff; font-weight: 700; }
+    p.b .y { color: var(--y); font-weight: 700; }
+
+    /* ── SERVICES ── */
+    .services { background: #f2f2f2; padding: 5rem 1.5rem; }
+    .services h2.t { color: #111; }
+    .services h2.t .y { color: var(--y); }
+    .svc-cards { display: flex; flex-direction: column; gap: 1.25rem; max-width: 560px; margin: 2rem auto 0; }
+    .svc-card {
+      background: #111; border-radius: 26px; padding: 2.5rem 1.75rem 2rem;
+      text-align: center; overflow: hidden;
+    }
+    .svc-icon-wrap {
+      position: relative; display: inline-flex; align-items: center;
+      justify-content: center; margin-bottom: 1.5rem;
+    }
+    .svc-icon-wrap .glow {
+      position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 20px;
+      background: radial-gradient(ellipse, rgba(180,255,50,0.55) 0%, transparent 70%);
+      filter: blur(4px);
+    }
+    .svc-card h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 0.85rem; color: #fff; }
+    .svc-card p { font-size: 0.92rem; color: #777; line-height: 1.85; }
+
+    /* Diamond SVG animation */
+    @keyframes diamondSpin {
+      0%   { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+    .diamond-wrap {
+      width: 100px; height: 100px;
+      animation: diamondSpin 4s linear infinite;
+      transform-style: preserve-3d;
+    }
+
+    /* Bar chart animation */
+    @keyframes barUp   { 0%,100%{height:55px} 50%{height:80px} }
+    @keyframes barMid  { 0%,100%{height:80px} 50%{height:45px} }
+    @keyframes barDown { 0%,100%{height:40px} 50%{height:65px} }
+    .bars-wrap { display: flex; align-items: flex-end; gap: 8px; height: 90px; }
+    .bar {
+      width: 22px; border-radius: 6px 6px 0 0;
+      background: linear-gradient(to top, #8aaa00, #d4ff00);
+    }
+    .bar-1 { animation: barMid  1.4s ease-in-out infinite; }
+    .bar-2 { animation: barUp   1.4s ease-in-out infinite 0.2s; }
+    .bar-3 { animation: barDown 1.4s ease-in-out infinite 0.4s; }
+    .bar-4 { animation: barMid  1.4s ease-in-out infinite 0.1s; width:16px; background: linear-gradient(to top, #5a7a00, #b8e000); }
+
+    /* People icon pulse */
+    @keyframes peoplePulse {
+      0%,100% { transform: scale(1); }
+      50%      { transform: scale(1.06); }
+    }
+    .people-wrap { animation: peoplePulse 2.5s ease-in-out infinite; }
+
+    /* ── WHO — white cards ── */
+    .who { background: var(--black); padding: 5rem 1.5rem; }
+    .who > .inner > h2.t { margin-bottom: 0.75rem; }
+    .who > .inner > p.b { margin-bottom: 0; }
+
+    .who-card {
+      border-radius: 20px; padding: 1.75rem 1.5rem 1.5rem;
+      margin-top: 1.5rem; max-width: 540px; margin-right: auto; margin-left: auto;
+    }
+    .who-card.yes-card {
+      background: #fff; border: 2px solid #6abf45;
+      color: #111;
+    }
+    .who-card.no-card {
+      background: #fff; border: 2px solid #e84040;
+      color: #111; margin-top: 1rem;
+    }
+    .who-card-title {
+      font-size: 1.2rem; font-weight: 900; margin-bottom: 1.2rem; text-align: center;
+    }
+    .yes-card .who-card-title { color: #111; }
+    .no-card  .who-card-title { color: #111; }
+    .yes-card .who-card-title span { color: #6abf45; }
+    .no-card  .who-card-title span { color: #e84040; }
+
+    .who-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      font-size: 0.95rem; color: #222; line-height: 1.5; gap: 1rem;
+    }
+    .who-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .who-item-text { flex: 1; text-align: right; }
+    .who-icon-circle {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 900;
+    }
+    .yes-card .who-icon-circle { background: #eaf7e0; color: #4aab20; }
+    .no-card  .who-icon-circle { background: #fde8e8; color: #e84040; }
+
+    .who-cta {
+      max-width: 540px; margin: 1.75rem auto 0; text-align: center;
+    }
+    .who-cta-note { font-size: 0.82rem; color: #555; margin-top: 0.75rem; }
+
+    /* ── OLIVE SECTION (תכל'ס) ── */
+    .tachles {
+      background-color: #0a0a0a;
+      background-image:
+        radial-gradient(ellipse 80% 65% at 50% 50%, rgba(212,255,0,0.18) 0%, rgba(212,255,0,0.07) 40%, transparent 70%),
+        repeating-linear-gradient(0deg, transparent, transparent 65px, rgba(255,255,255,0.055) 65px, rgba(255,255,255,0.055) 66px),
+        repeating-linear-gradient(90deg, transparent, transparent 65px, rgba(255,255,255,0.055) 65px, rgba(255,255,255,0.055) 66px);
+      padding: 5rem 1.5rem; text-align: center;
+    }
+    .tachles h2.t { color: #fff; font-size: clamp(2.4rem, 9vw, 3.8rem); }
+    .tachles p.b { color: rgba(255,255,255,0.85); font-size: 1.05rem; }
+    .tachles p.b .y { color: var(--y); font-weight: 900; }
+    .tachles p.b strong { color: #fff; font-weight: 700; }
+    .tachles-end {
+      margin-top: 2.5rem;
+      font-size: 1.15rem; font-weight: 900; color: #fff; line-height: 1.5;
+    }
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(10px); }
+    }
+    .tachles-arrow {
+      display: block; margin: 2.5rem auto 0;
+      font-size: 2.8rem; text-decoration: none; width: fit-content;
+      background: linear-gradient(to bottom, #ffffff 0%, #d4ff00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 14px rgba(212,255,0,0.7));
+      animation: arrowBounce 1.4s ease-in-out infinite;
+    }
+
+    /* ── PROBLEM ── */
+    .problem { background: var(--black); padding: 5rem 1.5rem; text-align: center; }
+    @keyframes circlePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(212,255,0,0.4); transform: translateY(0); }
+      50%       { box-shadow: 0 0 0 12px rgba(212,255,0,0); transform: translateY(8px); }
+    }
+    .scroll-arrow {
+      width: 64px; height: 64px; border-radius: 50%;
+      border: 2px solid var(--y); color: var(--y);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin: 2.5rem auto 0;
+      text-decoration: none;
+      animation: circlePulse 1.6s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px rgba(212,255,0,0.5));
+    }
+
+    /* ── COMPARE ── */
+    .compare {
+      background-color: var(--black);
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 65px, rgba(212,255,0,0.06) 65px, rgba(212,255,0,0.06) 66px),
+        repeating-linear-gradient(90deg, transparent, transparent 65px, rgba(212,255,0,0.06) 65px, rgba(212,255,0,0.06) 66px);
+      padding: 1.5rem 1.5rem 5rem;
+    }
+    .compare h2.t { text-align: center; margin-bottom: 1.5rem; }
+    .cmp-wrap {
+      border: 1.5px solid rgba(212,255,0,0.25);
+      box-shadow: 0 0 12px rgba(212,255,0,0.07);
+      border-radius: 20px;
+      overflow: hidden; margin-top: 0;
+      max-width: 540px; margin-right: auto; margin-left: auto;
+      background: #0d0d0d;
+      position: relative;
+    }
+    .cmp-wrap table { width: 100%; border-collapse: collapse; }
+    .cmp-wrap th {
+      padding: 1.2rem 1rem; font-weight: 900; font-size: 1.15rem;
+      text-align: center; width: 50%;
+    }
+    .th-old { color: #888; background: #131313; border-right: 1.5px solid rgba(212,255,0,0.2); }
+    .th-ai  { color: var(--y); background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(212,255,0,0.15) 0%, rgba(212,255,0,0.05) 55%, transparent 100%); }
+    .cmp-wrap td {
+      padding: 1.1rem 1rem; border-top: 1px solid rgba(212,255,0,0.12);
+      text-align: center; font-size: 0.95rem; font-weight: 500;
+    }
+    .td-old { color: #555; background: #0d0d0d; border-right: 1.5px solid rgba(212,255,0,0.2); }
+    .td-ai  {
+      color: #fff; font-weight: 700; position: relative;
+      background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(212,255,0,0.15) 0%, rgba(212,255,0,0.05) 55%, transparent 100%);
+    }
+
+    /* lens-shape animated yellow line */
+    @keyframes lineGlow {
+      0%, 100% { opacity: 0.75; filter: blur(0px) drop-shadow(0 0 3px rgba(212,255,0,0.6)); }
+      50%       { opacity: 1;   filter: blur(0px) drop-shadow(0 0 8px rgba(212,255,0,1)); }
+    }
+    .td-ai-inner {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .td-ai-line {
+      height: 3px; width: 70%;
+      background: linear-gradient(to right, transparent 0%, var(--y) 25%, var(--y) 75%, transparent 100%);
+      border-radius: 50%;
+      animation: lineGlow 2s ease-in-out infinite;
+    }
+
+    /* ── HOW ── */
+    .how {
+      background-color: #0a0a0a;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 65px, rgba(212,255,0,0.055) 65px, rgba(212,255,0,0.055) 66px),
+        repeating-linear-gradient(90deg, transparent, transparent 65px, rgba(212,255,0,0.055) 65px, rgba(212,255,0,0.055) 66px);
+      padding: 5rem 1.5rem 6rem;
+      overflow: hidden;
+    }
+    .how h2.t { text-align: center; color: #fff; }
+    .how .how-sub { text-align: center; color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.75; margin-bottom: 0; }
+
+    .timeline-wrap {
+      position: relative; max-width: 560px; margin: 0 auto;
+    }
+
+    /* SVG curved path */
+    .timeline-svg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0; overflow: visible;
+    }
+    .tl-path-bg {
+      fill: none; stroke: rgba(212,255,0,0.18); stroke-width: 2;
+      stroke-dasharray: 7 5; stroke-linecap: round;
+    }
+    .tl-path-fill {
+      fill: none; stroke: var(--y); stroke-width: 2.5;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 6px rgba(212,255,0,0.8));
+    }
+
+    /* steps */
+    .tl-steps { position: relative; z-index: 1; padding: 20px 0; }
+    .tl-step {
+      display: flex; align-items: flex-start;
+      margin-bottom: 5rem; position: relative;
+    }
+    .tl-step-late {
+      opacity: 0.18; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      /* subtle blur so it looks "coming into focus" */
+      filter: blur(3px);
+    }
+    .tl-step-late.visible { opacity: 1; transform: translateY(0); filter: blur(0px); }
+    .tl-step:last-child { margin-bottom: 0; }
+    .tl-step:nth-child(odd)  { flex-direction: row; }
+    .tl-step:nth-child(even) { flex-direction: row-reverse; }
+
+    .tl-body { width: calc(50% - 40px); padding: 0 0.5rem; }
+    .tl-step:nth-child(odd)  .tl-body { text-align: right; }
+    .tl-step:nth-child(even) .tl-body { text-align: left; }
+
+    .tl-center { width: 80px; flex-shrink: 0; display: flex; justify-content: center; }
+
+    .tl-num {
+      width: 50px; height: 50px; border-radius: 50%;
+      font-weight: 900; font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative; z-index: 2;
+      background: transparent;
+      border: 2px solid rgba(212,255,0,0.4);
+      color: rgba(212,255,0,0.5);
+      transition: background 0.35s ease, color 0.35s ease,
+                  border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .tl-num.lit {
+      background: var(--y);
+      color: var(--black);
+      border-color: var(--y);
+      box-shadow: 0 0 20px rgba(212,255,0,0.9), 0 0 40px rgba(212,255,0,0.4);
+      transform: scale(1.08);
+    }
+
+    .tl-big {
+      display: block;
+      font-size: 4.5rem; font-weight: 900;
+      color: rgba(212,255,0,0.1); line-height: 0.85;
+      margin-bottom: -0.35rem;
+      user-select: none; pointer-events: none;
+      text-shadow: 0 0 30px rgba(212,255,0,0.15);
+    }
+
+    .tl-body h3 { font-size: 1.15rem; font-weight: 900; margin-bottom: 0.5rem; color: #fff; }
+    .tl-body h3 .y { color: var(--y); }
+    .tl-body p { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    @media (max-width: 500px) {
+      /* timeline — keep same look as desktop, just smaller */
+      .timeline-wrap { padding: 0 0.25rem; }
+      .tl-step { margin-bottom: 3.5rem; }
+      .tl-body { width: calc(50% - 28px); padding: 0 0.2rem; }
+      .tl-center { width: 56px; }
+      .tl-num { width: 38px; height: 38px; font-size: 0.75rem; }
+      .tl-body h3 { font-size: 0.88rem; }
+      .tl-body p { font-size: 0.78rem; }
+      .tl-big { font-size: 3rem; margin-bottom: -0.25rem; }
+    }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--black); padding: 4rem 0 5rem; overflow: hidden; }
+    .gallery-header { text-align: center; padding: 0 1.5rem; margin-bottom: 2.5rem; }
+    .gallery-header h2.t { margin-bottom: 0.5rem; }
+    .gallery-header p.b { margin-bottom: 0; }
+
+    /* ── GALLERY LABELS ── */
+    .gal-label {
+      text-align: center;
+      padding: 0 1.5rem;
+      margin: 2.5rem 0 1.2rem;
+    }
+    .gal-label span {
+      display: inline-block;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 3px;
+      margin-bottom: 0.5rem;
+    }
+    .gal-line {
+      height: 3px;
+      width: 80px;
+      margin: 0.3rem auto 0;
+      background: var(--y);
+      border-radius: 2px;
+    }
+    .gal-line.glow {
+      box-shadow: 0 0 10px var(--y), 0 0 24px var(--y), 0 0 48px rgba(212,255,0,0.5);
+    }
+
+    /* ── IMAGE AUTO-SCROLL ── */
+    .scroll-strip { overflow: hidden; width: 100%; margin-bottom: 1.5rem; direction: ltr; }
+    .scroll-track { display: flex; direction: ltr; width: max-content; }
+    .scroll-item {
+      flex-shrink: 0;
+      width: 180px; height: 240px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-right: 12px;
+    }
+    .scroll-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── VIDEO CAROUSEL (single, large) ── */
+    .vid-carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 8px;
+      margin-bottom: 1rem;
+    }
+    .vid-viewport {
+      flex: 1;
+      overflow: hidden;
+      border-radius: 22px;
+    }
+    .vid-track {
+      display: flex;
+      direction: ltr;
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .vid-track.no-anim { transition: none !important; }
+    .vid-item {
+      flex-shrink: 0;
+      width: 100%;
+      aspect-ratio: 9/16;
+      max-height: 72vh;
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: #111;
+    }
+    .vid-item video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .vid-play-icon {
+      position: absolute;
+      inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.3);
+      transition: opacity 0.25s;
+      pointer-events: none;
+    }
+    .vid-play-icon svg { width: 72px; height: 72px; }
+    .vid-item.playing .vid-play-icon { opacity: 0; }
+    .vid-btn {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: rgba(212,255,0,0.12);
+      border: 2px solid var(--y);
+      color: var(--y);
+      font-size: 30px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0;
+      box-shadow: 0 0 10px rgba(212,255,0,0.4);
+      transition: background 0.2s, box-shadow 0.2s;
+      z-index: 2;
+    }
+    .vid-btn:hover { background: rgba(212,255,0,0.25); box-shadow: 0 0 18px rgba(212,255,0,0.7); }
+    @media (max-width: 600px) {
+      .vid-btn { width: 38px; height: 38px; font-size: 24px; }
+    }
+    .vid-dots {
+      display: flex; justify-content: center; gap: 8px;
+      margin-top: 14px;
+    }
+    .vid-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      transition: background 0.25s, transform 0.25s;
+    }
+    .vid-dot.active {
+      background: var(--y);
+      transform: scale(1.3);
+      box-shadow: 0 0 6px var(--y);
+    }
+
+    /* ── COMPARISON SLIDER ── */
+    .comparison-slider {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 800px;
+      overflow: hidden;
+      border-radius: 14px;
+      cursor: ew-resize;
+    }
+    .comp-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .comp-before {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .comp-after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .comp-after img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .comp-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: var(--y);
+      cursor: ew-resize;
+      transform: translateX(-50%);
+      box-shadow: 0 0 8px rgba(212, 255, 0, 0.6);
+    }
+    .comp-handle::before {
+      content: '◀ ▶';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--y);
+      color: #000;
+      padding: 8px 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .comparison-sec {
+      padding: 4rem 0;
+    }
+    .comp-label {
+      text-align: center;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background-color: var(--black);
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 65px, rgba(212,255,0,0.055) 65px, rgba(212,255,0,0.055) 66px),
+        repeating-linear-gradient(90deg, transparent, transparent 65px, rgba(212,255,0,0.055) 65px, rgba(212,255,0,0.055) 66px);
+      padding: 5rem 1.5rem;
+    }
+    .about-photo-wrap {
+      position: relative; width: fit-content; margin: 0 auto 2rem;
+    }
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute; inset: -18px;
+      border-radius: 32px;
+      background:
+        radial-gradient(ellipse 90% 90% at 50% 50%, rgba(212,255,0,0.18) 0%, transparent 70%);
+      pointer-events: none; z-index: -1;
+    }
+    .about-photo {
+      width: min(320px, 85vw); height: min(430px, 115vw); border-radius: 24px;
+      background: #1a1a1a; margin: 0 auto 2rem;
+      overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 5rem;
+      position: relative; z-index: 1;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .stats-row { display: flex; justify-content: center; gap: 3rem; margin-top: 2rem; }
+    .stat-num { font-size: 2.5rem; font-weight: 900; color: var(--y); line-height: 1; }
+    .stat-lbl { font-size: 0.82rem; color: #666; margin-top: 0.2rem; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: #fff; padding: 5rem 1.5rem; }
+    .testimonials h2.t { color: #111; text-align: center; font-size: clamp(1.6rem, 5vw, 2.2rem); }
+    .testi-msgs { max-width: 540px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+    .tmsg {
+      background: #f0f0f0; border-radius: 16px; padding: 1.25rem 1.5rem;
+      color: #111; font-size: 0.95rem; line-height: 1.75; position: relative;
+    }
+    .tmsg::after {
+      content: ''; position: absolute;
+      bottom: -10px; right: 20px;
+      border: 10px solid transparent; border-top-color: #f0f0f0; border-bottom: none;
+    }
+    .tmsg-author { font-size: 0.8rem; color: #888; font-weight: 700; margin-top: 0.5rem; }
+
+    /* ── FORM ── */
+    .form-sec {
+      background: var(--black); padding: 5rem 1.5rem;
+    }
+    .form-wrap { max-width: 480px; margin: 0 auto; text-align: center; }
+    .form-wrap h2.t { margin-bottom: 0.75rem; }
+    .form-wrap p.b { margin-bottom: 0; }
+
+    .field { margin-bottom: 1rem; text-align: right; }
+    label { display: block; font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+    input[type="text"], input[type="tel"], select {
+      width: 100%; padding: 0.85rem 1rem;
+      background: #fff; border: none; border-radius: 12px;
+      color: #111; font-family: 'Heebo', sans-serif; font-size: 0.95rem;
+      outline: none; direction: rtl;
+    }
+    input::placeholder { color: #aaa; }
+    select { color: #aaa; cursor: pointer; }
+    select option { color: #111; }
+    .err { color: #ff5555; font-size: 0.8rem; margin-top: 0.3rem; display: none; }
+    .submit-btn {
+      width: 100%; padding: 1.05rem; background: var(--y); color: var(--black);
+      font-family: 'Heebo', sans-serif; font-size: 1.1rem; font-weight: 900;
+      border: none; border-radius: 100px; cursor: pointer; margin-top: 0.75rem;
+      box-shadow: 0 0 40px rgba(212,255,0,0.25);
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .submit-btn:hover { opacity: 0.9; }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .form-note { font-size: 0.8rem; color: #444; margin-top: 0.6rem; }
+    .success-box { display: none; text-align: center; padding: 2rem 0; }
+    .success-box .chk { font-size: 3rem; margin-bottom: 0.75rem; }
+    .success-box h3 { font-size: 1.4rem; font-weight: 900; color: var(--y); margin-bottom: 0.4rem; }
+    .success-box p { color: #888; }
+
+    footer { padding: 2rem 1.5rem; text-align: center; color: #333; font-size: 0.82rem; border-top: 1px solid #1a1a1a; }
+
+    /* ── STICKY BOTTOM BTN ── */
+    .sticky-cta {
+      position: fixed; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+      z-index: 200; width: calc(100% - 2.5rem); max-width: 420px;
+      background: var(--y); color: var(--black);
+      font-family: 'Heebo', sans-serif; font-weight: 900; font-size: 1rem;
+      padding: 0.9rem 1.5rem; border-radius: 100px; border: none; cursor: pointer;
+      text-decoration: none; text-align: center;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 500px) {
+      .step { flex-direction: column !important; align-items: center; text-align: center !important; }
+      .step-body { width: 100%; text-align: center !important; }
+      .step-big { display: none; }
+      .steps-line { display: none; }
+      .car-prev { right: 4px; }
+      .car-next { left: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#form" class="nav-btn">אני רוצה להתחיל!</a>
+  <div class="nav-brand">tzarich_ai <div class="nav-dot"></div></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero grid-bg">
+  <h1>גם העסק שלך יכול להיראות כמו <span class="y">מותג בינלאומי</span></h1>
+  <p class="hero-sub">אני עוזר לעסק שלך להראות כמו מותג בינלאומי בעזרת AI</p>
+  <a href="#form" class="btn-full">אני רוצה להתחיל!</a>
+  <div class="beli-grid">
+    <div class="beli-item"><strong>ללא</strong> ימי צילום</div>
+    <div class="beli-item"><strong>ללא</strong> דוגמנים</div>
+    <div class="beli-item"><strong>ללא</strong> צוות עריכה שלם</div>
+    <div class="beli-item"><strong>ללא</strong> עלות הפקה גבוהה</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="inner c">
+    <h2 class="t">איך אני אגרום לפרסום שלך <span class="y">להתחיל לעבוד?</span></h2>
+    <div class="svc-cards">
+
+      <!-- Card 1 — Diamond -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <div class="diamond-wrap">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="dTop" x1="50" y1="10" x2="50" y2="45" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#eeff99"/>
+                  <stop offset="100%" stop-color="#d4ff00"/>
+                </linearGradient>
+                <linearGradient id="dLeft" x1="15" y1="45" x2="50" y2="90" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#8aaa00"/>
+                  <stop offset="100%" stop-color="#4a6000"/>
+                </linearGradient>
+                <linearGradient id="dRight" x1="85" y1="45" x2="50" y2="90" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#c8e800"/>
+                  <stop offset="100%" stop-color="#7a9a00"/>
+                </linearGradient>
+                <linearGradient id="dMid" x1="15" y1="45" x2="85" y2="45" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#9ab800"/>
+                  <stop offset="50%" stop-color="#d4ff00"/>
+                  <stop offset="100%" stop-color="#9ab800"/>
+                </linearGradient>
+              </defs>
+              <!-- top facet -->
+              <polygon points="50,10 15,45 85,45" fill="url(#dTop)" opacity="0.95"/>
+              <!-- top-left sub -->
+              <polygon points="50,10 15,45 30,28" fill="#d4ff00" opacity="0.5"/>
+              <!-- top-right sub -->
+              <polygon points="50,10 85,45 70,28" fill="#f5ffaa" opacity="0.5"/>
+              <!-- belt -->
+              <polygon points="15,45 85,45 70,48 30,48" fill="url(#dMid)" opacity="0.8"/>
+              <!-- left facet -->
+              <polygon points="15,45 30,48 50,90" fill="url(#dLeft)"/>
+              <!-- right facet -->
+              <polygon points="85,45 70,48 50,90" fill="url(#dRight)"/>
+              <!-- center bottom -->
+              <polygon points="30,48 70,48 50,90" fill="#5a7000" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="glow"></div>
+        </div>
+        <h3>התוכן שלך יפסיק להיראות "ממוצע"</h3>
+        <p>במקום לנסות לבד ולהתפשר<br/>אתה תקבל תוכן שנראה מקצועי,<br/>ויתן הרגשה של מותג אמיתי.</p>
+      </div>
+
+      <!-- Card 2 — Bar chart -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <div class="bars-wrap">
+            <div class="bar bar-4"></div>
+            <div class="bar bar-1"></div>
+            <div class="bar bar-2"></div>
+            <div class="bar bar-3"></div>
+          </div>
+          <div class="glow"></div>
+        </div>
+        <h3>אתה תפסיק לנחש כשאתה מפרסם.</h3>
+        <p>במקום להעלות מלא תוכן ולהחזיק אצבעות —<br/>תקבל כמה גרסאות לכל רעיון,<br/>כדי לדעת מה באמת מביא תוצאות.</p>
+      </div>
+
+      <!-- Card 3 — People -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <div class="people-wrap">
+            <svg width="100" height="80" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="pHead1" cx="50%" cy="30%" r="50%">
+                  <stop offset="0%" stop-color="#c0c0c0"/>
+                  <stop offset="100%" stop-color="#606060"/>
+                </radialGradient>
+                <radialGradient id="pHead2" cx="50%" cy="30%" r="50%">
+                  <stop offset="0%" stop-color="#b0b0b0"/>
+                  <stop offset="100%" stop-color="#505050"/>
+                </radialGradient>
+                <linearGradient id="pBody" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#909090"/>
+                  <stop offset="100%" stop-color="#404040"/>
+                </linearGradient>
+                <linearGradient id="pGreen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#a0d400"/>
+                  <stop offset="100%" stop-color="#4a7a00"/>
+                </linearGradient>
+              </defs>
+              <!-- left person -->
+              <circle cx="22" cy="22" r="14" fill="url(#pHead2)"/>
+              <rect x="8" y="40" width="28" height="30" rx="8" fill="url(#pBody)"/>
+              <!-- right person -->
+              <circle cx="78" cy="22" r="14" fill="url(#pHead2)"/>
+              <rect x="64" y="40" width="28" height="30" rx="8" fill="url(#pBody)"/>
+              <!-- center person (green highlight) -->
+              <circle cx="50" cy="18" r="16" fill="url(#pHead1)"/>
+              <rect x="34" y="38" width="32" height="32" rx="9" fill="url(#pGreen)"/>
+            </svg>
+          </div>
+          <div class="glow"></div>
+        </div>
+        <h3>התוכן שלך באמת עובד — לא רק נראה טוב.</h3>
+        <p>כל סרטון מתוכנן מראש לתוצאה אחת —<br/>יותר פניות, יותר לידים, יותר מכירות,<br/>כדי שכל שקל שהשקעת יחזור אליך,<br/>ויכפיל את עצמו.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who grid-bg">
+  <div class="inner c">
+    <h2 class="t">לפני שאתה ממשיך — <span class="y">תבדוק אם זה בשבילך.</span></h2>
+
+    <div class="who-card yes-card">
+      <div class="who-card-title">זה בשבילך <span>אם...</span></div>
+      <div class="who-item"><span class="who-item-text">אין לך זמן להתעסק עם הפקות, צילומים, דוגמנים ולוקיישנים</span><span class="who-icon-circle">✓</span></div>
+      <div class="who-item"><span class="who-item-text">אתה רוצה יותר פניות, יותר לקוחות ויותר מכירות</span><span class="who-icon-circle">✓</span></div>
+      <div class="who-item"><span class="who-item-text">אתה רוצה שהעסק שלך יראה מקצועי וגדול</span><span class="who-icon-circle">✓</span></div>
+      <div class="who-item"><span class="who-item-text">אתה מבין שמי שלא יאמץ AI עכשיו — יישאר מאחור</span><span class="who-icon-circle">✓</span></div>
+      <div class="who-item"><span class="who-item-text">אתה מוכן להשקיע בתוכן שבאמת עובד</span><span class="who-icon-circle">✓</span></div>
+    </div>
+
+    <div class="who-card no-card">
+      <div class="who-card-title">זה לא בשבילך <span>אם...</span></div>
+      <div class="who-item"><span class="who-item-text">אתה רק סקרן אבל לא רציני להתקדם</span><span class="who-icon-circle">✕</span></div>
+      <div class="who-item"><span class="who-item-text">אתה לא מתכנן לפרסם באופן קבוע</span><span class="who-icon-circle">✕</span></div>
+      <div class="who-item"><span class="who-item-text">אתה בטוח שליצור תמונות גנריות זה מספיק</span><span class="who-icon-circle">✕</span></div>
+      <div class="who-item"><span class="who-item-text">אתה חושב ש-AI זה עוד טרנד שיחלוף</span><span class="who-icon-circle">✕</span></div>
+    </div>
+
+    <div class="who-cta">
+      <p style="font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:1rem;">אם זה מדבר אליך — בוא נתקדם</p>
+      <a href="#form" class="btn-full" style="margin-top:0">אני רוצה להתחיל!</a>
+      <p class="who-cta-note">ללא התחייבות · שיחה קצרה · בדיוק מה שמתאים</p>
+    </div>
+  </div>
+</section>
+
+<!-- TACHLES (ירוק) -->
+<section class="tachles" id="tachles">
+  <div class="inner">
+    <h2 class="t">בוא נהיה כנים.</h2>
+    <p class="b">כמה זמן לוקח לארגן יום צילום אחד,<br/>ולגרום לכל ההפקה להיות באותו מקום באותו זמן?</p>
+    <p class="b">מספיק שדבר אחד לא מסתדר —<br/><span class="y">וכל התוכנית עוצרת ומתעכבת.</span></p>
+    <p class="b">ובסוף?<br/>הקריאייטיבים מגיעים רק אחרי חודש,<br/>אחרי השקעה שלא תמיד מצדיקה את עצמה.</p>
+    <p class="tachles-end">אבל היום יש דרך אחרת —<br/><span class="y">הרבה יותר חכמה וקלה.</span></p>
+    <a href="#problem" class="tachles-arrow">↓</a>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem grid-bg" id="problem">
+  <div class="inner">
+    <h2 class="t">היום כבר לא צריך הפקת ענק<br/>כדי להיראות כמו <span class="y">מותג בינלאומי</span></h2>
+    <p class="b">פעם זה דרש ימי צילום שלמים, צוותי הפקה, דוגמנים ולוקיישנים יקרים.</p>
+    <p class="b">היום אפשר ליצור תוכן <span class="y">ברמה גבוהה יותר, הרבה יותר מהר — ובשבריר מהעלות.</span></p>
+    <p class="b">AI לא בא להחליף את הרעיון הטוב. הוא בא <span class="y">לתת לו כנפיים —</span> ולקצר את הדרך בין הרעיון לתוצאה.</p>
+    <a href="#compare" class="scroll-arrow">↓</a>
+
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare grid-bg" id="compare">
+  <div class="inner">
+    <h2 class="t c">תראה את ה<span class="y">הבדל</span> בעצמך</h2>
+    <div class="cmp-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="th-ai">AI</th>
+            <th class="th-old">הפקה רגילה</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-ai"><div class="td-ai-inner">₪500 – ₪5,000+<div class="td-ai-line"></div></div></td>
+            <td class="td-old">₪7,000 – ₪30,000+</td>
+          </tr>
+          <tr>
+            <td class="td-ai"><div class="td-ai-inner">ימים בודדים<div class="td-ai-line"></div></div></td>
+            <td class="td-old">שבועות של המתנה</td>
+          </tr>
+          <tr>
+            <td class="td-ai"><div class="td-ai-inner">אינסוף גרסאות<div class="td-ai-line"></div></div></td>
+            <td class="td-old">גרסה אחת, אולי שתיים</td>
+          </tr>
+          <tr>
+            <td class="td-ai"><div class="td-ai-inner">כל לוקיישן, כל דוגמן<div class="td-ai-line"></div></div></td>
+            <td class="td-old">מה שתיאמת מראש</td>
+          </tr>
+          <tr>
+            <td class="td-ai"><div class="td-ai-inner">תיקון מהיר<div class="td-ai-line"></div></div></td>
+            <td class="td-old">צילום מחדש</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div style="max-width:580px;margin:0 auto">
+    <h2 class="t" style="text-align:center">ככה זה עובד <span class="y">בפועל</span></h2>
+    <p class="how-sub">תהליך פשוט, מהיר ומדויק<br/>בלי ימי צילום ובלי הפקות מסובכות.</p>
+
+    <div class="timeline-wrap" id="timelineWrap">
+      <!-- SVG curved path — built dynamically by JS -->
+      <svg class="timeline-svg" id="timelineSvg" viewBox="0 0 560 800" preserveAspectRatio="none">
+        <!-- dashed background path, always visible -->
+        <path class="tl-path-bg"   id="tlPathBg"   d=""/>
+        <!-- glowing fill path, drawn by scroll -->
+        <path class="tl-path-fill" id="tlPathFill"  d=""/>
+      </svg>
+
+      <div class="tl-steps">
+        <!-- Step 01 -->
+        <div class="tl-step" data-step="1">
+          <div class="tl-body">
+            <div class="tl-big">01</div>
+            <h3>ממלאים <span class="y">טופס קצר</span></h3>
+            <p>כדי להבין את המותג שלך,<br/>למי אתה מוכר,<br/>ואיזה סגנון תוכן אתה מחפש.</p>
+          </div>
+          <div class="tl-center"><div class="tl-num" id="tlNum1">01</div></div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="tl-step" data-step="2">
+          <div class="tl-body">
+            <div class="tl-big">02</div>
+            <h3>בונים תוכן <span class="y">שאנשים זוכרים</span></h3>
+            <p>קריאייטיב שתופס את העין,<br/>נראה אמיתי,<br/>וגורם לאנשים לעצור בפיד.</p>
+          </div>
+          <div class="tl-center"><div class="tl-num" id="tlNum2">02</div></div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="tl-step tl-step-late" data-step="3">
+          <div class="tl-body">
+            <div class="tl-big">03</div>
+            <h3>מקבלים תוכן <span class="y">מוכן לפרסום</span></h3>
+            <p>כמה גרסאות שונות לבדיקה —<br/>מוכן לרשתות, לקמפיינים<br/>ולמה שבאמת עובד.</p>
+          </div>
+          <div class="tl-center"><div class="tl-num" id="tlNum3">03</div></div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="tl-step tl-step-late" data-step="4">
+          <div class="tl-body">
+            <div class="tl-big">04</div>
+            <h3>מתחילים <span class="y">להעלות ולבדוק</span></h3>
+            <p>רואים מה עובד הכי טוב,<br/>משפרים תוך כדי<br/>וממשיכים ליצור תוכן חכם יותר.</p>
+          </div>
+          <div class="tl-center"><div class="tl-num" id="tlNum4">04</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-header">
+    <h2 class="t">הנה חלק מהתוכן <span class="y">שיצרתי</span></h2>
+    <p class="b">AI, ביוטי, אופנה, ליפסטייל, מסעדות ועוד.</p>
+  </div>
+
+  <!-- Images: auto-scroll -->
+  <div class="gal-label">
+    <span>תמונות</span>
+    <div class="gal-line"></div>
+  </div>
+  <div class="scroll-strip">
+    <div class="scroll-track">
+      <div class="scroll-item"><img src="images/img1.png" alt="תוכן AI" /></div>
+      <div class="scroll-item"><img src="images/img2.png" alt="תוכן AI" /></div>
+      <div class="scroll-item"><img src="images/img3.png" alt="תוכן AI" /></div>
+      <div class="scroll-item"><img src="images/img4.png" alt="תוכן AI" /></div>
+      <div class="scroll-item"><img src="images/img5.png" alt="תוכן AI" /></div>
+      <div class="scroll-item"><img src="images/img6.jpg" alt="תוכן AI" /></div>
+      <div class="scroll-item"><img src="images/img7.jpg" alt="תוכן AI" /></div>
+      <div class="scroll-item"><img src="images/img8.jpg" alt="תוכן AI" /></div>
+    </div>
+  </div>
+
+  <!-- Videos: click-to-play carousel -->
+  <div class="gal-label">
+    <span>סרטונים</span>
+    <div class="gal-line glow"></div>
+  </div>
+  <div class="vid-carousel">
+    <button class="vid-btn vid-prev" aria-label="הקודם">&#8249;</button>
+    <div class="vid-viewport">
+      <div class="vid-track" id="vidTrack">
+        <div class="vid-item"><video src="videos/vid2_web.mp4" poster="images/thumb2.jpg" playsinline loop preload="none"></video><div class="vid-play-icon"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" stroke="white" stroke-width="2"/><polygon points="24,18 46,30 24,42" fill="white"/></svg></div></div>
+        <div class="vid-item"><video src="videos/vid1_web.mp4" poster="images/thumb1.jpg" playsinline loop preload="none"></video><div class="vid-play-icon"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" stroke="white" stroke-width="2"/><polygon points="24,18 46,30 24,42" fill="white"/></svg></div></div>
+        <div class="vid-item"><video src="videos/vid3_web.mp4" poster="images/thumb3.jpg" playsinline loop preload="none"></video><div class="vid-play-icon"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" stroke="white" stroke-width="2"/><polygon points="24,18 46,30 24,42" fill="white"/></svg></div></div>
+        <div class="vid-item"><video src="videos/vid4_web.mp4" poster="images/thumb4.jpg" playsinline loop preload="none"></video><div class="vid-play-icon"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" stroke="white" stroke-width="2"/><polygon points="24,18 46,30 24,42" fill="white"/></svg></div></div>
+        <div class="vid-item"><video src="videos/vid5_web.mp4" poster="images/thumb5.jpg" playsinline loop preload="none"></video><div class="vid-play-icon"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" stroke="white" stroke-width="2"/><polygon points="24,18 46,30 24,42" fill="white"/></svg></div></div>
+      </div>
+    </div>
+    <button class="vid-btn vid-next" aria-label="הבא">&#8250;</button>
+  </div>
+  <div class="vid-dots" id="vidDots">
+    <span class="vid-dot active"></span>
+    <span class="vid-dot"></span>
+    <span class="vid-dot"></span>
+    <span class="vid-dot"></span>
+    <span class="vid-dot"></span>
+  </div>
+</section>
+
+<!-- COMPARISON SLIDER -->
+<section class="comparison-sec grid-bg">
+  <div class="inner">
+    <div class="comp-label">
+      <span style="font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: 3px; display: inline-block; margin-bottom: 0.5rem;">לפני ואחרי</span>
+      <div style="height: 3px; width: 80px; background: var(--y); border-radius: 2px; box-shadow: 0 0 10px var(--y), 0 0 24px var(--y), 0 0 48px rgba(212,255,0,0.5);"></div>
+    </div>
+    <p class="b" style="margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">שאני אומר שאפשר ליצור היום כמעט הכל עם AI לזה אני מתכוון. וכן, <span class="y">אפילו לרהט דירה שלמה בלי להכניס אליה רהיט אחד.</span></p>
+    <div class="comparison-slider" id="comparisonSlider" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+      <img src="images/img3.jpg" alt="לפני" class="comp-img comp-before" />
+      <div class="comp-after" id="compAfter">
+        <img src="images/img4.jpg" alt="אחרי" class="comp-img" />
+      </div>
+      <div class="comp-handle" id="compHandle"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="inner c">
+    <div class="about-photo-wrap">
+      <div class="about-photo">
+        <img src="me.jpg" alt="שליו רביבו" />
+      </div>
+    </div>
+    <h2 class="t">היי, אני <span class="y">שליו רביבו.</span></h2>
+    <p class="b" style="font-size:1.05rem;font-weight:700;color:#fff"><span class="y">יוצר תוכן AI לעסקים שרוצים להיראות ברמה אחרת.</span></p>
+    <p class="b">בשנה האחרונה חייתי את עולם ה-AI והתוכן. מה שהתחיל כסקרנות הפך לעבודה שלי ביום יום — ליצור תוכן לעסקים שנראה <strong>חד, אמיתי, ותופס את העין.</strong></p>
+    <p class="b">אני לוקח את המותג שלך ומביא אותו לרמה שנראית כמו <span class="y">מותג גדול</span> — בלי הפקות ענק ובלי תקציבים מטורפים.</p>
+  </div>
+</section>
+
+
+<!-- FORM -->
+<section class="form-sec grid-bg" id="form">
+  <div class="form-wrap">
+    <h2 class="t">בוא נראה מה אפשר<br/><span class="y">לעשות לעסק שלך.</span></h2>
+    <p class="b">תשאיר לי כמה פרטים ונעשה שיחה קצרה כדי להבין מה אתה בדיוק צריך.</p>
+
+    <form id="leadForm" style="margin-top:2rem">
+      <div class="field">
+        <label>שם פרטי</label>
+        <input id="fname" type="text" placeholder="שם פרטי" />
+        <div class="err" id="fnameErr">נא להזין שם פרטי</div>
+      </div>
+      <div class="field">
+        <label>שם משפחה</label>
+        <input id="lname" type="text" placeholder="שם משפחה" />
+      </div>
+      <div class="field">
+        <label>טלפון</label>
+        <input id="phone" type="tel" placeholder="050-0000000" />
+        <div class="err" id="phoneErr">נא להזין מספר טלפון תקין</div>
+      </div>
+      <div class="field">
+        <label>תחום העסק</label>
+        <select id="businessType">
+          <option value="">בחר תחום...</option>
+          <option value="נדלן">נדלן</option>
+          <option value="ביוטי וקוסמטיקה">ביוטי וקוסמטיקה</option>
+          <option value="אופנה">אופנה</option>
+          <option value="אוכל">אוכל</option>
+          <option value="תכשיטים ויוקרה">תכשיטים ויוקרה</option>
+          <option value="תוכנה/SaaS">תוכנה/SaaS</option>
+          <option value="מסעדות">מסעדות</option>
+          <option value="אחר">אחר</option>
+        </select>
+        <div class="err" id="typeErr">נא לבחור תחום</div>
+      </div>
+      <button class="submit-btn" type="submit" id="submitBtn">יאללה, בוא נדבר</button>
+      <p class="form-note">מעדיף לשלוח הודעה? כאן אנחנו שיחה קצרה ממך.</p>
+    </form>
+
+    <div class="success-box" id="successBox">
+      <div class="chk">✅</div>
+      <h3>הפנייה התקבלה!</h3>
+      <p>שליו יחזור אליך בהקדם לשיחה קצרה.</p>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 Tzarich_ai · שליו רביבו · כל הזכויות שמורות</footer>
+
+<!-- STICKY BOTTOM -->
+<a href="#form" class="sticky-cta">
+  יאללה, אני רוצה להתחיל!
+  <span>↓</span>
+</a>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const supabase = createClient(
+    'https://kynnuobrybwdcixoefwu.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5bm51b2JyeWJ3ZGNpeG9lZnd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NjM5NzAsImV4cCI6MjA5NzMzOTk3MH0.tY6J0ig66nw3MT3oGBiuVYTf-yYkWAwoopauC9f6aPk'
+  );
+
+  document.getElementById('leadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const businessType = document.getElementById('businessType').value;
+    const btn = document.getElementById('submitBtn');
+
+    ['fnameErr','phoneErr','typeErr'].forEach(id => document.getElementById(id).style.display = 'none');
+    let valid = true;
+    if (fname.length < 2)                    { document.getElementById('fnameErr').style.display = 'block'; valid = false; }
+    if (phone.replace(/\D/g,'').length < 9)  { document.getElementById('phoneErr').style.display = 'block'; valid = false; }
+    if (!businessType)                        { document.getElementById('typeErr').style.display = 'block'; valid = false; }
+    if (!valid) return;
+
+    btn.disabled = true; btn.textContent = 'שולח...';
+    const name = lname ? `${fname} ${lname}` : fname;
+    const { error } = await supabase.from('leads').insert({ name, phone, business_type: businessType });
+    if (error) { btn.disabled = false; btn.textContent = 'יאללה, בוא נדבר'; alert('אירעה שגיאה, נסו שוב.'); return; }
+    document.getElementById('leadForm').style.display = 'none';
+    document.getElementById('successBox').style.display = 'block';
+  });
+
+
+  /* ── TIMELINE SCROLL ANIMATION ── */
+  const tlWrap  = document.getElementById('timelineWrap');
+  const tlSvg   = document.getElementById('timelineSvg');
+  const tlFill  = document.getElementById('tlPathFill');
+  const tlBg    = document.getElementById('tlPathBg');
+  const tlNums  = document.querySelectorAll('.tl-num');
+
+  // Build one continuous S-curve through 4 circle centers + start from top
+  function buildPath(pts) {
+    const svgCX = pts[0].x; // all circles share roughly the same center X
+    const BULGE = 70;       // horizontal S-curve bulge (in SVG units)
+    let d = `M ${svgCX} 0`;
+    pts.forEach((p, i) => {
+      const prevY = i === 0 ? 0 : pts[i - 1].y;
+      const midY  = (prevY + p.y) / 2;
+      const bx    = i % 2 === 0 ? svgCX + BULGE : svgCX - BULGE;
+      d += ` C ${bx} ${midY} ${bx} ${midY} ${svgCX} ${p.y}`;
+    });
+    return d;
+  }
+
+  // Binary-search the path for the arc-length where the path reaches a given y
+  function lengthAtY(path, targetY, totalLen) {
+    let lo = 0, hi = totalLen;
+    for (let k = 0; k < 24; k++) {
+      const mid = (lo + hi) / 2;
+      path.getPointAtLength(mid).y < targetY ? (lo = mid) : (hi = mid);
+    }
+    return (lo + hi) / 2;
+  }
+
+  let _raf = null;
+
+  function initTimeline() {
+    if (!tlWrap) return;
+    const svgH = tlSvg.viewBox.baseVal.height;
+    const svgW = tlSvg.viewBox.baseVal.width;
+    const wrapH = tlWrap.offsetHeight || 1;
+    const wrapW = tlWrap.offsetWidth  || 1;
+    const wrapRect = tlWrap.getBoundingClientRect();
+
+    // Circle centers in SVG coordinate space
+    const circles = Array.from(document.querySelectorAll('.tl-center'));
+    const pts = circles.map(c => {
+      const r  = c.getBoundingClientRect();
+      const wx = tlWrap.getBoundingClientRect();
+      return {
+        x: (r.left + r.width  / 2 - wx.left) / wrapW * svgW,
+        y: (r.top  + r.height / 2 - wx.top)  / wrapH * svgH,
+      };
+    });
+
+    const d = buildPath(pts);
+    tlBg.setAttribute('d', d);
+    tlFill.setAttribute('d', d);
+
+    const totalLen = tlFill.getTotalLength();
+    tlFill.style.strokeDasharray  = totalLen;
+    tlFill.style.strokeDashoffset = totalLen; // start empty
+
+    // Arc-length fraction where the path reaches each circle (0–1)
+    const circleThresholds = pts.map(p => lengthAtY(tlFill, p.y, totalLen) / totalLen);
+
+    tlWrap._tl = { totalLen, circleThresholds };
+    updateTimeline();
+  }
+
+  function updateTimeline() {
+    if (!tlWrap || !tlWrap._tl) return;
+    const { totalLen, circleThresholds } = tlWrap._tl;
+
+    const rect = tlWrap.getBoundingClientRect();
+    const wh   = window.innerHeight;
+
+    /*
+      Scroll progress (0 → 1):
+        0  = section top  aligned with viewport center  (just entered view)
+        1  = section bottom aligned with viewport center (about to leave view)
+      Fully bidirectional — just a ratio, no state.
+    */
+    // rect.height * 0.62 → line completes well before the bottom
+    const pct = Math.max(0, Math.min(1, (wh / 2 - rect.top) / (rect.height * 0.62)));
+
+    // Drive the fill path
+    tlFill.style.strokeDashoffset = totalLen * (1 - pct);
+
+    // Light each circle exactly when the line reaches it
+    tlNums.forEach((num, i) => {
+      const reached = pct >= circleThresholds[i];
+      num.classList.toggle('lit', reached);
+    });
+  }
+
+  function onScroll() {
+    if (_raf) return;
+    _raf = requestAnimationFrame(() => { _raf = null; updateTimeline(); });
+  }
+
+  // Init after first paint so getBoundingClientRect is accurate
+  requestAnimationFrame(() => setTimeout(initTimeline, 80));
+  window.addEventListener('resize', () => { initTimeline(); }, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+
+  // Fade in steps 3 & 4 when they enter the viewport
+  const lateObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); lateObs.unobserve(e.target); } });
+  }, { threshold: 0.25 });
+  document.querySelectorAll('.tl-step-late').forEach(el => lateObs.observe(el));
+
+
+  /* ── IMAGE AUTO-SCROLL ── */
+  (function() {
+    var track = document.querySelector('.scroll-track');
+    if (!track) return;
+    var orig = Array.from(track.children);
+    var N = orig.length;
+    // clone enough copies to fill screen several times
+    for (var c = 0; c < 4; c++) {
+      orig.forEach(function(el) { track.appendChild(el.cloneNode(true)); });
+    }
+    var x = 0;
+    var loopAt = 0;
+    function measure() {
+      // offsetLeft of the N-th child = width of one full set
+      loopAt = track.children[N] ? track.children[N].offsetLeft : 0;
+    }
+    // measure after paint so layout is complete
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        measure();
+        (function tick() {
+          x -= 0.8;
+          if (loopAt > 0 && x <= -loopAt) x += loopAt;
+          track.style.transform = 'translateX(' + x + 'px)';
+          requestAnimationFrame(tick);
+        })();
+      });
+    });
+  })();
+
+  /* ── VIDEO CAROUSEL (single large, click-to-play with sound) ── */
+  (function() {
+    var track    = document.getElementById('vidTrack');
+    var wrap     = track && track.closest('.vid-carousel');
+    var viewport = wrap && wrap.querySelector('.vid-viewport');
+    if (!track || !wrap || !viewport) return;
+
+    var origItems = Array.from(track.querySelectorAll('.vid-item'));
+    var N = origItems.length;
+    if (!N) return;
+
+    /* Set each item width = viewport width (single video fills screen) */
+    function setWidths() {
+      var w = viewport.offsetWidth;
+      track.querySelectorAll('.vid-item').forEach(function(item) {
+        item.style.width = w + 'px';
+      });
+      return w;
+    }
+
+    /* Clone originals once after for seamless forward loop */
+    origItems.forEach(function(item) {
+      track.appendChild(item.cloneNode(true));
+    });
+
+    var itemW = 0;
+    var idx = 0;
+    var busy = false;
+
+    function posOf(i) { return -i * itemW; }
+
+    function jump(i) {
+      track.classList.add('no-anim');
+      track.style.transform = 'translateX(' + posOf(i) + 'px)';
+      idx = i;
+      track.getBoundingClientRect();
+      track.classList.remove('no-anim');
+    }
+    function slide(i) {
+      track.style.transform = 'translateX(' + posOf(i) + 'px)';
+      idx = i;
+    }
+
+    function init() {
+      itemW = setWidths();
+      jump(0);
+    }
+
+    window.addEventListener('load', init);
+    setTimeout(init, 200);
+    window.addEventListener('resize', function() { itemW = setWidths(); jump(idx); });
+
+    track.addEventListener('transitionend', function() {
+      if (idx >= N) jump(idx - N);
+      busy = false;
+    });
+
+    /* Dots */
+    var dots = Array.from(document.querySelectorAll('#vidDots .vid-dot'));
+    function updateDots(i) {
+      var real = i % N;
+      dots.forEach(function(d, di) { d.classList.toggle('active', di === real); });
+    }
+    updateDots(0);
+
+    function pauseAll() {
+      track.querySelectorAll('video').forEach(function(v) {
+        v.pause();
+        var it = v.closest('.vid-item');
+        if (it) it.classList.remove('playing');
+      });
+    }
+
+    function go(dir) {
+      if (busy) return;
+      busy = true;
+      pauseAll();
+      var next = idx + dir;
+      if (next < 0) { jump(N - 1); updateDots(N - 1); busy = false; }
+      else { slide(next); updateDots(next); }
+    }
+
+    wrap.querySelector('.vid-prev').addEventListener('click', function() { go(-1); });
+    wrap.querySelector('.vid-next').addEventListener('click', function() { go(1); });
+
+    /* Click to play/pause WITH sound */
+    track.addEventListener('click', function(e) {
+      var item = e.target.closest('.vid-item');
+      if (!item) return;
+      var video = item.querySelector('video');
+      if (!video) return;
+      if (video.paused) {
+        pauseAll();
+        video.play().catch(function(){});
+        item.classList.add('playing');
+      } else {
+        video.pause();
+        item.classList.remove('playing');
+      }
+    });
+  })();
+
+  /* Hide sticky CTA when form is visible */
+  const stickyCta = document.querySelector('.sticky-cta');
+  const formEl = document.getElementById('form');
+  const obs = new IntersectionObserver(entries => {
+    stickyCta.style.display = entries[0].isIntersecting ? 'none' : 'flex';
+  }, { threshold: 0.1 });
+  obs.observe(formEl);
+
+  /* ── COMPARISON SLIDER ── */
+  (function() {
+    var slider = document.getElementById('comparisonSlider');
+    var handle = document.getElementById('compHandle');
+    var afterImg = document.getElementById('compAfter');
+    if (!slider || !handle || !afterImg) return;
+
+    var isDragging = false;
+
+    function updateSlider(e) {
+      if (!isDragging) return;
+      var rect = slider.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      if (e.touches) x = e.touches[0].clientX - rect.left;
+      x = Math.max(0, Math.min(x, rect.width));
+      var percent = (x / rect.width) * 100;
+      handle.style.left = percent + '%';
+      afterImg.style.width = percent + '%';
+    }
+
+    handle.addEventListener('mousedown', function() { isDragging = true; });
+    slider.addEventListener('mousedown', function(e) { isDragging = true; updateSlider(e); });
+    document.addEventListener('mouseup', function() { isDragging = false; });
+    document.addEventListener('mousemove', updateSlider);
+
+    handle.addEventListener('touchstart', function() { isDragging = true; });
+    slider.addEventListener('touchstart', function(e) { isDragging = true; updateSlider(e); });
+    document.addEventListener('touchend', function() { isDragging = false; });
+    document.addEventListener('touchmove', updateSlider, { passive: false });
+  })();
+</script>
+</body>
+</html>
