@@ -1294,7 +1294,7 @@
       <div class="instructors-carousel">
         <div class="carousel-track" id="instructorsTrack">
           <div class="instructor-card">
-            <img src="images/B7A6E5A7-AD47-4CE1-AB95-02B0AF08F7C4.jpg" alt="מדריך 1" />
+            <img src="images/img1.jpg.jpg" alt="מדריך 1" />
           </div>
           <div class="instructor-card">
             <img src="images/img2.jpg.PNG" alt="מדריך 2" />
@@ -1303,7 +1303,10 @@
             <img src="images/img3.jpg.JPG" alt="מדריך 3" />
           </div>
           <div class="instructor-card">
-            <img src="images/img3.5.jpg.JPG" alt="מדריך 4" />
+            <img src="images/img4.jpg.PNG" alt="מדריך 4" />
+          </div>
+          <div class="instructor-card">
+            <img src="images/img1.jpg.jpg" alt="מדריך 1" />
           </div>
         </div>
       </div>
@@ -1433,6 +1436,30 @@
   }
 
   /* ── Instructors Carousel ── */
+  (function() {
+    const track = document.getElementById('instructorsTrack');
+    if (!track) return;
+
+    let scrollPos = 0;
+    const cardWidth = 220; // 200px + 20px gap
+    const cardCount = 4;
+
+    function autoScroll() {
+      scrollPos += cardWidth;
+      track.scrollLeft = scrollPos;
+
+      // Loop back to start
+      if (scrollPos >= cardWidth * cardCount) {
+        setTimeout(() => {
+          scrollPos = 0;
+          track.scrollLeft = 0;
+        }, 300);
+      }
+    }
+
+    setInterval(autoScroll, 3000); // Auto-scroll every 3 seconds
+  })();
+
   function scrollInstructorsCarousel(direction) {
     const track = document.getElementById('instructorsTrack');
     const scrollAmount = 220;
