@@ -773,6 +773,88 @@
       font-size: 0.9rem;
     }
 
+    /* Instructors Carousel */
+    .instructors-carousel-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(212, 255, 0, 0.2);
+    }
+
+    .instructors-title {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .instructors-carousel {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 1rem 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .carousel-track::-webkit-scrollbar-track {
+      background: rgba(212, 255, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .carousel-track::-webkit-scrollbar-thumb {
+      background: var(--y);
+      border-radius: 10px;
+    }
+
+    .instructor-card {
+      flex: 0 0 200px;
+      border-radius: 8px;
+      overflow: hidden;
+      scroll-snap-align: center;
+    }
+
+    .instructor-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .carousel-arrow {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--y);
+      border: none;
+      color: #000;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .carousel-arrow:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(212, 255, 0, 0.4);
+    }
+
   </style>
 </head>
 <body>
@@ -1205,6 +1287,31 @@
         </div>
       </div>
     </div>
+
+    <!-- INSTRUCTORS CAROUSEL -->
+    <div class="instructors-carousel-section">
+      <h3 class="instructors-title">תשאירו עוקב באינסטגרם למדריכים של יצירת תוכן בAI</h3>
+      <div class="instructors-carousel">
+        <div class="carousel-track" id="instructorsTrack">
+          <div class="instructor-card">
+            <img src="images/B7A6E5A7-AD47-4CE1-AB95-02B0AF08F7C4.jpg" alt="מדריך 1" />
+          </div>
+          <div class="instructor-card">
+            <img src="images/img2.jpg.PNG" alt="מדריך 2" />
+          </div>
+          <div class="instructor-card">
+            <img src="images/img3.jpg.JPG" alt="מדריך 3" />
+          </div>
+          <div class="instructor-card">
+            <img src="images/img3.5.jpg.JPG" alt="מדריך 4" />
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-arrow left" onclick="scrollInstructorsCarousel(-1)">‹</button>
+        <button class="carousel-arrow right" onclick="scrollInstructorsCarousel(1)">›</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1323,6 +1430,13 @@
   function toggleFaq(element) {
     const faqItem = element.parentElement;
     faqItem.classList.toggle('open');
+  }
+
+  /* ── Instructors Carousel ── */
+  function scrollInstructorsCarousel(direction) {
+    const track = document.getElementById('instructorsTrack');
+    const scrollAmount = 220;
+    track.scrollLeft += direction * scrollAmount;
   }
 </script>
 
