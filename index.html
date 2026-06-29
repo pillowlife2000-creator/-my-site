@@ -1443,6 +1443,7 @@
     var N = orig.length;
     if (!N) return;
 
+    console.log('Carousel init: ' + N + ' items, cloning 4x');
     // Clone enough copies to fill screen several times (like image gallery)
     for (var c = 0; c < 4; c++) {
       orig.forEach(function(el) { track.appendChild(el.cloneNode(true)); });
