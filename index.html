@@ -718,9 +718,18 @@
 
     .social-buttons {
       display: flex;
-      gap: 1rem;
+      gap: 2rem;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .social-button-group {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 1.5rem;
     }
 
     .social-btn {
@@ -732,15 +741,29 @@
       border-radius: 50%;
       text-decoration: none;
       font-size: 2.5rem;
-      color: #000;
       transition: all 0.3s ease;
-      border: 2px solid var(--y);
-      background: var(--y);
+      border: none;
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      color: white;
+    }
+
+    .instagram-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+      color: white;
     }
 
     .social-btn:hover {
       transform: scale(1.1) translateY(-3px);
-      box-shadow: 0 12px 24px rgba(212, 255, 0, 0.4);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-btn-label {
+      font-weight: 700;
+      color: #fff;
+      font-size: 0.9rem;
     }
 
   </style>
@@ -1165,12 +1188,18 @@
   <div class="social-wrap">
     <p class="social-label">מעדיף לשלוח הודעה כאן ? אני זמין .</p>
     <div class="social-buttons">
-      <a href="https://api.whatsapp.com/send?phone=972503838810" target="_blank" class="social-btn whatsapp-btn" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="https://www.instagram.com/tzarich_ai?igsh=MXhxb3JsYmcxZHFhbA%3D%3D&utm_source=qr" target="_blank" class="social-btn instagram-btn" title="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
+      <div class="social-button-group">
+        <a href="https://api.whatsapp.com/send?phone=972503838810" target="_blank" class="social-btn whatsapp-btn" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <span class="social-btn-label">WhatsApp</span>
+      </div>
+      <div class="social-button-group">
+        <a href="https://www.instagram.com/tzarich_ai?igsh=MXhxb3JsYmcxZHFhbA%3D%3D&utm_source=qr" target="_blank" class="social-btn instagram-btn" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <span class="social-btn-label">Instagram</span>
+      </div>
     </div>
   </div>
 </section>
