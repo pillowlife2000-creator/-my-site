@@ -723,12 +723,14 @@
     }
 
     .social-btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
+      font-size: 2.5rem;
       color: #000;
       transition: all 0.3s ease;
       border: 2px solid var(--y);
@@ -736,8 +738,8 @@
     }
 
     .social-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(212, 255, 0, 0.3);
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 12px 24px rgba(212, 255, 0, 0.4);
     }
 
   </style>
@@ -1160,13 +1162,13 @@
 <!-- SOCIAL LINKS -->
 <section class="social-links-sec">
   <div class="social-wrap">
-    <p class="social-label">או בואו נדבר במישהו מהערוצים שלי:</p>
+    <p class="social-label">מעדיף לשלוח הודעה כאן ? אני זמין .</p>
     <div class="social-buttons">
-      <a href="https://www.instagram.com/tzarich_ai?igsh=MXhxb3JsYmcxZHFhbA%3D%3D&utm_source=qr" target="_blank" class="social-btn instagram-btn">
-        📷 Instagram
-      </a>
       <a href="https://api.whatsapp.com/send?phone=972503838810" target="_blank" class="social-btn whatsapp-btn">
-        💬 WhatsApp
+        💬
+      </a>
+      <a href="https://www.instagram.com/tzarich_ai?igsh=MXhxb3JsYmcxZHFhbA%3D%3D&utm_source=qr" target="_blank" class="social-btn instagram-btn">
+        📷
       </a>
     </div>
   </div>
