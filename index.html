@@ -789,38 +789,25 @@
     }
 
     .instructors-carousel {
-      position: relative;
       overflow: hidden;
+      width: 100%;
       margin-bottom: 1.5rem;
+      direction: ltr;
     }
 
     .carousel-track {
       display: flex;
-      gap: 1rem;
-      overflow: hidden;
-      padding: 1rem 0;
+      direction: ltr;
       width: max-content;
-    }
-
-    .carousel-track::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    .carousel-track::-webkit-scrollbar-track {
-      background: rgba(212, 255, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    .carousel-track::-webkit-scrollbar-thumb {
-      background: var(--y);
-      border-radius: 10px;
     }
 
     .instructor-card {
       flex-shrink: 0;
       width: 200px;
+      height: 250px;
       border-radius: 8px;
       overflow: hidden;
+      margin-right: 12px;
     }
 
     .instructor-card img {
