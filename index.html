@@ -634,6 +634,67 @@
       display: inline-block;
     }
 
+    /* FAQ Section */
+    .faq-sec {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-wrap h2.t {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      border: 1px solid rgba(212, 255, 0, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      color: #fff;
+      transition: background 0.2s;
+    }
+
+    .faq-q:hover {
+      background: rgba(212, 255, 0, 0.08);
+    }
+
+    .faq-arrow {
+      color: var(--y);
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 500px;
+    }
+
+    .faq-a p {
+      padding: 1.5rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+
   </style>
 </head>
 <body>
@@ -1051,6 +1112,63 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-sec" id="faq">
+  <div class="faq-wrap">
+    <h2 class="t">שאלות שאולי חשבת עליהן:</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>כמה זמן לוקח להכין תוכן?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <p class="b">בדרך כלל כמה ימים בלבד מהמומנט שמילאת את הטופס ועד שיש לך תוכן מוכן לפרסום — תלוי בכמות ובמורכבות.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>אפשר לבקש תיקונים?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <p class="b">כן, כל פרויקט כולל סבב תיקונים כדי שהתוכן יתאים בול למה שדמיינת.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>אני חייב להצטלם בעצמי?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <p class="b">לא חובה. ניתן ליצור תוכן עם דוגמנים וירטואליים, או לעבוד עם תמונות וסרטונים קיימים שלך — תלוי במה שמתאים למותג.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>זה מתאים רק לעסקים גדולים?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <p class="b">בכלל לא. בדיוק בגלל שאין צורך בהפקה גדולה, זה מתאים גם לעסקים קטנים ובינוניים שרוצים להיראות ברמה גבוהה בלי תקציב הפקה גדול.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>מאיפה מתחילים?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <p class="b">ממלאים טופס קצר בתחתית העמוד, ואני חוזר אליך בוואטסאפ לתיאום שיחה קצרה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>© 2025 Tzarich_ai · שליו רביבו · כל הזכויות שמורות</footer>
 
 <!-- STICKY BOTTOM -->
@@ -1374,6 +1492,12 @@
     document.addEventListener('touchend', function() { isDragging = false; });
     document.addEventListener('touchmove', updateSlider, { passive: false });
   })();
+
+  /* ── FAQ Toggle ── */
+  function toggleFaq(element) {
+    const faqItem = element.parentElement;
+    faqItem.classList.toggle('open');
+  }
 </script>
 </body>
 </html>
