@@ -159,43 +159,55 @@
     /* ── PORTFOLIO ── */
     .portfolio { background: var(--black); padding: 5rem 1.5rem; }
     .portfolio .inner { text-align: center; margin-bottom: 2.5rem; }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1.1rem;
-      max-width: 680px;
+    .portfolio-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      max-width: 480px;
       margin: 0 auto;
     }
-    .portfolio-card {
-      background: var(--dark);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      text-align: right;
-      transition: border-color 0.2s, transform 0.2s;
+    .portfolio-item { cursor: pointer; }
+    .portfolio-item-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
     }
-    .portfolio-card:hover { border-color: var(--y); transform: translateY(-3px); }
-    .portfolio-thumb { position: relative; width: 100%; aspect-ratio: 3/4; overflow: hidden; background: #000; }
-    .portfolio-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .portfolio-item-title { font-size: 1.3rem; font-weight: 900; color: #fff; }
+    .portfolio-item-tag {
+      font-size: 0.75rem; font-weight: 900; letter-spacing: 0.5px;
+      color: var(--y); background: rgba(212,255,0,0.1);
+      border: 1px solid rgba(212,255,0,0.3);
+      border-radius: 100px; padding: 0.3rem 0.8rem;
+      white-space: nowrap;
+    }
+    .portfolio-watch-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      width: 100%;
+      background: var(--dark); border: 1px solid var(--border);
+      border-radius: 100px; padding: 0.85rem 1rem;
+      color: #fff; font-family: 'Heebo', sans-serif; font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; margin-bottom: 0.9rem;
+      transition: border-color 0.2s;
+    }
+    .portfolio-item:hover .portfolio-watch-btn { border-color: var(--y); }
+    .portfolio-watch-btn i { color: #ff0000; font-size: 1.1rem; }
+    .portfolio-item-thumb {
+      position: relative; width: 100%; aspect-ratio: 16/9;
+      border-radius: 16px; overflow: hidden; background: #000;
+    }
+    .portfolio-item-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .portfolio-play {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.25);
+      background: rgba(0,0,0,0.2);
     }
     .portfolio-play i {
-      width: 46px; height: 46px; border-radius: 50%;
+      width: 52px; height: 52px; border-radius: 50%;
       background: var(--y); color: var(--black);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-    }
-    .portfolio-cat {
-      font-size: 0.95rem; font-weight: 900; color: var(--y);
-      padding: 0.8rem 0.9rem 0.2rem;
-    }
-    .portfolio-desc {
-      font-size: 0.8rem; color: #999; line-height: 1.5;
-      padding: 0.2rem 0.9rem 0.9rem;
+      font-size: 1.1rem;
     }
 
     /* ── PORTFOLIO MODAL ── */
@@ -1051,42 +1063,55 @@
     <h2 class="t">תיק <span class="y">עבודות</span></h2>
     <p class="b">דוגמאות אמיתיות לעבודות שיצרתי, בתחומים שונים.</p>
   </div>
-  <div class="portfolio-grid">
+  <div class="portfolio-list">
 
-    <div class="portfolio-card" data-videos='[{"id":"3Wx6PKzAZ-U","ratio":"16-9"},{"id":"7a3x3Mb8C-k","ratio":"9-16"}]'>
-      <div class="portfolio-thumb">
+    <article class="portfolio-item" data-videos='[{"id":"3Wx6PKzAZ-U","ratio":"16-9"},{"id":"7a3x3Mb8C-k","ratio":"9-16"}]'>
+      <div class="portfolio-item-head">
+        <div class="portfolio-item-title">AquaVolt</div>
+        <div class="portfolio-item-tag">צבא וביטחון</div>
+      </div>
+      <button type="button" class="portfolio-watch-btn"><i class="fab fa-youtube"></i> צפייה בעבודה המלאה</button>
+      <div class="portfolio-item-thumb">
         <img src="https://img.youtube.com/vi/3Wx6PKzAZ-U/hqdefault.jpg" alt="AquaVolt" loading="lazy" />
-        <div class="portfolio-play"><i class="fa-solid fa-play"></i></div>
+        <div class="portfolio-play"><i class="fas fa-play"></i></div>
       </div>
-      <div class="portfolio-cat">צבא וביטחון</div>
-    </div>
+    </article>
 
-    <div class="portfolio-card" data-videos='[{"id":"5McEFNLcyHs","ratio":"9-16"}]'>
-      <div class="portfolio-thumb">
+    <article class="portfolio-item" data-videos='[{"id":"5McEFNLcyHs","ratio":"9-16"}]'>
+      <div class="portfolio-item-head">
+        <div class="portfolio-item-title">תיווך נדל״ן</div>
+        <div class="portfolio-item-tag">נדל״ן</div>
+      </div>
+      <button type="button" class="portfolio-watch-btn"><i class="fab fa-youtube"></i> צפייה בעבודה המלאה</button>
+      <div class="portfolio-item-thumb">
         <img src="https://img.youtube.com/vi/5McEFNLcyHs/hqdefault.jpg" alt="תיווך נדל&quot;ן" loading="lazy" />
-        <div class="portfolio-play"><i class="fa-solid fa-play"></i></div>
+        <div class="portfolio-play"><i class="fas fa-play"></i></div>
       </div>
-      <div class="portfolio-cat">נדל"ן</div>
-      <div class="portfolio-desc">סרטון תדמית לעסק תיווך נדל״ן, שמטרתו להציג נכסים ולבנות אמון מול לקוחות פוטנציאליים.</div>
-    </div>
+    </article>
 
-    <div class="portfolio-card" data-videos='[{"id":"xSuQn6C7pLY","ratio":"16-9"}]'>
-      <div class="portfolio-thumb">
+    <article class="portfolio-item" data-videos='[{"id":"xSuQn6C7pLY","ratio":"16-9"}]'>
+      <div class="portfolio-item-head">
+        <div class="portfolio-item-title">FINQ</div>
+        <div class="portfolio-item-tag">פיננסים ופנסיה</div>
+      </div>
+      <button type="button" class="portfolio-watch-btn"><i class="fab fa-youtube"></i> צפייה בעבודה המלאה</button>
+      <div class="portfolio-item-thumb">
         <img src="https://img.youtube.com/vi/xSuQn6C7pLY/hqdefault.jpg" alt="FINQ" loading="lazy" />
-        <div class="portfolio-play"><i class="fa-solid fa-play"></i></div>
+        <div class="portfolio-play"><i class="fas fa-play"></i></div>
       </div>
-      <div class="portfolio-cat">פיננסים ופנסיה</div>
-      <div class="portfolio-desc">תוכן תדמית לחברת FINQ, שמסייעת ללקוחות לחסוך בעמלות על קרן הפנסיה שלהם.</div>
-    </div>
+    </article>
 
-    <div class="portfolio-card" data-videos='[{"id":"2tvTh7zuU7M","ratio":"9-16"}]'>
-      <div class="portfolio-thumb">
-        <img src="https://img.youtube.com/vi/2tvTh7zuU7M/hqdefault.jpg" alt="SACARA" loading="lazy" />
-        <div class="portfolio-play"><i class="fa-solid fa-play"></i></div>
+    <article class="portfolio-item" data-videos='[{"id":"2tvTh7zuU7M","ratio":"9-16"}]'>
+      <div class="portfolio-item-head">
+        <div class="portfolio-item-title">SACARA</div>
+        <div class="portfolio-item-tag">בשמים ויוקרה</div>
       </div>
-      <div class="portfolio-cat">בשמים ויוקרה</div>
-      <div class="portfolio-desc">סרטון תדמית לבושם SACARA #45, שמדגיש את היוקרה והאסתטיקה של המוצר.</div>
-    </div>
+      <button type="button" class="portfolio-watch-btn"><i class="fab fa-youtube"></i> צפייה בעבודה המלאה</button>
+      <div class="portfolio-item-thumb">
+        <img src="https://img.youtube.com/vi/2tvTh7zuU7M/hqdefault.jpg" alt="SACARA" loading="lazy" />
+        <div class="portfolio-play"><i class="fas fa-play"></i></div>
+      </div>
+    </article>
 
   </div>
 </section>
@@ -1785,7 +1810,7 @@
       videosWrap.innerHTML = '';
     }
 
-    document.querySelectorAll('.portfolio-card').forEach(function(card) {
+    document.querySelectorAll('.portfolio-item').forEach(function(card) {
       card.addEventListener('click', function() {
         openModal(JSON.parse(card.getAttribute('data-videos')));
       });
