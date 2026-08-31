@@ -74,8 +74,12 @@
     }
     .hero h1 {
       font-size: clamp(2rem, 8vw, 3.2rem);
-      font-weight: 900; line-height: 1.1;
-      margin-bottom: 1.25rem; max-width: 640px;
+      font-weight: 900; line-height: 1.25;
+      margin-bottom: 2rem; max-width: 640px;
+      text-wrap: balance;
+    }
+    @media (max-width: 480px) {
+      .hero h1 { max-width: 310px; }
     }
     .y { color: var(--y); }
     .hero-sub {
@@ -1607,6 +1611,18 @@
     window.addEventListener('popstate', function() {
       if (modal.classList.contains('open')) closeModal(true);
     });
+  })();
+
+  /* ── HERO VIDEO: force-start on load + first user interaction (iOS autoplay fallback) ── */
+  (function() {
+    var v = document.querySelector('.hero-bg-video');
+    if (!v) return;
+    v.muted = true;
+    function tryPlay() { v.play().catch(function(){}); }
+    tryPlay();
+    document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+    document.addEventListener('scroll', tryPlay, { once: true, passive: true });
+    document.addEventListener('click', tryPlay, { once: true });
   })();
 
   /* Hide sticky CTA when form is visible */
