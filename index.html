@@ -167,21 +167,15 @@
       margin: 0 auto;
     }
     .portfolio-item { cursor: pointer; }
-    .portfolio-item-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
+    .portfolio-item-cap {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
       margin-bottom: 0.9rem;
     }
-    .portfolio-item-title { font-size: 1.3rem; font-weight: 900; color: #fff; }
-    .portfolio-item-tag {
-      font-size: 0.75rem; font-weight: 900; letter-spacing: 0.5px;
-      color: var(--y); background: rgba(212,255,0,0.1);
-      border: 1px solid rgba(212,255,0,0.3);
-      border-radius: 100px; padding: 0.3rem 0.8rem;
-      white-space: nowrap;
-    }
+    .portfolio-item-cap .name { color: #fff; }
+    .portfolio-item-cap .sep { color: #555; margin: 0 0.4rem; }
+    .portfolio-item-cap .tag { color: var(--y); }
     .portfolio-watch-btn {
       display: flex; align-items: center; justify-content: center; gap: 0.6rem;
       width: 100%;
@@ -478,129 +472,6 @@
       .tl-body h3 { font-size: 0.88rem; }
       .tl-body p { font-size: 0.78rem; }
       .tl-big { font-size: 3rem; margin-bottom: -0.25rem; }
-    }
-
-    /* ── GALLERY ── */
-    .gallery { background: var(--black); padding: 4rem 0 5rem; overflow: hidden; }
-    .gallery-header { text-align: center; padding: 0 1.5rem; margin-bottom: 2.5rem; }
-    .gallery-header h2.t { margin-bottom: 0.5rem; }
-    .gallery-header p.b { margin-bottom: 0; }
-
-    /* ── GALLERY LABELS ── */
-    .gal-label {
-      text-align: center;
-      padding: 0 1.5rem;
-      margin: 2.5rem 0 1.2rem;
-    }
-    .gal-label span {
-      display: inline-block;
-      font-size: 2rem;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: 3px;
-      margin-bottom: 0.5rem;
-    }
-    .gal-line {
-      height: 3px;
-      width: 80px;
-      margin: 0.3rem auto 0;
-      background: var(--y);
-      border-radius: 2px;
-    }
-    .gal-line.glow {
-      box-shadow: 0 0 10px var(--y), 0 0 24px var(--y), 0 0 48px rgba(212,255,0,0.5);
-    }
-
-    /* ── IMAGE AUTO-SCROLL ── */
-    .scroll-strip { overflow: hidden; width: 100%; margin-bottom: 1.5rem; direction: ltr; }
-    .scroll-track { display: flex; direction: ltr; width: max-content; }
-    .scroll-item {
-      flex-shrink: 0;
-      width: 180px; height: 240px;
-      border-radius: 14px;
-      overflow: hidden;
-      margin-right: 12px;
-    }
-    .scroll-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    /* ── VIDEO CAROUSEL (single, large) ── */
-    .vid-carousel {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 0 8px;
-      margin-bottom: 1rem;
-    }
-    .vid-viewport {
-      flex: 1;
-      overflow: hidden;
-      border-radius: 22px;
-    }
-    .vid-track {
-      display: flex;
-      direction: ltr;
-      will-change: transform;
-      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    .vid-track.no-anim { transition: none !important; }
-    .vid-item {
-      flex-shrink: 0;
-      width: 100%;
-      aspect-ratio: 9/16;
-      max-height: 72vh;
-      border-radius: 22px;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      background: #111;
-    }
-    .vid-item video {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .vid-play-icon {
-      position: absolute;
-      inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.3);
-      transition: opacity 0.25s;
-      pointer-events: none;
-    }
-    .vid-play-icon svg { width: 72px; height: 72px; }
-    .vid-item.playing .vid-play-icon { opacity: 0; }
-    .vid-btn {
-      flex-shrink: 0;
-      width: 46px; height: 46px;
-      border-radius: 50%;
-      background: rgba(212,255,0,0.12);
-      border: 2px solid var(--y);
-      color: var(--y);
-      font-size: 30px;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      padding: 0;
-      box-shadow: 0 0 10px rgba(212,255,0,0.4);
-      transition: background 0.2s, box-shadow 0.2s;
-      z-index: 2;
-    }
-    .vid-btn:hover { background: rgba(212,255,0,0.25); box-shadow: 0 0 18px rgba(212,255,0,0.7); }
-    @media (max-width: 600px) {
-      .vid-btn { width: 38px; height: 38px; font-size: 24px; }
-    }
-    .vid-dots {
-      display: flex; justify-content: center; gap: 8px;
-      margin-top: 14px;
-    }
-    .vid-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-      transition: background 0.25s, transform 0.25s;
-    }
-    .vid-dot.active {
-      background: var(--y);
-      transform: scale(1.3);
-      box-shadow: 0 0 6px var(--y);
     }
 
     /* ── ABOUT ── */
@@ -1066,10 +937,7 @@
   <div class="portfolio-list">
 
     <article class="portfolio-item" data-videos='[{"id":"3Wx6PKzAZ-U","ratio":"16-9"},{"id":"7a3x3Mb8C-k","ratio":"9-16"}]'>
-      <div class="portfolio-item-head">
-        <div class="portfolio-item-title">AquaVolt</div>
-        <div class="portfolio-item-tag">צבא וביטחון</div>
-      </div>
+      <div class="portfolio-item-cap"><span class="name">AquaVolt</span><span class="sep">·</span><span class="tag">צבא וביטחון</span></div>
       <button type="button" class="portfolio-watch-btn"><i class="fab fa-youtube"></i> צפייה בעבודה המלאה</button>
       <div class="portfolio-item-thumb">
         <img src="https://img.youtube.com/vi/3Wx6PKzAZ-U/hqdefault.jpg" alt="AquaVolt" loading="lazy" />
@@ -1078,10 +946,7 @@
     </article>
 
     <article class="portfolio-item" data-videos='[{"id":"5McEFNLcyHs","ratio":"9-16"}]'>
-      <div class="portfolio-item-head">
-        <div class="portfolio-item-title">תיווך נדל״ן</div>
-        <div class="portfolio-item-tag">נדל״ן</div>
-      </div>
+      <div class="portfolio-item-cap"><span class="name">תיווך נדל״ן</span><span class="sep">·</span><span class="tag">נדל״ן</span></div>
       <button type="button" class="portfolio-watch-btn"><i class="fab fa-youtube"></i> צפייה בעבודה המלאה</button>
       <div class="portfolio-item-thumb">
         <img src="https://img.youtube.com/vi/5McEFNLcyHs/hqdefault.jpg" alt="תיווך נדל&quot;ן" loading="lazy" />
@@ -1090,10 +955,7 @@
     </article>
 
     <article class="portfolio-item" data-videos='[{"id":"xSuQn6C7pLY","ratio":"16-9"}]'>
-      <div class="portfolio-item-head">
-        <div class="portfolio-item-title">FINQ</div>
-        <div class="portfolio-item-tag">פיננסים ופנסיה</div>
-      </div>
+      <div class="portfolio-item-cap"><span class="name">FINQ</span><span class="sep">·</span><span class="tag">פיננסים ופנסיה</span></div>
       <button type="button" class="portfolio-watch-btn"><i class="fab fa-youtube"></i> צפייה בעבודה המלאה</button>
       <div class="portfolio-item-thumb">
         <img src="https://img.youtube.com/vi/xSuQn6C7pLY/hqdefault.jpg" alt="FINQ" loading="lazy" />
@@ -1102,10 +964,7 @@
     </article>
 
     <article class="portfolio-item" data-videos='[{"id":"2tvTh7zuU7M","ratio":"9-16"}]'>
-      <div class="portfolio-item-head">
-        <div class="portfolio-item-title">SACARA</div>
-        <div class="portfolio-item-tag">בשמים ויוקרה</div>
-      </div>
+      <div class="portfolio-item-cap"><span class="name">SACARA</span><span class="sep">·</span><span class="tag">בשמים ויוקרה</span></div>
       <button type="button" class="portfolio-watch-btn"><i class="fab fa-youtube"></i> צפייה בעבודה המלאה</button>
       <div class="portfolio-item-thumb">
         <img src="https://img.youtube.com/vi/2tvTh7zuU7M/hqdefault.jpg" alt="SACARA" loading="lazy" />
@@ -1279,76 +1138,6 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery">
-  <div class="gallery-header">
-    <h2 class="t">הנה חלק מהתוכן <span class="y">שיצרתי</span></h2>
-    <p class="b">AI, ביוטי, אופנה, ליפסטייל, מסעדות ועוד.</p>
-  </div>
-
-  <!-- Images: auto-scroll -->
-  <div class="gal-label">
-    <span>תמונות</span>
-    <div class="gal-line"></div>
-  </div>
-  <div class="scroll-strip">
-    <div class="scroll-track">
-      <div class="scroll-item"><img src="images/B7A6E5A7-AD47-4CE1-AB95-02B0AF08F7C4.jpg" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img1.jpg.jpg" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img10.jpg.jpg" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img17.jpg.PNG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img18.jpg.PNG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img2.jpg.PNG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img3.5.jpg.JPG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img3.jpg.JPG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img4.jpg.PNG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img5.jpg.PNG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img6.jpg.PNG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img7.jpg.PNG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img8.jpg.PNG" alt="תוכן AI" /></div>
-      <div class="scroll-item"><img src="images/img9.jpg.jpg" alt="תוכן AI" /></div>
-    </div>
-  </div>
-
-  <!-- Videos: click-to-play carousel -->
-  <div class="gal-label">
-    <span>סרטונים</span>
-    <div class="gal-line glow"></div>
-  </div>
-  <div class="vid-carousel">
-    <button class="vid-btn vid-prev" aria-label="הקודם">&#8249;</button>
-    <div class="vid-viewport">
-      <div class="vid-track" id="vidTrack">
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/6sS-HjVlGGc?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/mA-fqT5qiYw?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/ENTrRTL8ecY?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/LWXYBPFJXBE?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/q7IXeIZHR7M?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/vlfulQ3QwEo?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/iBZ9kB7dqNo?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/UAi4Jt0qn6M?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/BQYoBijgQrU?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/0VY2rnrnUvs?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-        <div class="vid-item"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/39uNK6QZhEo?autoplay=0&controls=1&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe></div>
-      </div>
-    </div>
-    <button class="vid-btn vid-next" aria-label="הבא">&#8250;</button>
-  </div>
-  <div class="vid-dots" id="vidDots">
-    <span class="vid-dot active"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
-    <span class="vid-dot"></span>
   </div>
 </section>
 
@@ -1828,138 +1617,6 @@
     });
     window.addEventListener('popstate', function() {
       if (modal.classList.contains('open')) closeModal(true);
-    });
-  })();
-
-  /* ── IMAGE AUTO-SCROLL ── */
-  (function() {
-    var track = document.querySelector('.scroll-track');
-    if (!track) return;
-    var orig = Array.from(track.children);
-    var N = orig.length;
-    // clone enough copies to fill screen several times
-    for (var c = 0; c < 4; c++) {
-      orig.forEach(function(el) { track.appendChild(el.cloneNode(true)); });
-    }
-    var x = 0;
-    var loopAt = 0;
-    function measure() {
-      // offsetLeft of the N-th child = width of one full set
-      loopAt = track.children[N] ? track.children[N].offsetLeft : 0;
-    }
-    // measure after paint so layout is complete
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        measure();
-        (function tick() {
-          x -= 0.8;
-          if (loopAt > 0 && x <= -loopAt) x += loopAt;
-          track.style.transform = 'translateX(' + x + 'px)';
-          requestAnimationFrame(tick);
-        })();
-      });
-    });
-  })();
-
-  /* ── VIDEO CAROUSEL (single large, click-to-play with sound) ── */
-  (function() {
-    var track    = document.getElementById('vidTrack');
-    var wrap     = track && track.closest('.vid-carousel');
-    var viewport = wrap && wrap.querySelector('.vid-viewport');
-    if (!track || !wrap || !viewport) return;
-
-    var origItems = Array.from(track.querySelectorAll('.vid-item'));
-    var N = origItems.length;
-    if (!N) return;
-
-    /* Set each item width = viewport width (single video fills screen) */
-    function setWidths() {
-      var w = viewport.offsetWidth;
-      track.querySelectorAll('.vid-item').forEach(function(item) {
-        item.style.width = w + 'px';
-      });
-      return w;
-    }
-
-    /* Clone originals once after for seamless forward loop */
-    origItems.forEach(function(item) {
-      track.appendChild(item.cloneNode(true));
-    });
-
-    var itemW = 0;
-    var idx = 0;
-    var busy = false;
-
-    function posOf(i) { return -i * itemW; }
-
-    function jump(i) {
-      track.classList.add('no-anim');
-      track.style.transform = 'translateX(' + posOf(i) + 'px)';
-      idx = i;
-      track.getBoundingClientRect();
-      track.classList.remove('no-anim');
-    }
-    function slide(i) {
-      track.style.transform = 'translateX(' + posOf(i) + 'px)';
-      idx = i;
-    }
-
-    function init() {
-      itemW = setWidths();
-      jump(0);
-    }
-
-    window.addEventListener('load', init);
-    setTimeout(init, 200);
-    window.addEventListener('resize', function() { itemW = setWidths(); jump(idx); });
-
-    track.addEventListener('transitionend', function() {
-      if (idx >= N) jump(idx - N);
-      busy = false;
-    });
-
-    /* Dots */
-    var dots = Array.from(document.querySelectorAll('#vidDots .vid-dot'));
-    function updateDots(i) {
-      var real = i % N;
-      dots.forEach(function(d, di) { d.classList.toggle('active', di === real); });
-    }
-    updateDots(0);
-
-    function pauseAll() {
-      track.querySelectorAll('video').forEach(function(v) {
-        v.pause();
-        var it = v.closest('.vid-item');
-        if (it) it.classList.remove('playing');
-      });
-    }
-
-    function go(dir) {
-      if (busy) return;
-      busy = true;
-      pauseAll();
-      var next = idx + dir;
-      if (next < 0) { jump(N - 1); updateDots(N - 1); busy = false; }
-      else { slide(next); updateDots(next); }
-    }
-
-    wrap.querySelector('.vid-prev').addEventListener('click', function() { go(-1); });
-    wrap.querySelector('.vid-next').addEventListener('click', function() { go(1); });
-
-    /* Click to play/pause WITH sound */
-    track.addEventListener('click', function(e) {
-      var item = e.target.closest('.vid-item');
-      if (!item) return;
-      var video = item.querySelector('video');
-      if (!video) return;
-      if (video.paused) {
-        pauseAll();
-        video.play().catch(function(){});
-        item.classList.add('playing');
-      } else {
-        video.pause();
-        item.classList.remove('playing');
-      }
     });
   })();
 
