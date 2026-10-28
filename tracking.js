@@ -5,6 +5,17 @@
 (function () {
   var META_PIXEL_ID = '';
   var LINKEDIN_PARTNER_ID = '';
+  var GOOGLE_TAG_ID = ''; // Google Ads (AW-...) or GA4 (G-...): Google Ads → Tools → Google tag
+
+  if (GOOGLE_TAG_ID) {
+    var g = document.createElement('script');
+    g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GOOGLE_TAG_ID;
+    document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GOOGLE_TAG_ID);
+  }
 
   if (META_PIXEL_ID) {
     !function (f, b, e, v, n, t, s) {
@@ -30,5 +41,6 @@
   // Called after a lead form is submitted successfully.
   window.trackLead = function (label) {
     if (window.fbq) fbq('track', 'Lead', { content_name: label || 'lead' });
+    if (window.gtag) gtag('event', 'generate_lead', { event_label: label || 'lead' });
   };
 })();
