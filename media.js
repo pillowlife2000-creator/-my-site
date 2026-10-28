@@ -7,6 +7,7 @@
    4. סרטון מיוטיוב או קישור חיצוני: { type: 'youtube', id: 'מזהה הסרטון', title: '...' }
    הסדר כאן הוא הסדר באתר. כדי להסיר פריט, מוחקים את השורה שלו.
    ───────────────────────────────────────────────────────────── */
+var P = 'https://media.kolbo.ai/kolboai-media/stock-imports/';
 var K = 'https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/';
 
 window.SITE_MEDIA = {
@@ -19,22 +20,23 @@ window.SITE_MEDIA = {
   // סרטון ההסבר.
   explainer: '', // ריק = קטע סרטון ההסבר מוסתר
 
-  // סרטון התדמית האנכי (אנימציה בקוד, promo.js). כל שורה כאן היא חומר שמשתתף בו.
+  // סרטון התדמית האנכי באתר (אנימציה בקוד, promo.js). כל שורה כאן היא חומר שמשתתף בו.
   // כדי להחליף חומר, מחליפים את הקישור. promo: null מסתיר את הקטע.
+  // תמונות אמיתיות (צילומי סטוק מ-Pexels ו-Unsplash, שמורים ב-Kolbo). לפני/אחרי נשאר הדמיה.
   promo: {
     music: 'https://media.kolbo.ai/kolboai-media/generated-music/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/CUT-productions-real-24b6f6bb-91b3-45e2-bedd-02d11f749f11-chirp-hawk%20-%20Track%201.mp3',
     main: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201194118-main_web.mp4',
     y38: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201199911-y38_web.mp4',
-    street: K + 'Image-1-shows-the-residen-6ae16b22a7f161b80422821a-nano-banana-2-image.jpeg',
-    lobby: K + 'Photorealistic-interior-v-6ae1684da7f161b804227c3e-nano-banana-pro.jpeg',
-    living: K + 'Photorealistic-interior-v-6ae1684ef3b2fe48fff74f5b-nano-banana-pro.jpeg',
+    street: P + 'pexels/6a90b7820d92b30dd2560541/Tall-modern-skyscrapers-under-construction-against-a-clear-blue-sky-in-Tel-Aviv%2C-Israel.-3373045.jpg',
+    lobby: P + 'pexels/6a90b7820d92b30dd2560541/Contemporary-lobby-area-with-modern-seating-and-elegant-lighting-in-a-New-York-apartment-building.-36486485.jpg',
+    living: P + 'pexels/6a90b7820d92b30dd2560541/Contemporary-apartment-living-room-overlooking-a-scenic-waterfront-through-large-balcony-windows.-16916525.jpg',
     before: K + 'Photorealistic-architectu-6ae1684e2f760bb97affd0c9-nano-banana-pro.jpeg',
     after: K + 'Image-1-is-the-existing-s-6ae168a3a7f161b804227ca2-nano-banana-2-image.jpeg',
-    tower: K + 'Photorealistic-architectu-6ae1684d2f760bb97affd0c7-nano-banana-pro.jpeg',
-    villa: K + 'Photorealistic-exterior-v-6ae1684ef3b2fe48fff74f5c-nano-banana-pro.jpeg',
-    penthouse: K + 'Photorealistic-exterior-v-6ae1684dd5b5ff1bb9c9e925-nano-banana-pro.jpeg',
-    aerial: K + 'Photorealistic-aerial-dro-6ae1684dd5b5ff1bb9c9e924-nano-banana-pro.jpeg',
-    kitchen: K + 'Photorealistic-interior-v-6ae1684da7f161b804227c3f-nano-banana-pro.jpeg',
+    tower: P + 'pexels/6a90b7820d92b30dd2560541/Tall-modern-skyscrapers-under-a-clear-blue-sky-in-Tel-Aviv.-Low-angle-view-highlighting-urban-architecture.-3564078.jpg',
+    villa: P + 'pexels/6a90b7820d92b30dd2560541/Beautiful-villa-with-pool-illuminated-at-twilight-in-Kayaky%2C-Trkiye%2C-offering-a-serene-vacation-spot.-29693417.jpg',
+    penthouse: P + 'unsplash/6a90b7820d92b30dd2560541/a-couch-and-tables-on-a-patio-overlooking-the-ocean-6Iif8DpllLw.jpg',
+    aerial: P + 'pexels/6a90b7820d92b30dd2560541/Aerial-photo-capturing-Tel-Aviv%27s-urban-skyline-meeting-the-Mediterranean-coastline.-2002604.jpg',
+    kitchen: P + 'pexels/6a90b7820d92b30dd2560541/Sleek-modern-kitchen-design-featuring-a-sunlit-countertop-and-large-windows-for-a-bright-interior.-18033166.jpg',
     logo: 'images/logo.png'
   },
 
