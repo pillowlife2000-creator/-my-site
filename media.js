@@ -12,9 +12,9 @@ var K = 'https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd
 
 window.SITE_MEDIA = {
   // אנימציית הגלילה בראש העמוד: מהרחוב, לאורך הבניין, ועד הסלון.
-  // מקודד כך שכל פריים הוא פריים מפתח, כדי שהגלילה תהיה חלקה. גרסה קלה יותר לטלפון.
-  scrollVideo: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201080594-fpv_scrub_720.mp4',
-  scrollVideoMobile: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201104031-fpv_scrub_480.mp4',
+  // מחשב: 1080p באיכות גבוהה. טלפון: חיתוך אנכי של מרכז התמונה בגובה מלא, לא הקטנה. פריים מפתח כל 5 פריימים, כדי שהגלילה תהיה חלקה.
+  scrollVideo: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793205673969-fpv_hq_desk.mp4',
+  scrollVideoMobile: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793204712534-fpv_hq_mobile.mp4',
   scrollPoster: K + 'Image-1-shows-the-residen-6ae16b22a7f161b80422821a-nano-banana-2-image.jpeg', // תמונת רקע לראש העמוד. ריק = פתיח לבן נקי
 
   // סרטון ההסבר.
