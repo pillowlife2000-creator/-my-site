@@ -11,20 +11,22 @@ var K = 'https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd
 
 window.SITE_MEDIA = {
   // אנימציית הגלילה בראש העמוד: מהרחוב, לאורך הבניין, ועד הסלון.
-  scrollVideo: 'https://media.kolbo.ai/kolboai-media/video-firstlast-results/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/One-continuous-unbroken-FPV-dr-6ae1ed69665087b90096580d-flux-3-max-first-las.mp4', // ריק = בראש העמוד מוצגת תמונה קבועה במקום אנימציית הגלילה
+  // מקודד כך שכל פריים הוא פריים מפתח, כדי שהגלילה תהיה חלקה. גרסה קלה יותר לטלפון.
+  scrollVideo: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201080594-fpv_scrub_720.mp4',
+  scrollVideoMobile: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201104031-fpv_scrub_480.mp4',
   scrollPoster: K + 'Image-1-shows-the-residen-6ae16b22a7f161b80422821a-nano-banana-2-image.jpeg', // תמונת רקע לראש העמוד. ריק = פתיח לבן נקי
 
   // סרטון ההסבר.
-  explainer: 'https://media.kolbo.ai/kolboai-media/video-exports/6a90b7820d92b30dd2560541/CUT_productions_169_1080p_mp4_act-65b5.mp4', // ריק = קטע סרטון ההסבר מוסתר
+  explainer: '', // ריק = קטע סרטון ההסבר מוסתר
 
   // הסרטון הראשי של העבודות: מתנגן לבד כל הזמן.
   // כל סרטון בתיקייה media/works ששמו מכיל את המילים האלה יהיה הסרטון הראשי.
   featuredName: 'נדלן לעצמי',
-  featured: 'https://d2ol7oe51mr4n9.cloudfront.net/user_389DnEW8xcLcJLSukn6WPtOJEA9/ed028289-57bd-4531-8e0e-9cfa51ec6f91.mp4', // נדלן לעצמי (מכווץ לאתר, 1080p)
+  featured: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201194118-main_web.mp4', // נדלן לעצמי (מכווץ לאתר, 1080p)
   // שאר הסרטונים בתיקייה מופיעים מתחת לראשי, ונפתחים בלחיצה. אפשר להוסיף גם כאן ידנית:
   moreVideos: [
-    { src: 'https://d2ol7oe51mr4n9.cloudfront.net/user_389DnEW8xcLcJLSukn6WPtOJEA9/13ded80d-f575-46f3-8e6a-e0ce682ddd82.mp4', title: 'פרויקט נדל״ן Y38' },
-    { src: 'https://d2ol7oe51mr4n9.cloudfront.net/user_389DnEW8xcLcJLSukn6WPtOJEA9/d1cb531f-4f93-478d-8997-7320ad1cd935.mp4', title: 'סרטון למשקיעים' },
+    { src: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201199911-y38_web.mp4', title: 'פרויקט נדל״ן Y38' },
+    { src: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201204384-investors_web.mp4', title: 'סרטון למשקיעים' },
     // { src: 'media/works/סרטון.mp4', title: 'שם' },
   ],
 

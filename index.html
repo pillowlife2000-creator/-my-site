@@ -601,11 +601,12 @@
   var isStatic = !M.scrollVideo || reduce;
   if (isStatic) fly.classList.add('static');
   if (isStatic && !M.scrollPoster) fly.classList.add('plain');
+  var scrollSrc = (window.innerWidth < 900 && M.scrollVideoMobile) || M.scrollVideo;
   if (!isStatic) {
     // Load the whole file into memory so seeking is instant; fall back to streaming if the host blocks it.
-    fetch(M.scrollVideo).then(function (r) { if (!r.ok) throw 0; return r.blob(); })
+    fetch(scrollSrc).then(function (r) { if (!r.ok) throw 0; return r.blob(); })
       .then(function (b) { vid.src = URL.createObjectURL(b); })
-      .catch(function () { vid.src = M.scrollVideo; });
+      .catch(function () { vid.src = scrollSrc; });
     vid.addEventListener('loadeddata', function () { vid.classList.add('ready'); });
     // iOS only allows seeking after the video has been "played" once.
     var unlock = function () { vid.play().then(function () { vid.pause(); }).catch(function () {}); window.removeEventListener('touchstart', unlock); };
