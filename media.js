@@ -11,11 +11,11 @@ var K = 'https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd
 
 window.SITE_MEDIA = {
   // אנימציית הגלילה בראש העמוד: מהרחוב, לאורך הבניין, ועד הסלון.
-  scrollVideo: '', // ריק = בראש העמוד מוצגת תמונה קבועה במקום אנימציית הגלילה
+  scrollVideo: 'https://media.kolbo.ai/kolboai-media/video-firstlast-results/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/One-continuous-unbroken-FPV-dr-6ae1ed69665087b90096580d-flux-3-max-first-las.mp4', // ריק = בראש העמוד מוצגת תמונה קבועה במקום אנימציית הגלילה
   scrollPoster: K + 'Image-1-shows-the-residen-6ae16b22a7f161b80422821a-nano-banana-2-image.jpeg', // תמונת רקע לראש העמוד. ריק = פתיח לבן נקי
 
   // סרטון ההסבר.
-  explainer: '', // ריק = קטע סרטון ההסבר מוסתר
+  explainer: 'https://media.kolbo.ai/kolboai-media/video-exports/6a90b7820d92b30dd2560541/CUT_productions_169_1080p_mp4_act-65b5.mp4', // ריק = קטע סרטון ההסבר מוסתר
 
   // הסרטון הראשי של העבודות: מתנגן לבד כל הזמן.
   // כל סרטון בתיקייה media/works ששמו מכיל את המילים האלה יהיה הסרטון הראשי.
