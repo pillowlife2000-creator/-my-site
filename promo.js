@@ -199,10 +199,12 @@
     // 1. פתיח: מוכרים פרויקט שעוד לא קיים?
     if (t < 3.6) {
       var o = life(t, 0, 3.6, 0.01, 0.3);
-      ctx.globalAlpha = 0.62 * o;
+      ctx.globalAlpha = o;
       if (A.street) drawCover(ctx, A.street, lerp(1.22, 1.06, outCubic(prog(t, 0, 3.6))), 0.15, 0);
       ctx.globalAlpha = 1;
-      shade(ctx, 0.5, 0.75);
+      grade(ctx, 0.7);
+      ctx.save(); ctx.fillStyle = 'rgba(10,12,11,0.28)'; ctx.fillRect(0, 0, W, H); ctx.restore();
+      shade(ctx, 0.35, 0.6);
       sweep(ctx, prog(t, 0.15, 1.6), 0.35, '120,230,215');
       var lw = 260 * outExpo(prog(t, 0.2, 1.0));
       ctx.fillStyle = TEAL; ctx.globalAlpha = o; ctx.fillRect(W / 2 - lw / 2, 700, lw, 8); ctx.globalAlpha = 1;
@@ -235,7 +237,7 @@
       grade(ctx, 0.7);
       leak(ctx, t, 0.55 * life(t, 8.4, 12.6, 0.6, 0.4), W * 0.9, H * 0.18, true);
       sweep(ctx, prog(t, 10.2, 10.85), 0.7);
-      shade(ctx, 0.5, 0.75);
+      shade(ctx, 0.3, 0.7);
       tag(ctx, 'חוץ · פנים · לובי', W / 2, 190, life(t, 8.6, 12.4, 0.4, 0.3));
       kinetic(ctx, 'לובי', W / 2, 1560, 190, t, 8.7, { out: 10.15 });
       kinetic(ctx, 'סלון', W / 2, 1560, 190, t, 10.55, { out: 12.2 });
@@ -288,8 +290,8 @@
       var im = A[CUTS[idx]];
       var dir = idx % 2 ? 1 : -1;
       if (im) drawCover(ctx, im, lerp(1.32, 1.1, outExpo(clamp(lt / CUT_LEN, 0, 1))), dir * lerp(0.6, 0.1, lt / CUT_LEN), 0, dir * lerp(2.2, 0, outExpo(lt / CUT_LEN)));
-      grade(ctx, 0.75);
-      shade(ctx, 0.3, 0.6);
+      grade(ctx, 0.6);
+      shade(ctx, 0.15, 0.35);
       kinetic(ctx, 'כל זווית.', W / 2, 1000, 170, t, 21.85, { out: 23.7, stagger: 0.12 });
       kinetic(ctx, 'כל אור.', W / 2, 1000, 170, t, 23.85, { out: 25.75, stagger: 0.12, color: '#5fd8cc' });
       for (var c = 1; c < CUTS.length; c++) flash(ctx, cutFlash(t, CUT_A + c * CUT_LEN, 0.09, 0.45));
