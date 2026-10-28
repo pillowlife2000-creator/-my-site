@@ -625,21 +625,53 @@
   if (M.explainer) { ex.src = M.explainer; ex.poster = (M.gallery && M.gallery[0] && M.gallery[0].src) || ''; }
   else document.getElementById('explainer-sec').hidden = true;
 
-  // ── Gallery ──
-  var sizeClass = { lg: 'w-lg', md: 'w-md' }, gal = document.getElementById('gallery');
-  (M.gallery || []).forEach(function (g, i) {
-    var cls = sizeClass[g.size] || (i % 5 === 1 ? 'w-sm' : 'w-third');
-    var fig = el('figure', { 'class': 'work reveal ' + cls });
-    var media = g.type === 'video'
-      ? '<video src="' + esc(g.src) + '" muted loop playsinline autoplay preload="metadata"></video>'
-      : '<img src="' + esc(g.src) + '" alt="' + esc(g.title) + '" loading="lazy" />';
-    fig.innerHTML = media + '<figcaption><b>' + esc(g.title) + '</b>' + esc(g.sub) + '</figcaption>';
+  // ── Videos play by themselves (muted, looping) while on screen, and pause off screen to save battery ──
+  var vio = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); } else e.target.pause(); });
+  }, { threshold: 0.15 }) : null;
+  function watchVideos(root) {
+    root.querySelectorAll('video.auto').forEach(function (v) {
+      v.muted = true; v.defaultMuted = true;
+      if (vio) vio.observe(v); else v.play().catch(function () {});
+    });
+  }
+
+  // ── Gallery: manual items from media.js, then every file in media/works (loaded automatically) ──
+  var sizeClass = { lg: 'w-lg', md: 'w-md' }, gal = document.getElementById('gallery'), galCount = 0;
+  function videoTag(src) { return '<video class="auto" src="' + esc(src) + '" muted loop playsinline autoplay preload="auto"></video>'; }
+  function addWork(g, shown) {
+    var i = galCount++;
+    var cls = sizeClass[g.size] || (i === 0 ? 'w-lg' : (i % 5 === 1 ? 'w-sm' : 'w-third'));
+    var fig = el('figure', { 'class': 'work reveal ' + cls + (shown ? ' in' : '') });
+    var media = g.type === 'video' ? videoTag(g.src) : '<img src="' + esc(g.src) + '" alt="' + esc(g.title || 'עבודה') + '" loading="lazy" />';
+    var cap = (g.title || g.sub) ? '<figcaption><b>' + esc(g.title) + '</b>' + esc(g.sub) + '</figcaption>' : '';
+    fig.innerHTML = media + cap;
     fig.addEventListener('click', function () {
       openModal(g.type === 'video' ? '<video src="' + esc(g.src) + '" controls autoplay playsinline style="max-width:100%;max-height:90vh"></video>' : '<img src="' + esc(g.src) + '" alt="' + esc(g.title) + '">');
     });
     gal.appendChild(fig);
-  });
-  if (!(M.gallery || []).length) document.getElementById('work').hidden = true;
+    document.getElementById('work').hidden = false;
+    watchVideos(fig);
+  }
+  document.getElementById('work').hidden = true;
+  (M.gallery || []).forEach(function (g) { addWork(g, false); });
+
+  // Files uploaded to media/works on GitHub appear here by themselves, sorted by file name.
+  // A file named "מגדל בתל אביב - הדמיית חוץ.jpg" gets the title and subtitle from its name.
+  var WORKS_API = 'https://api.github.com/repos/pillowlife2000-creator/-my-site/contents/media/works';
+  fetch(WORKS_API).then(function (r) { return r.ok ? r.json() : []; }).then(function (files) {
+    (files || []).filter(function (f) { return f.type === 'file'; })
+      .sort(function (a, b) { return a.name.localeCompare(b.name, 'he', { numeric: true }); })
+      .forEach(function (f) {
+        var ext = (f.name.split('.').pop() || '').toLowerCase();
+        var type = /^(mp4|webm|mov|m4v)$/.test(ext) ? 'video' : (/^(jpe?g|png|webp|gif|avif)$/.test(ext) ? 'image' : null);
+        if (!type) return;
+        var base = f.name.replace(/\.[^.]+$/, '').replace(/^\d+[\s._-]+/, '');
+        var parts = base.split(' - '), title = parts[0].replace(/[_]+/g, ' ').trim(), sub = (parts[1] || '').trim();
+        if (/^(img|dsc|vid|pxl|whatsapp|screenshot|photo|video)[\s_-]*\d/i.test(title) || /^\d+$/.test(title)) { title = ''; sub = ''; }
+        addWork({ type: type, src: 'media/works/' + f.name, title: title, sub: sub }, true);
+      });
+  }).catch(function () {});
 
   // ── Before / after ──
   var baWrap = document.getElementById('baWrap');
@@ -663,11 +695,13 @@
     var f = el('figure');
     f.innerHTML = (r.type === 'youtube'
       ? '<iframe src="https://www.youtube.com/embed/' + esc(r.id) + '" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>'
-      : '<video src="' + esc(r.src) + '" controls playsinline preload="metadata"></video>')
+      : videoTag(r.src))
       + (r.title ? '<figcaption>' + esc(r.title) + '</figcaption>' : '');
     reels.appendChild(f);
   });
-  if ((M.reels || []).length) document.getElementById('reelsSec').hidden = false;
+  if ((M.reels || []).length) { document.getElementById('reelsSec').hidden = false; watchVideos(reels); }
+
+  watchVideos(document);
 
   // ── Reveal on scroll ──
   var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
