@@ -65,7 +65,7 @@
     .nav-cta { padding: 0.6rem 1.3rem; font-size: 0.9rem; }
     @media (max-width: 900px) { .nav-links { display: none; } .brand img { height: 34px; } }
 
-    /* HERO */
+    /* HERO (unused) */
     .hero { padding: 9.5rem 0 5rem; }
     .hero-in { display: grid; grid-template-columns: 5fr 6fr; gap: 4rem; align-items: center; }
     .hero h1 { font-size: clamp(2.5rem, 5.5vw, 4.2rem); margin-bottom: 1.4rem; text-wrap: balance; }
@@ -202,6 +202,47 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+  
+    /* SCROLL FLY-THROUGH */
+    .fly { position: relative; height: 520vh; background: #000; }
+    .fly-stick { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+    .fly video, .fly .fly-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .fly .fly-poster { z-index: 0; }
+    .fly video { z-index: 1; opacity: 0; transition: opacity 0.6s; }
+    .fly video.ready { opacity: 1; }
+    .fly-shade { position: absolute; inset: 0; z-index: 2; background: linear-gradient(0deg, rgba(31,31,27,0.72) 0%, rgba(31,31,27,0.15) 45%, rgba(31,31,27,0) 70%); pointer-events: none; }
+    .fly-copy { position: absolute; z-index: 3; right: 0; left: 0; bottom: 9vh; }
+    .fly-step { position: absolute; right: 0; left: 0; bottom: 0; opacity: 0; visibility: hidden; transform: translateY(24px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s; color: #fff; }
+    .fly-step.on { opacity: 1; visibility: visible; transform: none; transition: opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s, visibility 0s; }
+    @media (max-width: 900px) { .fly-copy { bottom: calc(6vh + 64px); } .fly-hint { bottom: calc(1.2rem + 64px); } body:not(.past-fly) .sticky { display: none; } }
+    .fly-step .eyebrow { color: #7fe0d7; }
+    .fly-step .eyebrow::before { background: #7fe0d7; }
+    .fly-step h1, .fly-step h2 { font-size: clamp(2.3rem, 6vw, 4.6rem); max-width: 820px; margin-bottom: 1rem; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+    .fly-step p { font-size: 1.15rem; max-width: 540px; color: #eef1ef; margin-bottom: 1.75rem; }
+    .fly-step .hero-ctas .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.7); }
+    .fly-step .hero-ctas .btn-ghost:hover { background: #fff; color: var(--ink); }
+    .fly-bar { position: absolute; z-index: 3; right: 0; left: 0; bottom: 0; height: 4px; background: rgba(255,255,255,0.2); }
+    .fly-bar i { display: block; height: 100%; width: 100%; background: var(--teal); transform-origin: right; transform: scaleX(var(--p, 0)); }
+    .fly-hint { position: absolute; z-index: 3; left: 50%; bottom: 2.2rem; transform: translateX(-50%); color: #fff; font-size: 0.85rem; letter-spacing: 0.1em; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; transition: opacity 0.4s; }
+    .fly-hint span { width: 2px; height: 34px; background: linear-gradient(#fff, transparent); animation: hint 1.6s ease-in-out infinite; }
+    @keyframes hint { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+    @media (prefers-reduced-motion: reduce) { .fly { height: 100vh; } .fly video { display: none; } .fly-step { transition: none; } }
+
+    /* EXPLAINER */
+    .explainer { position: relative; aspect-ratio: 16 / 9; background: var(--ink); border-radius: 4px; overflow: hidden; }
+    .explainer video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .explainer::before { content: ''; position: absolute; z-index: 1; top: -1px; left: -1px; width: 80px; height: 80px; border-top: 6px solid var(--teal); border-left: 6px solid var(--teal); pointer-events: none; }
+
+    .reels { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .reels figure { aspect-ratio: 9 / 16; background: var(--ink); border-radius: 4px; overflow: hidden; position: relative; }
+    .reels video, .reels iframe { width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
+    .reels figcaption { position: absolute; bottom: 0; right: 0; left: 0; padding: 1.2rem 0.9rem 0.7rem; color: #fff; font-size: 0.9rem; background: linear-gradient(0deg, rgba(31,31,27,0.85), transparent); }
+    .ba-wrap { display: grid; gap: 2rem; }
+    .ba-title { margin-top: 0.75rem; color: var(--muted); font-size: 0.95rem; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .stat { border-top: 3px solid var(--teal); padding-top: 1rem; }
+    .stat b { display: block; font-size: 2rem; font-weight: 800; color: var(--ink); line-height: 1.1; }
+    .stat span { color: var(--muted); font-size: 0.95rem; }
   </style>
 </head>
 <body>
@@ -213,29 +254,43 @@
       <li><a href="#work">עבודות</a></li>
       <li><a href="#renewal">התחדשות עירונית</a></li>
       <li><a href="#services">שירותים</a></li>
-      <li><a href="#brands">מותגים</a></li>
+      <li><a href="#process">תהליך</a></li>
       <li><a href="#about">אודות</a></li>
     </ul>
     <a href="#contact" class="btn btn-solid nav-cta">לשיחה קצרה</a>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <div class="wrap hero-in">
-    <div>
-      <span class="eyebrow">סטודיו להדמיות ותוכן נדל״ן</span>
-      <h1>הפרויקט שלכם, <em>לפני שהוא קיים.</em></h1>
-      <p>הדמיות אדריכליות, ״לפני ואחרי״ וסרטוני פרויקט ליזמים, לחברות התחדשות עירונית ולמשרדי שיווק. ברמה של קמפיין, בקצב של AI.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-solid">שלחו פרויקט לבדיקה <i class="fas fa-arrow-left"></i></a>
-        <a href="#work" class="btn btn-ghost">לעבודות</a>
+<section class="fly" id="top" aria-label="סיור וירטואלי בפרויקט">
+  <div class="fly-stick">
+    <img class="fly-poster" id="flyPoster" alt="הדמיית מגדל מגורים מהרחוב" fetchpriority="high" />
+    <video id="flyVideo" muted playsinline preload="auto" aria-hidden="true"></video>
+    <div class="fly-shade"></div>
+    <div class="fly-copy">
+      <div class="wrap fly-step on" data-from="0" data-to="0.3">
+        <span class="eyebrow">סטודיו להדמיות ותוכן נדל״ן</span>
+        <h1>הפרויקט שלכם, לפני שהוא קיים.</h1>
+        <p>הדמיות, ״לפני ואחרי״ וסרטוני פרויקט ליזמים, לחברות התחדשות עירונית ולמשרדי שיווק.</p>
+      </div>
+      <div class="wrap fly-step" data-from="0.3" data-to="0.68">
+        <span class="eyebrow">מהרחוב</span>
+        <h2>כל קומה, כל מרפסת, כל חומר.</h2>
+        <p>הקונה והדייר רואים את הבניין כמו שהוא ייראה באמת, באור ובחומרים של ישראל.</p>
+      </div>
+      <div class="wrap fly-step" data-from="0.68" data-to="1.01">
+        <span class="eyebrow">עד הסלון</span>
+        <h2>ונכנסים הביתה.</h2>
+        <p>זה הרגע שבו מחליטים. אנחנו בונים אותו בשבילכם.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-solid">שלחו פרויקט לבדיקה <i class="fas fa-arrow-left"></i></a>
+          <a href="#work" class="btn btn-ghost">לעבודות</a>
+        </div>
       </div>
     </div>
-    <div class="hero-media">
-      <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-architectu-6ae1684d2f760bb97affd0c7-nano-banana-pro.jpeg" alt="הדמיית מגדל מגורים בתל אביב בשעת ערב" fetchpriority="high" />
-    </div>
+    <div class="fly-hint" id="flyHint">גללו<span></span></div>
+    <div class="fly-bar"><i id="flyBar"></i></div>
   </div>
-</header>
+</section>
 
 <div class="strip">
   <ul class="wrap">
@@ -243,48 +298,44 @@
     <li>התחדשות עירונית</li>
     <li>משרדי שיווק נדל״ן</li>
     <li>אדריכלים</li>
-    <li>מותגים</li>
   </ul>
 </div>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">למה זה עובד</span>
+      <h2>על הנייר אי אפשר להתאהב.<br/>בהדמיה כן.</h2>
+      <p class="lead">דירה על הנייר נמכרת לפי מה שהקונה מצליח לדמיין. בהתחדשות עירונית, דייר חותם לפי מה שהוא רואה באסיפה. אנחנו דואגים שהם יראו בדיוק את מה שאתם בונים.</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>3 שלבים</b><span>החתמת דיירים, ועדה ושיווק. בכל אחד צריך תוצרים אחרים</span></div>
+      <div class="stat"><b>ימים, לא שבועות</b><span>מחומרים ראשונים ועד כיוון ראשון</span></div>
+      <div class="stat"><b>כמה חלופות</b><span>לכל זווית, כדי שתבחרו ולא תתפשרו</span></div>
+      <div class="stat"><b>מוכן לשיווק</b><span>בגדלים לגדר, שלטים, אתר ורשתות</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec soft" id="explainer-sec">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">ב־30 שניות</span>
+      <h2>מה אנחנו עושים</h2>
+    </div>
+    <div class="explainer reveal"><video id="explainer" controls playsinline preload="metadata"></video></div>
+  </div>
+</section>
 
 <section class="sec" id="work">
   <div class="wrap">
     <div class="head reveal">
-      <span class="eyebrow">עבודות נדל״ן</span>
+      <span class="eyebrow">עבודות</span>
       <h2>חזיתות, פנים ומבטים<br/>שמוכרים דירות על הנייר</h2>
       <p class="lead">כל זווית בנויה כדי שקונה, דייר או ועדה יבינו מיד איך הפרויקט ייראה ואיך ירגישו לגור בו.</p>
     </div>
-    <div class="works">
-      <figure class="work w-lg reveal" data-full="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-architectu-6ae1684d2f760bb97affd0c7-nano-banana-pro.jpeg">
-        <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-architectu-6ae1684d2f760bb97affd0c7-nano-banana-pro.jpeg" alt="מגדל מגורים בתל אביב בשעת ערב" loading="lazy" />
-        <figcaption><b>מגדל מגורים, תל אביב</b>הדמיית חוץ, שעת ערב</figcaption>
-      </figure>
-      <figure class="work w-sm reveal" data-full="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-interior-v-6ae1684da7f161b804227c3e-nano-banana-pro.jpeg">
-        <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-interior-v-6ae1684da7f161b804227c3e-nano-banana-pro.jpeg" alt="לובי כפול גובה בשיש ועץ" loading="lazy" />
-        <figcaption><b>לובי כפול גובה</b>עיצוב פנים</figcaption>
-      </figure>
-      <figure class="work w-md reveal" data-full="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-interior-v-6ae1684ef3b2fe48fff74f5b-nano-banana-pro.jpeg">
-        <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-interior-v-6ae1684ef3b2fe48fff74f5b-nano-banana-pro.jpeg" alt="סלון בדירה לדוגמה עם נוף לים" loading="lazy" />
-        <figcaption><b>דירה לדוגמה, הרצליה פיתוח</b>סלון עם נוף לים</figcaption>
-      </figure>
-      <figure class="work w-md reveal" data-full="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-exterior-v-6ae1684ef3b2fe48fff74f5c-nano-banana-pro.jpeg">
-        <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-exterior-v-6ae1684ef3b2fe48fff74f5c-nano-banana-pro.jpeg" alt="וילה פרטית עם בריכה בשקיעה" loading="lazy" />
-        <figcaption><b>וילה פרטית, כפר שמריהו</b>חוץ ובריכה</figcaption>
-      </figure>
-      <figure class="work w-third reveal" data-full="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-interior-v-6ae1684da7f161b804227c3f-nano-banana-pro.jpeg">
-        <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-interior-v-6ae1684da7f161b804227c3f-nano-banana-pro.jpeg" alt="מטבח בדירת דוגמה" loading="lazy" />
-        <figcaption><b>מטבח, דירת דוגמה</b>מגדל בתל אביב</figcaption>
-      </figure>
-      <figure class="work w-third reveal" data-full="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-exterior-v-6ae1684dd5b5ff1bb9c9e925-nano-banana-pro.jpeg">
-        <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-exterior-v-6ae1684dd5b5ff1bb9c9e925-nano-banana-pro.jpeg" alt="מרפסת גג של פנטהאוז בירושלים" loading="lazy" />
-        <figcaption><b>פנטהאוז, ירושלים</b>מרפסת גג בשקיעה</figcaption>
-      </figure>
-      <figure class="work w-third reveal" data-full="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-aerial-dro-6ae1684dd5b5ff1bb9c9e924-nano-banana-pro.jpeg">
-        <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-aerial-dro-6ae1684dd5b5ff1bb9c9e924-nano-banana-pro.jpeg" alt="מבט מהאוויר על שכונה חדשה" loading="lazy" />
-        <figcaption><b>שכונה חדשה</b>מבט מהאוויר</figcaption>
-      </figure>
-    </div>
-    <p class="note">פרויקטי קונספט שנוצרו בסטודיו להמחשת סגנון העבודה.</p>
+    <div class="works" id="gallery"></div>
+    <p class="note" id="galleryNote">פרויקטי קונספט שנוצרו בסטודיו להמחשת סגנון העבודה.</p>
   </div>
 </section>
 
@@ -293,17 +344,19 @@
     <div class="head reveal">
       <span class="eyebrow">התחדשות עירונית</span>
       <h2>מה הדיירים רואים באסיפה</h2>
-      <p class="lead">הבניין החדש בתוך הרחוב האמיתי, מאותה זווית. ככה דייר מבין בשנייה מה הוא מקבל, וככה חותמים.</p>
+      <p class="lead">הבניין החדש בתוך הרחוב האמיתי, מאותה זווית. גררו את הקו כדי לראות לפני ואחרי.</p>
     </div>
-    <div class="ba reveal" id="ba">
-      <img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-architectu-6ae1684e2f760bb97affd0c9-nano-banana-pro.jpeg" alt="בניין ישן לפני התחדשות עירונית" loading="lazy" />
-      <img class="after" src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Image-1-is-the-existing-s-6ae168a3a7f161b804227ca2-nano-banana-2-image.jpeg" alt="הבניין החדש אחרי התחדשות עירונית" loading="lazy" />
-      <span class="ba-tag r">היום</span>
-      <span class="ba-tag l">אחרי ההתחדשות</span>
-      <div class="ba-line"></div>
-      <div class="ba-knob"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-left"></i></div>
-      <input type="range" min="0" max="100" value="50" aria-label="השוואה בין לפני לאחרי" />
+    <div class="ba-wrap" id="baWrap"></div>
+  </div>
+</section>
+
+<section class="sec" id="reelsSec" hidden>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">רילס וסרטונים</span>
+      <h2>תוכן וידאו לפרויקטים</h2>
     </div>
+    <div class="reels" id="reels"></div>
   </div>
 </section>
 
@@ -327,7 +380,7 @@
       <div class="svc">
         <i class="fas fa-film"></i>
         <h3>סרטוני פרויקט ורילס</h3>
-        <p>סרטון מעוף סביב הפרויקט, רילס לאינסטגרם ותוכן וידאו לקמפיין המכירות.</p>
+        <p>סרטון מעוף סביב הפרויקט ואל תוך הדירה, רילס לאינסטגרם ותוכן וידאו לקמפיין.</p>
       </div>
       <div class="svc">
         <i class="fas fa-bullhorn"></i>
@@ -384,68 +437,20 @@
   </div>
 </section>
 
-<section class="sec" id="brands">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">גם למותגים</span>
-      <h2>תוכן ופרסומות למותגים</h2>
-      <p class="lead">אותה רמת ביצוע, לאופנה, ביוטי, תכשיטים, אוכל ופיננסים. דוגמאות מתוך העבודות.</p>
-    </div>
-    <div class="brands reveal" id="brandGrid">
-      <figure><img src="images/img1.jpg.jpg" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img2.jpg.PNG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img3.jpg.JPG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img4.jpg.PNG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img5.jpg.PNG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img6.jpg.PNG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img7.jpg.PNG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img8.jpg.PNG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img9.jpg.jpg" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img10.jpg.jpg" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img3.5.jpg.JPG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img17.jpg.PNG" alt="עבודה למותג" loading="lazy" /></figure>
-      <figure><img src="images/img18.jpg.PNG" alt="עבודה למותג" loading="lazy" /></figure>
-    </div>
-
-    <div class="videos reveal">
-      <button class="vid" data-yt="5McEFNLcyHs" data-v="1">
-        <img src="https://img.youtube.com/vi/5McEFNLcyHs/hqdefault.jpg" alt="" loading="lazy" />
-        <span class="play"><i class="fas fa-play"></i></span>
-        <span class="cap"><b>תיווך נדל״ן</b>סרטון לרשתות</span>
-      </button>
-      <button class="vid" data-yt="3Wx6PKzAZ-U">
-        <img src="https://img.youtube.com/vi/3Wx6PKzAZ-U/hqdefault.jpg" alt="" loading="lazy" />
-        <span class="play"><i class="fas fa-play"></i></span>
-        <span class="cap"><b>AquaVolt</b>צבא וביטחון</span>
-      </button>
-      <button class="vid" data-yt="xSuQn6C7pLY">
-        <img src="https://img.youtube.com/vi/xSuQn6C7pLY/hqdefault.jpg" alt="" loading="lazy" />
-        <span class="play"><i class="fas fa-play"></i></span>
-        <span class="cap"><b>FINQ</b>פיננסים ופנסיה</span>
-      </button>
-      <button class="vid" data-yt="2tvTh7zuU7M" data-v="1">
-        <img src="https://img.youtube.com/vi/2tvTh7zuU7M/hqdefault.jpg" alt="" loading="lazy" />
-        <span class="play"><i class="fas fa-play"></i></span>
-        <span class="cap"><b>SACARA</b>בשמים ויוקרה</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<section class="sec soft" id="about">
+<section class="sec" id="about">
   <div class="wrap about">
     <img src="images/me.png" alt="שליו רביבו" loading="lazy" class="reveal" />
     <div class="reveal">
       <span class="eyebrow">אודות</span>
       <h2>היי, אני שליו רביבו</h2>
-      <p><strong>אני יוצר הדמיות ותוכן AI לפרויקטים ולמותגים שרוצים להיראות ברמה בינלאומית.</strong></p>
+      <p><strong>מייסד CUT productions. אני יוצר הדמיות ותוכן לפרויקטים שרוצים להיראות ברמה בינלאומית.</strong></p>
       <p>AI הוא רק הכלי. כל פרויקט מתחיל בהבנה: מי הקהל, מה הוא צריך לראות, ומה יגרום לו להחליט. בנדל״ן זה אומר דייר שחותם, קונה שמשאיר פרטים, וועדה שמבינה את התוכנית.</p>
       <p>אני משקיע בכל פרויקט את מלוא החשיבה, הקריאייטיב והירידה לפרטים, כדי ליצור תוכן שאנשים לא רק רואים, אלא גם זוכרים.</p>
     </div>
   </div>
 </section>
 
-<section class="sec" id="faq">
+<section class="sec soft" id="faq">
   <div class="wrap">
     <div class="head reveal">
       <span class="eyebrow">שאלות נפוצות</span>
@@ -458,7 +463,7 @@
       </details>
       <details>
         <summary>כמה זמן זה לוקח?</summary>
-        <p>בדרך כלל כמה ימים בלבד מהרגע שיש חומרים ועד שיש תוצרים מוכנים, תלוי בכמות ובמורכבות.</p>
+        <p>בדרך כלל כמה ימים מהרגע שיש חומרים ועד שיש כיוון ראשון, תלוי בכמות ובמורכבות.</p>
       </details>
       <details>
         <summary>יש תיקונים?</summary>
@@ -469,6 +474,10 @@
         <p>תלוי בהיקף: מספר הזוויות, פנים או חוץ, וסרטון. אחרי שאראה את החומרים אחזור עם הצעת מחיר מדויקת.</p>
       </details>
       <details>
+        <summary>ההדמיות תואמות לתוכנית המאושרת?</summary>
+        <p>כן, עובדים לפי התוכניות שאתם שולחים. לשימוש שיווקי מוסיפים את ההערה המקובלת ״להמחשה בלבד״.</p>
+      </details>
+      <details>
         <summary>אפשר לעבוד באופן קבוע?</summary>
         <p>כן. ליזמים ולמשרדי שיווק עם כמה פרויקטים יש אפשרות לעבודה חודשית קבועה עם עדיפות בתור.</p>
       </details>
@@ -476,7 +485,7 @@
   </div>
 </section>
 
-<section class="sec soft" id="contact">
+<section class="sec" id="contact">
   <div class="wrap contact">
     <div class="contact-side reveal">
       <span class="eyebrow">יצירת קשר</span>
@@ -511,11 +520,12 @@
             <option value="נדלן – יזם / חברת בנייה">יזם / חברת בנייה</option>
             <option value="נדלן – משרד שיווק">משרד שיווק נדל״ן</option>
             <option value="נדלן – משרד אדריכלים">משרד אדריכלים</option>
-            <option value="מותג / עסק">מותג או עסק אחר</option>
+            <option value="אחר">אחר</option>
           </select>
           <div class="err" id="roleErr">נא לבחור סוג פעילות</div>
         </div>
         <button class="btn btn-solid" type="submit" id="submitBtn">שליחה</button>
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:0.9rem">בשליחת הטופס אתם מאשרים שניצור איתכם קשר. <a href="privacy.html">מדיניות פרטיות</a></p>
       </form>
       <div class="success" id="success">
         <h3>הפנייה התקבלה</h3>
@@ -528,8 +538,7 @@
 <footer>
   <div class="wrap">
     <span class="f-brand">CUT<span>.</span> productions</span>
-    <span>© 2026 · שליו רביבו</span>
-    <span>הדמיות ותוכן לנדל״ן ולמותגים</span>
+    <span>© 2026 · שליו רביבו · <a href="privacy.html" style="color:inherit">מדיניות פרטיות</a></span>
   </div>
 </footer>
 
@@ -540,40 +549,122 @@
   <div id="modalBody"></div>
 </div>
 
+<script src="media.js"></script>
 <script>
-  // Nav background on scroll
-  var nav = document.getElementById('nav');
-  function onScroll() { nav.classList.toggle('solid', window.scrollY > 40); }
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var M = window.SITE_MEDIA || {};
+  function el(tag, attrs, html) { var e = document.createElement(tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (html) e.innerHTML = html; return e; }
+  function esc(t) { return String(t || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
-  // Reveal on scroll
+  // Nav border on scroll
+  var nav = document.getElementById('nav');
+
+  // ── Scroll fly-through: the video's time follows the scroll position ──
+  var fly = document.getElementById('top'), vid = document.getElementById('flyVideo');
+  var bar = document.getElementById('flyBar'), hint = document.getElementById('flyHint');
+  var steps = fly.querySelectorAll('.fly-step');
+  document.getElementById('flyPoster').src = M.scrollPoster || '';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var target = 0, current = 0;
+  if (M.scrollVideo && !reduce) {
+    // Load the whole file into memory so seeking is instant; fall back to streaming if the host blocks it.
+    fetch(M.scrollVideo).then(function (r) { if (!r.ok) throw 0; return r.blob(); })
+      .then(function (b) { vid.src = URL.createObjectURL(b); })
+      .catch(function () { vid.src = M.scrollVideo; });
+    vid.addEventListener('loadeddata', function () { vid.classList.add('ready'); });
+    // iOS only allows seeking after the video has been "played" once.
+    var unlock = function () { vid.play().then(function () { vid.pause(); }).catch(function () {}); window.removeEventListener('touchstart', unlock); };
+    window.addEventListener('touchstart', unlock, { passive: true });
+  }
+  function progress() {
+    var r = fly.getBoundingClientRect(), span = fly.offsetHeight - window.innerHeight;
+    return Math.min(1, Math.max(0, -r.top / span));
+  }
+  function onScroll() {
+    nav.classList.toggle('solid', window.scrollY > 40);
+    var p = progress();
+    document.body.classList.toggle('past-fly', p >= 1);
+    bar.style.setProperty('--p', p);
+    hint.style.opacity = p > 0.03 ? 0 : 1;
+    steps.forEach(function (s) { s.classList.toggle('on', p >= +s.dataset.from && p < +s.dataset.to); });
+    if (vid.duration) target = p * (vid.duration - 0.05);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  (function tick() {
+    if (vid.duration && Math.abs(target - current) > 0.01) {
+      current += (target - current) * 0.15;
+      if (!vid.seeking) vid.currentTime = current;
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  // ── Explainer ──
+  var ex = document.getElementById('explainer');
+  if (M.explainer) { ex.src = M.explainer; ex.poster = (M.gallery && M.gallery[0] && M.gallery[0].src) || ''; }
+  else document.getElementById('explainer-sec').hidden = true;
+
+  // ── Gallery ──
+  var sizeClass = { lg: 'w-lg', md: 'w-md' }, gal = document.getElementById('gallery');
+  (M.gallery || []).forEach(function (g, i) {
+    var cls = sizeClass[g.size] || (i % 5 === 1 ? 'w-sm' : 'w-third');
+    var fig = el('figure', { 'class': 'work reveal ' + cls });
+    var media = g.type === 'video'
+      ? '<video src="' + esc(g.src) + '" muted loop playsinline autoplay preload="metadata"></video>'
+      : '<img src="' + esc(g.src) + '" alt="' + esc(g.title) + '" loading="lazy" />';
+    fig.innerHTML = media + '<figcaption><b>' + esc(g.title) + '</b>' + esc(g.sub) + '</figcaption>';
+    fig.addEventListener('click', function () {
+      openModal(g.type === 'video' ? '<video src="' + esc(g.src) + '" controls autoplay playsinline style="max-width:100%;max-height:90vh"></video>' : '<img src="' + esc(g.src) + '" alt="' + esc(g.title) + '">');
+    });
+    gal.appendChild(fig);
+  });
+  if (!(M.gallery || []).length) document.getElementById('work').hidden = true;
+
+  // ── Before / after ──
+  var baWrap = document.getElementById('baWrap');
+  (M.beforeAfter || []).forEach(function (b) {
+    var box = el('div', { 'class': 'reveal' });
+    box.innerHTML = '<div class="ba"><img src="' + esc(b.before) + '" alt="לפני" loading="lazy" /><img class="after" src="' + esc(b.after) + '" alt="אחרי" loading="lazy" />'
+      + '<span class="ba-tag r">היום</span><span class="ba-tag l">אחרי ההתחדשות</span><div class="ba-line"></div>'
+      + '<div class="ba-knob"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-left"></i></div>'
+      + '<input type="range" min="0" max="100" value="50" aria-label="השוואה בין לפני לאחרי" /></div>'
+      + (b.title ? '<p class="ba-title">' + esc(b.title) + '</p>' : '');
+    var ba = box.querySelector('.ba');
+    // In RTL the range value grows right-to-left, while --pos is measured from the left.
+    box.querySelector('input').addEventListener('input', function (e) { ba.style.setProperty('--pos', (100 - e.target.value) + '%'); });
+    baWrap.appendChild(box);
+  });
+  if (!(M.beforeAfter || []).length) document.getElementById('renewal').hidden = true;
+
+  // ── Reels ──
+  var reels = document.getElementById('reels');
+  (M.reels || []).forEach(function (r) {
+    var f = el('figure');
+    f.innerHTML = (r.type === 'youtube'
+      ? '<iframe src="https://www.youtube.com/embed/' + esc(r.id) + '" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>'
+      : '<video src="' + esc(r.src) + '" controls playsinline preload="metadata"></video>')
+      + (r.title ? '<figcaption>' + esc(r.title) + '</figcaption>' : '');
+    reels.appendChild(f);
+  });
+  if ((M.reels || []).length) document.getElementById('reelsSec').hidden = false;
+
+  // ── Reveal on scroll ──
   var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
     entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -8% 0px' }) : null;
-  document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
+  document.querySelectorAll('.reveal').forEach(function (e) { io ? io.observe(e) : e.classList.add('in'); });
 
-  // Before / after slider. In RTL the range value grows right-to-left, while --pos is measured from the left.
-  var ba = document.getElementById('ba');
-  ba.querySelector('input').addEventListener('input', function (e) { ba.style.setProperty('--pos', (100 - e.target.value) + '%'); });
-
-  // Lightbox and video modal
-  var modal = document.getElementById('modal'), body = document.getElementById('modalBody');
-  function openModal(html) { body.innerHTML = html; modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeModal() { modal.classList.remove('open'); body.innerHTML = ''; document.body.style.overflow = ''; }
+  // ── Lightbox ──
+  var modal = document.getElementById('modal'), mbody = document.getElementById('modalBody');
+  function openModal(html) { mbody.innerHTML = html; modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { modal.classList.remove('open'); mbody.innerHTML = ''; document.body.style.overflow = ''; }
   document.getElementById('modalX').addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
-  document.querySelectorAll('.work, .brands figure').forEach(function (f) {
-    f.addEventListener('click', function () {
-      var img = f.querySelector('img');
-      openModal('<img src="' + (f.dataset.full || img.src) + '" alt="' + img.alt + '">');
-    });
-  });
-  document.querySelectorAll('.vid').forEach(function (b) {
-    b.addEventListener('click', function () {
-      openModal('<div class="frame' + (b.dataset.v ? ' v' : '') + '"><iframe src="https://www.youtube.com/embed/' + b.dataset.yt + '?autoplay=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>');
-    });
-  });
+
+  // ── Remember the campaign that brought the visitor (UTM) for the lead form ──
+  (function () {
+    var q = new URLSearchParams(location.search), u = ['utm_source', 'utm_medium', 'utm_campaign'].map(function (k) { return q.get(k) || ''; });
+    try { if (u[0]) sessionStorage.setItem('utm', u.join('/')); } catch (e) {}
+  })();
 </script>
 
 <script type="module">
@@ -600,7 +691,9 @@
     if (!valid) return;
 
     btn.disabled = true; btn.textContent = 'שולח...';
-    const businessType = company ? `${role} | ${company}` : role;
+    let utm = '';
+    try { utm = sessionStorage.getItem('utm') || ''; } catch (err) {}
+    const businessType = [role, company, utm && 'utm: ' + utm].filter(Boolean).join(' | ');
     const { error } = await supabase.from('leads').insert({ name, phone, business_type: businessType });
     if (error) { btn.disabled = false; btn.textContent = 'שליחה'; alert('אירעה שגיאה, נסו שוב.'); return; }
     window.trackLead?.(role);
