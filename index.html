@@ -8,7 +8,7 @@
   <meta name="description" content="סטודיו להדמיות אדריכליות, ״לפני ואחרי״ וסרטוני פרויקט ליזמים, לחברות התחדשות עירונית ולמשרדי שיווק נדל״ן. וגם תוכן ופרסומות למותגים." />
   <meta property="og:title" content="CUT productions — הפרויקט שלכם, לפני שהוא קיים" />
   <meta property="og:description" content="הדמיות ותוכן שמוכרים נדל״ן לפני שהוא נבנה." />
-  <meta property="og:image" content="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photorealistic-architectu-6ae1684d2f760bb97affd0c7-nano-banana-pro.jpeg" />
+  <meta property="og:image" content="images/logo.png" />
   <script src="tracking.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -228,6 +228,19 @@
     .fly-hint span { width: 2px; height: 34px; background: linear-gradient(#fff, transparent); animation: hint 1.6s ease-in-out infinite; }
     @keyframes hint { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
     .fly.static { height: 100vh; height: 100svh; }
+    .fly.plain { height: auto; background: var(--white); }
+    .fly.plain .fly-stick { position: static; height: auto; }
+    .fly.plain .fly-poster, .fly.plain .fly-shade { display: none; }
+    .fly.plain .fly-copy { position: static; padding: 10rem 0 6rem; }
+    .fly.plain .fly-step { position: static; color: var(--ink); }
+    .fly.plain .fly-step:not(:first-child) { display: none; }
+    .fly.plain .fly-step h1 { text-shadow: none; font-size: clamp(2.6rem, 7vw, 5rem); }
+    .fly.plain .fly-step p { color: var(--muted); }
+    .fly.plain .fly-step .eyebrow { color: var(--teal-d); }
+    .fly.plain .fly-step .eyebrow::before { background: var(--teal); }
+    .fly.plain .hero-ctas .btn-ghost { color: var(--ink); border-color: var(--ink); }
+    .fly.plain .hero-ctas .btn-ghost:hover { background: var(--ink); color: #fff; }
+    @media (max-width: 900px) { .fly.plain .fly-copy { padding: 8rem 0 4rem; } }
     .fly.static video, .fly.static .fly-hint, .fly.static .fly-bar { display: none; }
     @media (prefers-reduced-motion: reduce) { .fly-step { transition: none; } }
 
@@ -254,8 +267,6 @@
   <div class="wrap nav-in">
     <a href="#top" class="brand"><img src="images/logo.png" alt="CUT productions" width="737" height="332" /></a>
     <ul class="nav-links">
-      <li><a href="#work">עבודות</a></li>
-      <li><a href="#renewal">התחדשות עירונית</a></li>
       <li><a href="#services">שירותים</a></li>
       <li><a href="#process">תהליך</a></li>
       <li><a href="#about">אודות</a></li>
@@ -276,7 +287,7 @@
         <p>הדמיות, ״לפני ואחרי״ וסרטוני פרויקט ליזמים, לחברות התחדשות עירונית ולמשרדי שיווק.</p>
         <div class="hero-ctas static-only">
           <a href="#contact" class="btn btn-solid">שלחו פרויקט לבדיקה <i class="fas fa-arrow-left"></i></a>
-          <a href="#work" class="btn btn-ghost">לעבודות</a>
+          <a href="#services" class="btn btn-ghost">מה אנחנו עושים</a>
         </div>
       </div>
       <div class="wrap fly-step" data-from="0.3" data-to="0.68">
@@ -575,6 +586,7 @@
   // Without a scroll video (or with reduced motion) the section is a normal one-screen hero.
   var isStatic = !M.scrollVideo || reduce;
   if (isStatic) fly.classList.add('static');
+  if (isStatic && !M.scrollPoster) fly.classList.add('plain');
   if (!isStatic) {
     // Load the whole file into memory so seeking is instant; fall back to streaming if the host blocks it.
     fetch(M.scrollVideo).then(function (r) { if (!r.ok) throw 0; return r.blob(); })
