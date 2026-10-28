@@ -1,0 +1,399 @@
+{
+ "fashion": {
+  "scrollVideo": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212155091-fashion_desk.mp4",
+  "scrollVideoMobile": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212203335-fashion_mob.mp4",
+  "scrollPoster": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-cinematic-still-6ae22849d003058f26348607-nano-banana-pro.jpeg",
+  "videos": [],
+  "gallery": [
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-editorial-campa-6ae228c6d003058f26348806-nano-banana-pro.jpeg",
+    "title": "קמפיין על המרפסת",
+    "sub": "תכשיטים בשעת זהב",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-extreme-macro-o-6ae228cc9159dda620a3711f-nano-banana-pro.jpeg",
+    "title": "טבעת על היד",
+    "sub": "מאקרו תכשיטים",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-close-up-side-p-6ae228ccf4c00453052fd012-nano-banana-pro.jpeg",
+    "title": "עגיל בפרופיל",
+    "sub": "אור אחורי",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-full-body-lookb-6ae228ccd003058f26348813-nano-banana-pro.jpeg",
+    "title": "לוקבוק",
+    "sub": "בלייזר אוברסייז",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-tight-crop-from-6ae228cca8fe8187046d0d3a-nano-banana-pro.jpeg",
+    "title": "שרשראות בשכבות",
+    "sub": "קלוז אפ",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-street-style-fr-6ae228ccf4c00453052fd011-nano-banana-pro.jpeg",
+    "title": "סטריט סטייל",
+    "sub": "אוברסייז בסמטה",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-wide-editorial-6ae228c79159dda620a370ef-nano-banana-pro.jpeg",
+    "title": "קמפיין חוף",
+    "sub": "שמלה לשקיעה",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-split-image-lef-6ae228cca8fe8187046d0d39-nano-banana-pro.jpeg",
+    "title": "מהשטוח אל הדוגמנית",
+    "sub": "אותה שמלה, אחרי",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-close-up-of-a-w-6ae228cc9159dda620a3711e-nano-banana-pro.jpeg",
+    "title": "צמידים בתנועה",
+    "sub": "מאקרו לריל",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-interior-of-a-s-6ae228c6a8fe8187046d0d1c-nano-banana-pro.jpeg",
+    "title": "בוטיק",
+    "sub": "סטיילינג חנות",
+    "size": "sm"
+   }
+  ]
+ },
+ "food": {
+  "scrollVideo": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212270448-food_desk.mp4",
+  "scrollVideoMobile": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212276725-food_mob.mp4",
+  "scrollPoster": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-cinematic-still-6ae228499159dda620a36f5a-nano-banana-pro.jpeg",
+  "videos": [
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793211997381-smood_padel.web.mp4",
+    "title": "פרסומת: פאדל",
+    "sub": "אוכל ומשקאות",
+    "autoplay": true
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212007826-smood_kids.web.mp4",
+    "title": "פרסומת לילדים",
+    "sub": "מותג מזון",
+    "autoplay": false
+   }
+  ],
+  "gallery": [
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-hero-shot-of-a-6ae228d1d003058f26348835-nano-banana-pro.jpeg",
+    "title": "המבורגר הירו",
+    "sub": "תמונה ראשית",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-lifestyle-overh-6ae228d5d003058f26348853-nano-banana-pro.jpeg",
+    "title": "ארוחת בוקר ישראלית",
+    "sub": "לפיד באינסטגרם",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-macro-shot-of-h-6ae228d59159dda620a37178-nano-banana-pro.jpeg",
+    "title": "דבש על פנקייקים",
+    "sub": "כיסוי לרילס",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-clean-menu-phot-6ae228d2a8fe8187046d0d5f-nano-banana-pro.jpeg",
+    "title": "שקשוקה לתפריט",
+    "sub": "תמונת משלוחים, 16:9",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-artisan-bakery-6ae228d59159dda620a37179-nano-banana-pro.jpeg",
+    "title": "מאפייה בערב חג",
+    "sub": "קמפיין עונתי",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-bright-family-k-6ae228d5a8fe8187046d0d8d-nano-banana-pro.jpeg",
+    "title": "חטיף לילדים",
+    "sub": "מותג מזון",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-professional-me-6ae228d29159dda620a37146-nano-banana-pro.jpeg",
+    "title": "סביח",
+    "sub": "תמונת תפריט",
+    "size": "sm"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-unbranded-glass-6ae228d29159dda620a37145-nano-banana-pro.jpeg",
+    "title": "שייק בשקיעה",
+    "sub": "מוצר בסצנה",
+    "size": "md"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-professional-de-6ae228d1a8fe8187046d0d5d-nano-banana-pro.jpeg",
+    "title": "מטבח משלוחים",
+    "sub": "לוק אחיד לכל המנות",
+    "size": "md"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-close-up-of-a-c-6ae228d1f4c00453052fd035-nano-banana-pro.jpeg",
+    "title": "השף מסיים מנה",
+    "sub": "קמפיין מסעדה",
+    "size": "full"
+   }
+  ]
+ },
+ "saas": {
+  "scrollVideo": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212310502-saas_desk.mp4",
+  "scrollVideoMobile": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212329292-saas_mob.mp4",
+  "scrollPoster": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-cinematic-still-6ae228499159dda620a36f58-nano-banana-pro.jpeg",
+  "videos": [
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212028552-base44.web.mp4",
+    "title": "סרטון מוצר",
+    "sub": "אפליקציות ו-SaaS",
+    "autoplay": true
+   }
+  ],
+  "gallery": [
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-sleek-founder-w-6ae228da9159dda620a3718f-nano-banana-pro.jpeg",
+    "title": "סביבת העבודה של הפאונדר",
+    "sub": "תמונת הירו",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-floating-smartp-6ae228dff4c00453052fd089-nano-banana-pro.jpeg",
+    "title": "השקת מוצר",
+    "sub": "פרסומת טכנולוגית",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-isometric-minia-6ae228dfd003058f26348893-nano-banana-pro.jpeg",
+    "title": "אנימציית הסבר",
+    "sub": "זרימת עבודה כמודל",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-UGC-style-shot-6ae228e09159dda620a371ae-nano-banana-pro.jpeg",
+    "title": "קריאייטיב UGC",
+    "sub": "למודעות",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-candid-portrait-6ae228dfd003058f26348895-nano-banana-pro.jpeg",
+    "title": "פאונדרים",
+    "sub": "תיעוד קנדיד",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-over-the-should-6ae228dfa8fe8187046d0dcf-nano-banana-pro.jpeg",
+    "title": "שיווק מוצר",
+    "sub": "גרסאות לכל פלטפורמה",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-modern-glass-bo-6ae228daa8fe8187046d0da9-nano-banana-pro.jpeg",
+    "title": "וידאו למשקיעים",
+    "sub": "חדר ישיבות",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-close-up-of-a-h-6ae228dfa8fe8187046d0dd0-nano-banana-pro.jpeg",
+    "title": "מודעות בפיד",
+    "sub": "קריאייטיב אנכי",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-laptop-on-a-whi-6ae228daf4c00453052fd062-nano-banana-pro.jpeg",
+    "title": "ויז׳ואלים לדף נחיתה",
+    "sub": "אווירה בהירה",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-launch-moment-a-6ae228dad003058f26348868-nano-banana-pro.jpeg",
+    "title": "רגע ההשקה",
+    "sub": "100%",
+    "size": "full"
+   }
+  ]
+ },
+ "hub": {
+  "scrollVideo": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212374005-hub_desk.mp4",
+  "scrollVideoMobile": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212445677-hub_mob.mp4",
+  "scrollPoster": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-cinematic-still-6ae22849f4c00453052fcded-nano-banana-pro.jpeg",
+  "videos": [
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201194118-main_web.mp4",
+    "title": "סרט פרויקט נדל״ן",
+    "sub": "נדל״ן",
+    "autoplay": true
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793211997381-smood_padel.web.mp4",
+    "title": "פרסומת: פאדל",
+    "sub": "אוכל ומשקאות",
+    "autoplay": false
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212007826-smood_kids.web.mp4",
+    "title": "פרסומת לילדים",
+    "sub": "מותג מזון",
+    "autoplay": false
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212028552-base44.web.mp4",
+    "title": "סרטון מוצר",
+    "sub": "אפליקציות ו-SaaS",
+    "autoplay": false
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212067737-eyal.web.mp4",
+    "title": "פרסומת: אייל חקירות",
+    "sub": "עסק שירות",
+    "autoplay": false
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201199911-y38_web.mp4",
+    "title": "פרויקט נדל״ן Y38",
+    "sub": "נדל״ן, ירושלים",
+    "autoplay": false
+   }
+  ],
+  "gallery": [
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-dim-film-studio-6ae228e49159dda620a371c8-nano-banana-pro.jpeg",
+    "title": "אולפן בלילה",
+    "sub": "תמונת מותג",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-luxury-unbrande-6ae228eaa8fe8187046d0e2a-nano-banana-pro.jpeg",
+    "title": "בושם על אבן רטובה",
+    "sub": "צילומי מוצר",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-young-woman-in-6ae228ea9159dda620a3720e-nano-banana-pro.jpeg",
+    "title": "סטריט וור בגשם",
+    "sub": "רילס אופנה",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-over-the-should-6ae228eaf4c00453052fd118-nano-banana-pro.jpeg",
+    "title": "חדר עריכה",
+    "sub": "גריידינג וקצב",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-extreme-macro-o-6ae228cc9159dda620a3711f-nano-banana-pro.jpeg",
+    "title": "טבעת וצמיד",
+    "sub": "מאקרו",
+    "size": "sm"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-black-unbranded-6ae228e4f4c00453052fd0b7-nano-banana-pro.jpeg",
+    "title": "פרסומת לרכב על",
+    "sub": "קמפיין קולנועי",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-macro-shot-of-h-6ae228d59159dda620a37178-nano-banana-pro.jpeg",
+    "title": "דבש ופנקייק",
+    "sub": "אוכל",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-hero-shot-of-a-6ae228d1d003058f26348835-nano-banana-pro.jpeg",
+    "title": "המבורגר",
+    "sub": "אוכל",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-editorial-campa-6ae228c6d003058f26348806-nano-banana-pro.jpeg",
+    "title": "קמפיין על המרפסת",
+    "sub": "תכשיטים",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-sleek-founder-w-6ae228da9159dda620a3718f-nano-banana-pro.jpeg",
+    "title": "סביבת פאונדר",
+    "sub": "הייטק",
+    "size": "full"
+   }
+  ]
+ },
+ "skill": {
+  "scrollVideo": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212515976-skill_desk.mp4",
+  "scrollVideoMobile": "https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793212521271-skill_mob.mp4",
+  "scrollPoster": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-cinematic-still-6ae22849a8fe8187046d0b10-nano-banana-pro.jpeg",
+  "videos": [],
+  "gallery": [
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-minimal-white-d-6ae228e4a8fe8187046d0df6-nano-banana-pro.jpeg",
+    "title": "הסוכנים רצים במקביל",
+    "sub": "טרמינל בשעת כחול",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-close-up-of-a-m-6ae228ed9159dda620a372ad-nano-banana-pro.jpeg",
+    "title": "מצגות מחקר",
+    "sub": "סקירה ועומק",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-hand-holding-a-6ae228ed9159dda620a372ae-nano-banana-pro.jpeg",
+    "title": "הדף המוכן בטלפון",
+    "sub": "RTL מלא",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-Israeli-woman-i-6ae228edd003058f26348984-nano-banana-pro.jpeg",
+    "title": "בעלת עסק",
+    "sub": "מקבלת דף",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-man-in-his-30s-6ae228eda8fe8187046d0edf-nano-banana-pro.jpeg",
+    "title": "פרילנסר",
+    "sub": "בודק את הדף",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-two-screens-sid-6ae228edf4c00453052fd1b8-nano-banana-pro.jpeg",
+    "title": "בדיקת איכות",
+    "sub": "טלפון ומחשב",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-top-down-flat-l-6ae228e4a8fe8187046d0df7-nano-banana-pro.jpeg",
+    "title": "תשעה תחומי מחקר",
+    "sub": "כרטיסי סוכנים",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-laptop-and-phon-6ae228e4f4c00453052fd0b4-nano-banana-pro.jpeg",
+    "title": "אותו דף בשני מסכים",
+    "sub": "טלפון ומחשב",
+    "size": "third"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-cinematic-still-6ae22849a8fe8187046d0b10-nano-banana-pro.jpeg",
+    "title": "מתחילים מהמחקר",
+    "sub": "לילה",
+    "size": "lg"
+   },
+   {
+    "src": "https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Keep-image1-exactly-the-s-6ae23b532af9218b2170581f-edit.jpeg",
+    "title": "ובסוף: דף מוכן",
+    "sub": "בוקר",
+    "size": "full"
+   }
+  ]
+ }
+}
