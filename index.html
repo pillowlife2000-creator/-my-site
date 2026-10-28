@@ -221,12 +221,15 @@
     .fly-step p { font-size: 1.15rem; max-width: 540px; color: #eef1ef; margin-bottom: 1.75rem; }
     .fly-step .hero-ctas .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.7); }
     .fly-step .hero-ctas .btn-ghost:hover { background: #fff; color: var(--ink); }
+    .fly:not(.static) .static-only { display: none; }
     .fly-bar { position: absolute; z-index: 3; right: 0; left: 0; bottom: 0; height: 4px; background: rgba(255,255,255,0.2); }
     .fly-bar i { display: block; height: 100%; width: 100%; background: var(--teal); transform-origin: right; transform: scaleX(var(--p, 0)); }
     .fly-hint { position: absolute; z-index: 3; left: 50%; bottom: 2.2rem; transform: translateX(-50%); color: #fff; font-size: 0.85rem; letter-spacing: 0.1em; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; transition: opacity 0.4s; }
     .fly-hint span { width: 2px; height: 34px; background: linear-gradient(#fff, transparent); animation: hint 1.6s ease-in-out infinite; }
     @keyframes hint { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
-    @media (prefers-reduced-motion: reduce) { .fly { height: 100vh; } .fly video { display: none; } .fly-step { transition: none; } }
+    .fly.static { height: 100vh; height: 100svh; }
+    .fly.static video, .fly.static .fly-hint, .fly.static .fly-bar { display: none; }
+    @media (prefers-reduced-motion: reduce) { .fly-step { transition: none; } }
 
     /* EXPLAINER */
     .explainer { position: relative; aspect-ratio: 16 / 9; background: var(--ink); border-radius: 4px; overflow: hidden; }
@@ -271,6 +274,10 @@
         <span class="eyebrow">סטודיו להדמיות ותוכן נדל״ן</span>
         <h1>הפרויקט שלכם, לפני שהוא קיים.</h1>
         <p>הדמיות, ״לפני ואחרי״ וסרטוני פרויקט ליזמים, לחברות התחדשות עירונית ולמשרדי שיווק.</p>
+        <div class="hero-ctas static-only">
+          <a href="#contact" class="btn btn-solid">שלחו פרויקט לבדיקה <i class="fas fa-arrow-left"></i></a>
+          <a href="#work" class="btn btn-ghost">לעבודות</a>
+        </div>
       </div>
       <div class="wrap fly-step" data-from="0.3" data-to="0.68">
         <span class="eyebrow">מהרחוב</span>
@@ -565,7 +572,10 @@
   document.getElementById('flyPoster').src = M.scrollPoster || '';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var target = 0, current = 0;
-  if (M.scrollVideo && !reduce) {
+  // Without a scroll video (or with reduced motion) the section is a normal one-screen hero.
+  var isStatic = !M.scrollVideo || reduce;
+  if (isStatic) fly.classList.add('static');
+  if (!isStatic) {
     // Load the whole file into memory so seeking is instant; fall back to streaming if the host blocks it.
     fetch(M.scrollVideo).then(function (r) { if (!r.ok) throw 0; return r.blob(); })
       .then(function (b) { vid.src = URL.createObjectURL(b); })
@@ -581,6 +591,7 @@
   }
   function onScroll() {
     nav.classList.toggle('solid', window.scrollY > 40);
+    if (isStatic) { document.body.classList.toggle('past-fly', window.scrollY > window.innerHeight * 0.6); return; }
     var p = progress();
     document.body.classList.toggle('past-fly', p >= 1);
     bar.style.setProperty('--p', p);
