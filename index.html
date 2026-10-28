@@ -86,14 +86,14 @@
     .strip li::before { content: ''; display: inline-block; width: 8px; height: 8px; background: var(--teal); margin-left: 0.7rem; transform: skewX(-20deg); }
 
     /* WORKS GRID */
-    .feature { position: relative; background: var(--ink); border-radius: 4px; overflow: hidden; margin-bottom: 1.25rem; }
-    .feature video { display: block; width: 100%; height: auto; max-height: 85vh; object-fit: contain; background: var(--ink); }
+    .feature { position: relative; max-width: 460px; margin: 0 auto 2rem; background: var(--ink); border-radius: 4px; overflow: hidden; }
+    .feature video { display: block; width: 100%; height: auto; max-height: 82vh; object-fit: contain; background: var(--ink); }
     .feature::before { content: ''; position: absolute; z-index: 1; top: 0; left: 0; width: 72px; height: 72px; border-top: 6px solid var(--teal); border-left: 6px solid var(--teal); pointer-events: none; }
-    .more-videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; }
+    .more-videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 760px; margin: 0 auto 1.25rem; }
     .more-videos figure { background: #fff; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
-    .more-videos video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--ink); }
+    .more-videos video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--ink); }
     .more-videos figcaption { padding: 0.9rem 1.1rem; font-weight: 500; }
-    @media (max-width: 900px) { .more-videos { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .more-videos { gap: 0.75rem; } .more-videos figcaption { padding: 0.6rem 0.7rem; font-size: 0.9rem; } }
     .works { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
     .work { position: relative; overflow: hidden; cursor: zoom-in; background: var(--soft); border-radius: 4px; }
     .work img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
@@ -275,6 +275,7 @@
   <div class="wrap nav-in">
     <a href="#top" class="brand"><img src="images/logo.png" alt="CUT productions" width="737" height="332" /></a>
     <ul class="nav-links">
+      <li><a href="#work">עבודות</a></li>
       <li><a href="#services">שירותים</a></li>
       <li><a href="#process">תהליך</a></li>
       <li><a href="#about">אודות</a></li>
@@ -327,6 +328,19 @@
   </ul>
 </div>
 
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">עבודות</span>
+      <h2>הפרויקט, לפני שהוא קיים</h2>
+      <p class="lead">ככה קונה, דייר או ועדה רואים את הפרויקט עוד לפני שהונחה האבן הראשונה.</p>
+    </div>
+    <div class="feature reveal" id="feature" hidden></div>
+    <div class="more-videos" id="moreVideos" hidden></div>
+    <div class="works" id="gallery"></div>
+  </div>
+</section>
+
 <section class="sec" id="why">
   <div class="wrap">
     <div class="head reveal">
@@ -353,18 +367,7 @@
   </div>
 </section>
 
-<section class="sec" id="work">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">עבודות</span>
-      <h2>הפרויקט, לפני שהוא קיים</h2>
-      <p class="lead">ככה קונה, דייר או ועדה רואים את הפרויקט עוד לפני שהונחה האבן הראשונה.</p>
-    </div>
-    <div class="feature reveal" id="feature" hidden></div>
-    <div class="more-videos" id="moreVideos" hidden></div>
-    <div class="works" id="gallery"></div>
-  </div>
-</section>
+
 
 <section class="sec soft" id="renewal">
   <div class="wrap">

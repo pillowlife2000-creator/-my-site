@@ -18,9 +18,11 @@ window.SITE_MEDIA = {
   // הסרטון הראשי של העבודות: מתנגן לבד כל הזמן.
   // כל סרטון בתיקייה media/works ששמו מכיל את המילים האלה יהיה הסרטון הראשי.
   featuredName: 'נדלן לעצמי',
-  featured: '',     // או נתיב ישיר, למשל 'media/works/נדלן לעצמי.mp4'
+  featured: 'https://d2ol7oe51mr4n9.cloudfront.net/user_389DnEW8xcLcJLSukn6WPtOJEA9/ed028289-57bd-4531-8e0e-9cfa51ec6f91.mp4', // נדלן לעצמי (מכווץ לאתר, 1080p)
   // שאר הסרטונים בתיקייה מופיעים מתחת לראשי, ונפתחים בלחיצה. אפשר להוסיף גם כאן ידנית:
   moreVideos: [
+    { src: 'https://d2ol7oe51mr4n9.cloudfront.net/user_389DnEW8xcLcJLSukn6WPtOJEA9/13ded80d-f575-46f3-8e6a-e0ce682ddd82.mp4', title: 'פרויקט נדל״ן Y38' },
+    { src: 'https://d2ol7oe51mr4n9.cloudfront.net/user_389DnEW8xcLcJLSukn6WPtOJEA9/d1cb531f-4f93-478d-8997-7320ad1cd935.mp4', title: 'סרטון למשקיעים' },
     // { src: 'media/works/סרטון.mp4', title: 'שם' },
   ],
 
