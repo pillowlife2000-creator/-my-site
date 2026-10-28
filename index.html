@@ -3,51 +3,326 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CUT productions | סטודיו תוכן AI לעסקים ומותגים</title>
-  <meta name="description" content="תמונות, פרסומות, סרטי מותג, רילסים ודפי נחיתה ב-AI. שליו רביבו מביים כל פריים. בחרו תחום ודברו איתנו בוואטסאפ." />
-  <meta property="og:title" content="CUT productions | סטודיו תוכן AI לעסקים ומותגים" />
-  <meta property="og:description" content="תמונות, פרסומות, סרטי מותג, רילסים ודפי נחיתה ב-AI. שליו רביבו מביים כל פריים. בחרו תחום ודברו איתנו בוואטסאפ." />
-  <meta property="og:image" content="images/logo.png" />
+  <title>CUT productions — הדמיות ותוכן לנדל״ן ולמותגים</title>
   <link rel="icon" type="image/png" href="images/favicon.png" />
+  <meta name="description" content="סטודיו להדמיות אדריכליות, ״לפני ואחרי״ וסרטוני פרויקט ליזמים, לחברות התחדשות עירונית ולמשרדי שיווק נדל״ן. וגם תוכן ופרסומות למותגים." />
+  <meta property="og:title" content="CUT productions — הפרויקט שלכם, לפני שהוא קיים" />
+  <meta property="og:description" content="הדמיות ותוכן שמוכרים נדל״ן לפני שהוא נבנה." />
+  <meta property="og:image" content="images/logo.png" />
   <script src="tracking.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="site.css" />
+  <style>
+    :root {
+      --ink: #1f1f1b;
+      --muted: #5e615c;
+      --line: #e4e7e5;
+      --soft: #f4f6f5;
+      --white: #ffffff;
+      --teal: #17a398;
+      --teal-d: #0e7f76;
+      --sans: 'Heebo', Arial, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--ink); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .sec { padding: 6.5rem 0; }
+    .soft { background: var(--soft); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; color: var(--teal-d); margin-bottom: 1rem; }
+    .eyebrow::before { content: ''; width: 22px; height: 3px; background: var(--teal); }
+    h1, h2, h3 { font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
+    h2 { font-size: clamp(1.9rem, 4.5vw, 2.9rem); margin-bottom: 1rem; }
+    .lead { font-size: 1.1rem; color: var(--muted); max-width: 620px; }
+    .head { margin-bottom: 3rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.95rem 1.9rem; border-radius: 4px;
+      font-family: var(--sans); font-weight: 500; font-size: 1rem;
+      text-decoration: none; cursor: pointer; border: 1.5px solid var(--teal-d);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-solid { background: var(--teal-d); color: #fff; }
+    .btn-solid:hover { background: var(--ink); border-color: var(--ink); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: #fff; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; right: 0; left: 0; z-index: 50; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color 0.3s, box-shadow 0.3s; }
+    nav.solid { border-color: var(--line); box-shadow: 0 2px 18px rgba(31,31,27,0.05); }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .brand img { height: 42px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.95rem; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal-d); }
+    .nav-cta { padding: 0.6rem 1.3rem; font-size: 0.9rem; }
+    @media (max-width: 900px) { .nav-links { display: none; } .brand img { height: 34px; } }
+
+    /* HERO (unused) */
+    .hero { padding: 9.5rem 0 5rem; }
+    .hero-in { display: grid; grid-template-columns: 5fr 6fr; gap: 4rem; align-items: center; }
+    .hero h1 { font-size: clamp(2.5rem, 5.5vw, 4.2rem); margin-bottom: 1.4rem; text-wrap: balance; }
+    .hero h1 em { font-style: normal; color: var(--teal-d); }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 520px; margin-bottom: 2.25rem; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-media { position: relative; }
+    .hero-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; background: var(--soft); }
+    .hero-media::before { content: ''; position: absolute; top: -18px; left: -18px; width: 90px; height: 90px; border-top: 8px solid var(--teal); border-left: 8px solid var(--teal); }
+    @media (max-width: 900px) {
+      .hero { padding-top: 7.5rem; }
+      .hero-in { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-media::before { top: -12px; left: -12px; width: 60px; height: 60px; border-width: 6px; }
+    }
+
+    .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.4rem 0; background: var(--soft); }
+    .strip ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 2.5rem; list-style: none; color: var(--ink); font-size: 0.95rem; font-weight: 500; }
+    .strip li::before { content: ''; display: inline-block; width: 8px; height: 8px; background: var(--teal); margin-left: 0.7rem; transform: skewX(-20deg); }
+
+    /* WORKS GRID */
+    .feature { position: relative; max-width: 460px; margin: 0 auto 2rem; background: var(--ink); border-radius: 4px; overflow: hidden; }
+    .feature video { display: block; width: 100%; height: auto; max-height: 82vh; object-fit: contain; background: var(--ink); }
+    .feature::before { content: ''; position: absolute; z-index: 1; top: 0; left: 0; width: 72px; height: 72px; border-top: 6px solid var(--teal); border-left: 6px solid var(--teal); pointer-events: none; }
+    .more-videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 760px; margin: 0 auto 1.25rem; }
+    .more-videos figure { background: #fff; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+    .more-videos video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: var(--ink); }
+    .more-videos figcaption { padding: 0.9rem 1.1rem; font-weight: 500; }
+    @media (max-width: 600px) { .more-videos { gap: 0.75rem; } .more-videos figcaption { padding: 0.6rem 0.7rem; font-size: 0.9rem; } }
+    .works { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+    .work { position: relative; overflow: hidden; cursor: zoom-in; background: var(--soft); border-radius: 4px; }
+    .work img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .work:hover img { transform: scale(1.04); }
+    .work figcaption { position: absolute; right: 0; left: 0; bottom: 0; padding: 2.5rem 1.25rem 1rem; background: linear-gradient(0deg, rgba(31,31,27,0.82), transparent); font-size: 0.9rem; color: #fff; }
+    .work figcaption b { display: block; font-weight: 700; font-size: 1.1rem; }
+    .w-lg { grid-column: span 8; aspect-ratio: 16 / 9; }
+    .w-sm { grid-column: span 4; }
+    .w-md { grid-column: span 6; aspect-ratio: 16 / 10; }
+    .w-third { grid-column: span 4; aspect-ratio: 4 / 5; }
+    @media (max-width: 900px) {
+      .works { grid-template-columns: 1fr; }
+      .w-lg, .w-sm, .w-md, .w-third { grid-column: auto; aspect-ratio: 16 / 10; }
+    }
+    .note { margin-top: 1.25rem; font-size: 0.85rem; color: var(--muted); }
+
+    /* BEFORE / AFTER */
+    .ba { position: relative; aspect-ratio: 16 / 9; overflow: hidden; user-select: none; touch-action: pan-y; border-radius: 4px; background: var(--line); }
+    .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ba .after { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
+    .ba-line { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; background: var(--teal); transform: translateX(-1.5px); pointer-events: none; }
+    .ba-knob { position: absolute; top: 50%; left: var(--pos, 50%); width: 52px; height: 52px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--teal-d); color: #fff; display: flex; align-items: center; justify-content: center; gap: 4px; pointer-events: none; box-shadow: 0 6px 24px rgba(0,0,0,0.25); font-size: 0.8rem; }
+    .ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; }
+    .ba-tag { position: absolute; top: 1rem; padding: 0.35rem 0.9rem; background: #fff; color: var(--ink); font-size: 0.85rem; font-weight: 500; border-radius: 3px; pointer-events: none; }
+    .ba-tag.l { left: 1rem; } .ba-tag.r { right: 1rem; }
+
+    /* SERVICES */
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
+    .svc { background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 2.25rem 1.9rem; transition: border-color 0.2s, transform 0.2s; }
+    .svc:hover { border-color: var(--teal); transform: translateY(-3px); }
+    .svc i { color: var(--teal); font-size: 1.5rem; margin-bottom: 1.25rem; }
+    .svc h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .svc p { color: var(--muted); font-size: 0.97rem; }
+
+    /* AUDIENCES */
+    .aud { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+    .aud div { border-top: 3px solid var(--teal); padding-top: 1.4rem; }
+    .aud h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .aud p { color: var(--muted); }
+
+    /* PROCESS */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; counter-reset: s; }
+    .step { counter-increment: s; }
+    .step::before { content: '0' counter(s); display: block; font-size: 2.8rem; font-weight: 800; color: var(--teal); line-height: 1; margin-bottom: 0.9rem; }
+    .step h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .step p { color: var(--muted); }
+
+    /* BRANDS */
+    .brands { columns: 4 220px; column-gap: 1rem; }
+    .brands figure { break-inside: avoid; margin-bottom: 1rem; overflow: hidden; cursor: zoom-in; background: var(--soft); border-radius: 4px; }
+    .brands img { width: 100%; transition: transform 0.8s ease; }
+    .brands figure:hover img { transform: scale(1.04); }
+
+    .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .vid { position: relative; aspect-ratio: 16 / 10; overflow: hidden; cursor: pointer; background: var(--ink); border: 0; color: #fff; font: inherit; text-align: right; border-radius: 4px; }
+    .vid img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.3s, transform 0.8s; }
+    .vid:hover img { opacity: 1; transform: scale(1.04); }
+    .vid .play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; background: var(--teal-d); }
+    .vid .cap { position: absolute; bottom: 0; right: 0; left: 0; padding: 1.5rem 1rem 0.8rem; background: linear-gradient(0deg, rgba(31,31,27,0.88), transparent); font-size: 0.9rem; }
+    .vid .cap b { font-weight: 700; font-size: 1.05rem; display: block; }
+
+    /* ABOUT */
+    .about { display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; align-items: center; }
+    .about img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
+    .about p { color: var(--muted); margin-bottom: 1rem; font-size: 1.05rem; }
+    .about p strong { color: var(--ink); font-weight: 500; }
+    @media (max-width: 900px) { .about { grid-template-columns: 1fr; gap: 2rem; } .about img { max-width: 360px; } }
+
+    /* FAQ */
+    .faq { max-width: 780px; }
+    .faq details { border-bottom: 1px solid var(--line); padding: 1.3rem 0; }
+    .faq summary { cursor: pointer; list-style: none; font-weight: 500; font-size: 1.15rem; display: flex; justify-content: space-between; gap: 1rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--teal-d); font-weight: 700; }
+    .faq details[open] summary::after { content: '−'; }
+    .faq details p { color: var(--muted); margin-top: 0.7rem; }
+
+    /* CONTACT */
+    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    @media (max-width: 900px) { .contact { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .contact-side p { color: var(--muted); margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-links a { display: inline-flex; align-items: center; gap: 0.8rem; text-decoration: none; font-size: 1.05rem; font-weight: 500; }
+    .contact-links i { color: var(--teal-d); width: 1.2rem; font-size: 1.2rem; }
+    form { background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 2rem; }
+    form .field { margin-bottom: 1.2rem; }
+    form label { display: block; font-size: 0.88rem; color: var(--ink); font-weight: 500; margin-bottom: 0.4rem; }
+    form input, form select { width: 100%; padding: 0.9rem 1rem; background: #fff; color: var(--ink); border: 1px solid #cfd4d1; border-radius: 4px; font-family: var(--sans); font-size: 1rem; }
+    form input:focus, form select:focus { outline: none; border-color: var(--teal-d); box-shadow: 0 0 0 3px rgba(23,163,152,0.18); }
+    .err { display: none; color: #b3261e; font-size: 0.85rem; margin-top: 0.35rem; }
+    form .btn { width: 100%; justify-content: center; margin-top: 0.5rem; }
+    .success { display: none; background: #fff; border: 1px solid var(--teal); border-radius: 4px; padding: 2.5rem; text-align: center; }
+    .success h3 { font-size: 1.5rem; margin-bottom: 0.4rem; color: var(--teal-d); }
+    .success p { color: var(--muted); }
+
+    footer { background: var(--ink); color: #c9ccc9; padding: 2.5rem 0 6rem; font-size: 0.9rem; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer .f-brand { font-weight: 700; color: #fff; letter-spacing: 0.04em; }
+    footer .f-brand span { color: var(--teal); }
+
+    .sticky { display: none; position: fixed; bottom: 0; right: 0; left: 0; z-index: 40; padding: 0.75rem 1rem; background: rgba(255,255,255,0.97); border-top: 1px solid var(--line); }
+    .sticky .btn { width: 100%; justify-content: center; }
+    @media (max-width: 900px) { .sticky { display: block; } }
+
+    /* LIGHTBOX / VIDEO MODAL */
+    .modal { position: fixed; inset: 0; z-index: 100; background: rgba(20,20,18,0.94); display: none; align-items: center; justify-content: center; padding: 1.5rem; }
+    .modal.open { display: flex; }
+    .modal img { max-width: 100%; max-height: 90vh; object-fit: contain; }
+    .modal .frame { width: min(1100px, 100%); aspect-ratio: 16 / 9; }
+    .modal .frame.v { width: min(420px, 100%); aspect-ratio: 9 / 16; max-height: 88vh; }
+    .modal iframe { width: 100%; height: 100%; border: 0; }
+    .modal-x { position: absolute; top: 1rem; left: 1rem; background: none; border: 0; color: #fff; font-size: 2rem; cursor: pointer; line-height: 1; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+  
+    /* SCROLL FLY-THROUGH */
+    .fly { position: relative; height: 520vh; background: #000; }
+    .fly-stick { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+    .fly video, .fly .fly-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .fly .fly-poster { z-index: 0; }
+    .fly video { z-index: 1; opacity: 0; transition: opacity 0.6s; }
+    .fly video.ready { opacity: 1; }
+    .fly-shade { position: absolute; inset: 0; z-index: 2; background: linear-gradient(0deg, rgba(31,31,27,0.72) 0%, rgba(31,31,27,0.15) 45%, rgba(31,31,27,0) 70%); pointer-events: none; }
+    .fly-copy { position: absolute; z-index: 3; right: 0; left: 0; bottom: 9vh; }
+    .fly-step { position: absolute; right: 0; left: 0; bottom: 0; opacity: 0; visibility: hidden; transform: translateY(24px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s; color: #fff; }
+    .fly-step.on { opacity: 1; visibility: visible; transform: none; transition: opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s, visibility 0s; }
+    @media (max-width: 900px) { .fly-copy { bottom: calc(6vh + 64px); } .fly-hint { bottom: calc(1.2rem + 64px); } body:not(.past-fly) .sticky { display: none; } }
+    .fly-step .eyebrow { color: #7fe0d7; }
+    .fly-step .eyebrow::before { background: #7fe0d7; }
+    .fly-step h1, .fly-step h2 { font-size: clamp(2.3rem, 6vw, 4.6rem); max-width: 820px; margin-bottom: 1rem; text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+    .fly-step p { font-size: 1.15rem; max-width: 540px; color: #eef1ef; margin-bottom: 1.75rem; }
+    .fly-step .hero-ctas .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.7); }
+    .fly-step .hero-ctas .btn-ghost:hover { background: #fff; color: var(--ink); }
+    .fly:not(.static) .static-only { display: none; }
+    .fly-bar { position: absolute; z-index: 3; right: 0; left: 0; bottom: 0; height: 4px; background: rgba(255,255,255,0.2); }
+    .fly-bar i { display: block; height: 100%; width: 100%; background: var(--teal); transform-origin: right; transform: scaleX(var(--p, 0)); }
+    .fly-hint { position: absolute; z-index: 3; left: 50%; bottom: 2.2rem; transform: translateX(-50%); color: #fff; font-size: 0.85rem; letter-spacing: 0.1em; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; transition: opacity 0.4s; }
+    .fly-hint span { width: 2px; height: 34px; background: linear-gradient(#fff, transparent); animation: hint 1.6s ease-in-out infinite; }
+    @keyframes hint { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+    .fly.static { height: 100vh; height: 100svh; }
+    .fly.plain { height: auto; background: var(--white); }
+    .fly.plain .fly-stick { position: static; height: auto; }
+    .fly.plain .fly-poster, .fly.plain .fly-shade { display: none; }
+    .fly.plain .fly-copy { position: static; padding: 10rem 0 6rem; }
+    .fly.plain .fly-step { position: static; color: var(--ink); }
+    .fly.plain .fly-step:not(:first-child) { display: none; }
+    .fly.plain .fly-step h1 { text-shadow: none; font-size: clamp(2.6rem, 7vw, 5rem); }
+    .fly.plain .fly-step p { color: var(--muted); }
+    .fly.plain .fly-step .eyebrow { color: var(--teal-d); }
+    .fly.plain .fly-step .eyebrow::before { background: var(--teal); }
+    .fly.plain .hero-ctas .btn-ghost { color: var(--ink); border-color: var(--ink); }
+    .fly.plain .hero-ctas .btn-ghost:hover { background: var(--ink); color: #fff; }
+    @media (max-width: 900px) { .fly.plain .fly-copy { padding: 8rem 0 4rem; } }
+    .fly.static video, .fly.static .fly-hint, .fly.static .fly-bar { display: none; }
+    @media (prefers-reduced-motion: reduce) { .fly-step { transition: none; } }
+
+    /* PROMO (vertical animation drawn by promo.js) */
+    .promo-wrap { display: grid; grid-template-columns: 1fr minmax(260px, 400px); gap: 4rem; align-items: center; }
+    .promo-copy p { color: var(--muted); max-width: 30rem; margin: 1rem 0 1.8rem; }
+    .promo-frame { position: relative; aspect-ratio: 9 / 16; background: #0f1110; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(31,31,27,0.45); cursor: pointer; }
+    .promo-frame canvas { width: 100%; height: 100%; display: block; }
+    .promo-sound { position: absolute; top: 14px; left: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(15,17,16,0.55); color: #fff; font-size: 1rem; cursor: pointer; backdrop-filter: blur(6px); }
+    .promo-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,0.15); }
+    .promo-bar span { display: block; height: 100%; width: 0; background: var(--teal); margin-inline-start: auto; }
+    @media (max-width: 860px) { .promo-wrap { grid-template-columns: 1fr; gap: 2rem; } .promo-frame { max-width: 380px; width: 100%; margin: 0 auto; } }
+
+    /* EXPLAINER */
+    .explainer { position: relative; aspect-ratio: 16 / 9; background: var(--ink); border-radius: 4px; overflow: hidden; }
+    .explainer video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .explainer::before { content: ''; position: absolute; z-index: 1; top: -1px; left: -1px; width: 80px; height: 80px; border-top: 6px solid var(--teal); border-left: 6px solid var(--teal); pointer-events: none; }
+
+    .reels { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .reels figure { aspect-ratio: 9 / 16; background: var(--ink); border-radius: 4px; overflow: hidden; position: relative; }
+    .reels video, .reels iframe { width: 100%; height: 100%; object-fit: cover; border: 0; display: block; }
+    .reels figcaption { position: absolute; bottom: 0; right: 0; left: 0; padding: 1.2rem 0.9rem 0.7rem; color: #fff; font-size: 0.9rem; background: linear-gradient(0deg, rgba(31,31,27,0.85), transparent); }
+    .ba-wrap { display: grid; gap: 2rem; }
+    .ba-title { margin-top: 0.75rem; color: var(--muted); font-size: 0.95rem; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .stat { border-top: 3px solid var(--teal); padding-top: 1rem; }
+    .stat b { display: block; font-size: 2rem; font-weight: 800; color: var(--ink); line-height: 1.1; }
+    .stat span { color: var(--muted); font-size: 0.95rem; }
+  </style>
 </head>
 <body>
-<!-- Built by tools/build.py from tools/pages.py. Edit the text there, the media in media-index.js. -->
+
 <nav id="nav">
   <div class="wrap nav-in">
-    <a href="index.html" class="brand"><img src="images/logo.png" alt="CUT productions" width="737" height="332" /></a>
-    <ul class="nav-links"><li><a href="#work">עבודות</a></li><li><a href="#fields">תחומים</a></li><li><a href="#services">שירותים</a></li><li><a href="#process">תהליך</a></li><li><a href="#about">אודות</a></li></ul>
+    <a href="#top" class="brand"><img src="images/logo.png" alt="CUT productions" width="737" height="332" /></a>
+    <ul class="nav-links">
+      <li><a href="#work">עבודות</a></li>
+      <li><a href="#renewal">התחדשות עירונית</a></li>
+      <li><a href="#services">שירותים</a></li>
+      <li><a href="#process">תהליך</a></li>
+      <li><a href="#about">אודות</a></li>
+    </ul>
     <a href="#contact" class="btn btn-solid nav-cta">לשיחה קצרה</a>
   </div>
 </nav>
 
-<section class="fly" id="top" aria-label="סטודיו תוכן AI · שליו רביבו">
+<section class="fly" id="top" aria-label="סיור וירטואלי בפרויקט">
   <div class="fly-stick">
-    <img class="fly-poster" id="flyPoster" alt="" fetchpriority="high" />
+    <img class="fly-poster" id="flyPoster" alt="הדמיית מגדל מגורים מהרחוב" fetchpriority="high" />
     <video id="flyVideo" muted playsinline preload="auto" aria-hidden="true"></video>
     <div class="fly-shade"></div>
     <div class="fly-copy">
       <div class="wrap fly-step on" data-from="0" data-to="0.3">
-        <span class="eyebrow">סטודיו תוכן AI · שליו רביבו</span>
-        <h1>הפקה של מותג גדול. בלי יום צילום.</h1>
-        <p>תמונות, פרסומות, סרטי מותג, רילסים ודפי נחיתה. נוצרים ב-AI, מבוימים ביד אנושית, ומוכנים לפרסום.</p>
-        <div class="hero-ctas static-only"><a href="https://api.whatsapp.com/send?phone=972503838810&amp;text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%99%D7%95%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%AA%D7%95%D7%9B%D7%9F%20AI%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" class="btn btn-solid" target="_blank" rel="noopener">דברו איתי בוואטסאפ <i class="fas fa-arrow-left"></i></a><a href="#work" class="btn btn-ghost">לצפייה בעבודות</a></div>
+        <span class="eyebrow">סטודיו להדמיות ותוכן נדל״ן</span>
+        <h1>הפרויקט שלכם, לפני שהוא קיים.</h1>
+        <p>הדמיות, ״לפני ואחרי״ וסרטוני פרויקט ליזמים, לחברות התחדשות עירונית ולמשרדי שיווק.</p>
+        <div class="hero-ctas static-only">
+          <a href="#contact" class="btn btn-solid">שלחו פרויקט לבדיקה <i class="fas fa-arrow-left"></i></a>
+          <a href="#services" class="btn btn-ghost">מה אנחנו עושים</a>
+        </div>
       </div>
       <div class="wrap fly-step" data-from="0.3" data-to="0.68">
-        <span class="eyebrow">01 · הרעיון</span>
-        <h2>מתחילים מהסיפור</h2>
-        <p>תסריט, לוק וקצב שנבנים על העסק שלכם.</p>
+        <span class="eyebrow">מהרחוב</span>
+        <h2>כל קומה, כל מרפסת, כל חומר.</h2>
+        <p>הקונה והדייר רואים את הבניין כמו שהוא ייראה באמת, באור ובחומרים של ישראל.</p>
       </div>
       <div class="wrap fly-step" data-from="0.68" data-to="1.01">
-        <span class="eyebrow">02 · הפריים</span>
-        <h2>נגמרים בפריים שעוצר גלילה</h2>
-        <p>תוצאה שנראית כמו הפקה גדולה, בלי סט ובלי צוות.</p>
-        <div class="hero-ctas"><a href="https://api.whatsapp.com/send?phone=972503838810&amp;text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%99%D7%95%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%AA%D7%95%D7%9B%D7%9F%20AI%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" class="btn btn-solid" target="_blank" rel="noopener">דברו איתי בוואטסאפ <i class="fas fa-arrow-left"></i></a><a href="#work" class="btn btn-ghost">לצפייה בעבודות</a></div>
+        <span class="eyebrow">עד הסלון</span>
+        <h2>ונכנסים הביתה.</h2>
+        <p>זה הרגע שבו מחליטים. אנחנו בונים אותו בשבילכם.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-solid">שלחו פרויקט לבדיקה <i class="fas fa-arrow-left"></i></a>
+          <a href="#work" class="btn btn-ghost">לעבודות</a>
+        </div>
       </div>
     </div>
     <div class="fly-hint" id="flyHint">גללו<span></span></div>
@@ -56,57 +331,215 @@
 </section>
 
 <div class="strip">
-  <ul class="wrap"><li>פרסומות</li><li>סרטי מותג</li><li>רילסים</li><li>דפי נחיתה</li></ul>
+  <ul class="wrap">
+    <li>יזמים וחברות בנייה</li>
+    <li>התחדשות עירונית</li>
+    <li>משרדי שיווק נדל״ן</li>
+    <li>אדריכלים</li>
+  </ul>
 </div>
 
 <section class="sec" id="work">
   <div class="wrap">
-<div class="head reveal"><span class="eyebrow">עבודות נבחרות</span><h2>תראו לפני שאתם מחליטים</h2><p class="lead">פרסומות, סרטים ורילסים שיצאו מהסטודיו. כולם נוצרו ב-AI ובוימו ביד.</p></div>
-    <div class="vgrid" id="vgrid"></div>
-    <div class="works" id="gallery" style="margin-top:1rem"></div>
-    <p class="note">התמונות בגלריה הן קונספט שנוצר בסטודיו להמחשת סגנון העבודה.</p>
-  </div>
-</section>
-
-<section class="sec soft" id="fields">
-  <div class="wrap">
-<div class="head reveal"><span class="eyebrow">לפי תחום</span><h2>בחרו את התחום שלכם</h2><p class="lead">לכל תחום יש דף משלו, עם עבודות, תהליך ושאלות שמתאימים בדיוק לעסק שלכם.</p></div>
-    <div class="fields reveal"><a class="field-card" href="nadlan.html"><img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-modern-resident-6ae228eaf4c00453052fd111-nano-banana-pro.jpeg" alt="נדל״ן" loading="lazy" /><div class="fc-in"><h3>נדל״ן</h3><p>סרטי פרויקט והדמיות שמוכרים דירות לפני שהבניין עומד.</p><span class="go">לדף התחום <i class="fas fa-arrow-left"></i></span></div></a><a class="field-card" href="fashion.html"><img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-close-up-of-a-m-6ae228ea9159dda620a3724c-nano-banana-pro.jpeg" alt="תכשיטים ואופנה" loading="lazy" /><div class="fc-in"><h3>תכשיטים ואופנה</h3><p>דוגמניות AI וקמפיינים שנראים כמו צילום מגזין.</p><span class="go">לדף התחום <i class="fas fa-arrow-left"></i></span></div></a><a class="field-card" href="food.html"><img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-steaming-plate-6ae228ead003058f263488bc-nano-banana-pro.jpeg" alt="מסעדות ואוכל" loading="lazy" /><div class="fc-in"><h3>מסעדות ואוכל</h3><p>מנות שגורמות לרעב, ורילסים שממלאים שולחנות.</p><span class="go">לדף התחום <i class="fas fa-arrow-left"></i></span></div></a><a class="field-card" href="saas.html"><img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-founder-silhoue-6ae228eaa8fe8187046d0e32-nano-banana-pro.jpeg" alt="אפליקציות ו-SaaS" loading="lazy" /><div class="fc-in"><h3>אפליקציות ו-SaaS</h3><p>סרטון מוצר ודף נחיתה להשקה, למשתמשים ולמשקיעים.</p><span class="go">לדף התחום <i class="fas fa-arrow-left"></i></span></div></a><a class="field-card" href="skill.html"><img src="https://media.kolbo.ai/kolboai-media/generated-images/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/Photoreal-top-down-flat-l-6ae228ead003058f263488bd-nano-banana-pro.jpeg" alt="הסקיל לדפי נחיתה" loading="lazy" /><div class="fc-in"><h3>הסקיל לדפי נחיתה</h3><p>השיטה שלי לבניית דפי נחיתה, לשימוש עצמי עם Claude Code.</p><span class="go">לדף התחום <i class="fas fa-arrow-left"></i></span></div></a></div>
+    <div class="head reveal">
+      <span class="eyebrow">עבודות</span>
+      <h2>הפרויקט, לפני שהוא קיים</h2>
+      <p class="lead">ככה קונה, דייר או ועדה רואים את הפרויקט עוד לפני שהונחה האבן הראשונה.</p>
+    </div>
+    <div class="feature reveal" id="feature" hidden></div>
+    <div class="more-videos" id="moreVideos" hidden></div>
+    <div class="works" id="gallery"></div>
+    <p class="note">ההדמיות בגלריה ובסליידר הן פרויקטי קונספט שנוצרו בסטודיו להמחשת סגנון העבודה.</p>
   </div>
 </section>
 
 <section class="sec" id="why">
   <div class="wrap">
-<div class="head reveal"><span class="eyebrow">למה CUT</span><h2>AI זה הכלי.<br/>הבימוי זה ההבדל.</h2><p class="lead">כל אחד יכול לייצר סרטון AI. מעט יודעים לגרום לו להיראות אמיתי ולמכור. אני בונה תסריט, בוחר זוויות, מתקן כל פריים ומחבר את התוצאה למטרה שיווקית. אתם מקבלים תוכן מוכן לקמפיין, לא ניסוי.</p></div>
-    <div class="stats reveal"><div class="stat"><b>בלי יום צילום</b><span>בלי לוקיישן, שחקנים וציוד</span></div><div class="stat"><b>בימוי אנושי</b><span>כל פריים נבדק ומתוקן ידנית</span></div><div class="stat"><b>ימים, לא שבועות</b><span>מהר יותר מהפקה רגילה</span></div><div class="stat"><b>מבית אחד</b><span>מהתמונה ועד דף הנחיתה</span></div></div>
+    <div class="head reveal">
+      <span class="eyebrow">למה זה עובד</span>
+      <h2>על הנייר אי אפשר להתאהב.<br/>בהדמיה כן.</h2>
+      <p class="lead">דירה על הנייר נמכרת לפי מה שהקונה מצליח לדמיין. בהתחדשות עירונית, דייר חותם לפי מה שהוא רואה באסיפה. אנחנו דואגים שהם יראו בדיוק את מה שאתם בונים.</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>3 שלבים</b><span>החתמת דיירים, ועדה ושיווק. בכל אחד צריך תוצרים אחרים</span></div>
+      <div class="stat"><b>ימים, לא שבועות</b><span>מחומרים ראשונים ועד כיוון ראשון</span></div>
+      <div class="stat"><b>כמה חלופות</b><span>לכל זווית, כדי שתבחרו ולא תתפשרו</span></div>
+      <div class="stat"><b>מוכן לשיווק</b><span>בגדלים לגדר, שלטים, אתר ורשתות</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec soft" id="explainer-sec">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">ב־30 שניות</span>
+      <h2>מה אנחנו עושים</h2>
+    </div>
+    <div class="explainer reveal"><video id="explainer" controls playsinline preload="metadata"></video></div>
+  </div>
+</section>
+
+<section class="sec" id="promo-sec">
+  <div class="wrap promo-wrap">
+    <div class="promo-copy reveal">
+      <span class="eyebrow">סרטון תדמית · 30 שניות</span>
+      <h2>ככה נראה פרויקט<br />לפני שהוא קיים</h2>
+      <p>הדמיות חוץ ופנים, ״לפני ואחרי״ להתחדשות עירונית, וסרטוני פרויקט ורילס. ככה הקונים רואים את הפרויקט עוד לפני שהוא נבנה.</p>
+      <a class="btn btn-solid" href="#contact">שלחו פרויקט לבדיקה</a>
+    </div>
+    <div class="promo-frame reveal">
+      <canvas id="promo" aria-label="סרטון תדמית של CUT productions"></canvas>
+      <button class="promo-sound" id="promoSound" type="button" aria-label="הפעלת סאונד"><i class="fa-solid fa-volume-xmark"></i></button>
+      <div class="promo-bar"><span id="promoBar"></span></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="sec soft" id="renewal">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">התחדשות עירונית</span>
+      <h2>מה הדיירים רואים באסיפה</h2>
+      <p class="lead">הבניין החדש בתוך הרחוב האמיתי, מאותה זווית. גררו את הקו כדי לראות לפני ואחרי.</p>
+    </div>
+    <div class="ba-wrap" id="baWrap"></div>
+  </div>
+</section>
+
+<section class="sec" id="reelsSec" hidden>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">רילס וסרטונים</span>
+      <h2>תוכן וידאו לפרויקטים</h2>
+    </div>
+    <div class="reels" id="reels"></div>
   </div>
 </section>
 
 <section class="sec" id="services">
   <div class="wrap">
-<div class="head reveal"><span class="eyebrow">שירותים</span><h2>מה אפשר להזמין</h2></div>
-    <div class="services reveal"><div class="svc"><i class="fas fa-camera"></i><h3>תמונות והדמיות</h3><p>צילומי מוצר, דוגמניות והדמיות פוטוריאליסטיות. בלי סטודיו ובלי תאורה.</p></div><div class="svc"><i class="fas fa-film"></i><h3>פרסומות וסרטי מותג</h3><p>סיפור קולנועי עם קצב, מוזיקה וקריינות. מוכן ליוטיוב, לרשתות ולמסך גדול.</p></div><div class="svc"><i class="fas fa-bolt"></i><h3>רילסים ואנימציה</h3><p>תוכן קצר שעוצר גלילה, וסרטוני הסבר שמסבירים מוצר מורכב בפשטות.</p></div><div class="svc"><i class="fas fa-laptop-code"></i><h3>דפי נחיתה</h3><p>דף שמחבר את הווידאו למכירה. מהיר, ממוקד ומוכן לקמפיין.</p></div></div>
+    <div class="head reveal">
+      <span class="eyebrow">שירותים</span>
+      <h2>כל מה שפרויקט צריך<br/>כדי להימכר לפני שנבנה</h2>
+    </div>
+    <div class="services reveal">
+      <div class="svc">
+        <i class="fas fa-building"></i>
+        <h3>הדמיות חוץ ופנים</h3>
+        <p>חזיתות, מבט מהרחוב, לובי, דירה לדוגמה ומרפסות. פוטוריאליסטי, מותאם לאור ולחומרים של ישראל.</p>
+      </div>
+      <div class="svc">
+        <i class="fas fa-people-group"></i>
+        <h3>״לפני ואחרי״ להחתמה</h3>
+        <p>הבניין החדש בתוך הרחוב הקיים, לאסיפות דיירים ולמצגת תלת־ממד לוועדה.</p>
+      </div>
+      <div class="svc">
+        <i class="fas fa-film"></i>
+        <h3>סרטוני פרויקט ורילס</h3>
+        <p>סרטון מעוף סביב הפרויקט ואל תוך הדירה, רילס לאינסטגרם ותוכן וידאו לקמפיין.</p>
+      </div>
+      <div class="svc">
+        <i class="fas fa-bullhorn"></i>
+        <h3>חבילת שיווק מלאה</h3>
+        <p>התאמות לגדר האתר, שלטי חוצות, אתר הפרויקט ורשתות. הכל בשפה אחת, בעברית.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">למי זה מתאים</span>
+      <h2>עובדים עם מי שמוכר פרויקטים</h2>
+    </div>
+    <div class="aud reveal">
+      <div>
+        <h3>יזמי התחדשות עירונית</h3>
+        <p>הדמיות להחתמת דיירים, מצגות לוועדה, ואחר כך שיווק הדירות החדשות. פרויקט אחד, שלושה שלבים.</p>
+      </div>
+      <div>
+        <h3>יזמים וחברות בנייה</h3>
+        <p>חבילת השקה לפרויקט: חוץ, פנים, סרטון וקמפיין, מוכנים למשרד המכירות ולרשתות.</p>
+      </div>
+      <div>
+        <h3>משרדי שיווק ואדריכלים</h3>
+        <p>ספק הדמיות מהיר לקמפיינים ולמצגות, גם כגיבוי בעומסים, עם אפשרות לעבודה קבועה.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="sec soft" id="process">
   <div class="wrap">
-<div class="head reveal"><span class="eyebrow">תהליך</span><h2>איך זה עובד</h2></div>
-    <div class="steps reveal"><div class="step"><h3>שיחה קצרה</h3><p>מספרים לי על העסק והמטרה. בוואטסאפ או בטלפון.</p></div><div class="step"><h3>תסריט ולוק</h3><p>מקבלים כיוון, תסריט ופריימים ראשונים לאישור.</p></div><div class="step"><h3>הפקה ומסירה</h3><p>אני מפיק, אתם מאשרים, ומקבלים קבצים מוכנים לפרסום.</p></div></div>
+    <div class="head reveal">
+      <span class="eyebrow">תהליך</span>
+      <h2>פשוט, מהיר ומדויק</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <h3>שולחים חומרים</h3>
+        <p>תוכניות, חזיתות, הדמיה קיימת, או אפילו תמונה של הבניין והמגרש.</p>
+      </div>
+      <div class="step">
+        <h3>טיוטה וחלופות</h3>
+        <p>מקבלים כיוון ראשון וכמה חלופות, בוחרים, מעירים ומדייקים.</p>
+      </div>
+      <div class="step">
+        <h3>קבצים מוכנים לשיווק</h3>
+        <p>תמונות וסרטונים בכל הגדלים: גדר, שלטים, אתר, חוברת ורשתות.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="sec" id="about">
   <div class="wrap about">
     <img src="images/me.png" alt="שליו רביבו" loading="lazy" class="reveal" />
-    <div class="reveal"><span class="eyebrow">אודות</span><h2>היי, אני שליו רביבו</h2><p><strong>מייסד CUT productions. אני יוצר תמונות, פרסומות, סרטים ודפי נחיתה ב-AI לעסקים ומותגים.</strong></p><p>AI הוא רק הכלי. כל פרויקט מתחיל בהבנה: מי הקהל, מה הוא צריך לראות, ומה יגרום לו להחליט. אני משקיע בכל פרויקט את מלוא החשיבה, הקריאייטיב והירידה לפרטים, כדי ליצור תוכן שאנשים לא רק רואים, אלא גם זוכרים.</p></div>
+    <div class="reveal">
+      <span class="eyebrow">אודות</span>
+      <h2>היי, אני שליו רביבו</h2>
+      <p><strong>מייסד CUT productions. אני יוצר הדמיות ותוכן לפרויקטים שרוצים להיראות ברמה בינלאומית.</strong></p>
+      <p>AI הוא רק הכלי. כל פרויקט מתחיל בהבנה: מי הקהל, מה הוא צריך לראות, ומה יגרום לו להחליט. בנדל״ן זה אומר דייר שחותם, קונה שמשאיר פרטים, וועדה שמבינה את התוכנית.</p>
+      <p>אני משקיע בכל פרויקט את מלוא החשיבה, הקריאייטיב והירידה לפרטים, כדי ליצור תוכן שאנשים לא רק רואים, אלא גם זוכרים.</p>
+    </div>
   </div>
 </section>
 
 <section class="sec soft" id="faq">
   <div class="wrap">
-<div class="head reveal"><span class="eyebrow">שאלות נפוצות</span><h2>לפני שמתחילים</h2></div>
-    <div class="faq reveal"><details><summary>זה לא ייראה מזויף?</summary><p>זה בדיוק ההבדל. כל פריים עובר בימוי ותיקון ידני עד שהוא נראה אמיתי. תסתכלו על העבודות למעלה.</p></details><details><summary>כמה זה עולה?</summary><p>תלוי בסוג התוכן ובאורך. שולחים הודעה, ומקבלים הצעה מסודרת אחרי שיחה קצרה.</p></details><details><summary>כמה זמן לוקח?</summary><p>לרוב ימים ולא שבועות. לוח זמנים מדויק נקבע לפי הפרויקט.</p></details><details><summary>אפשר להשתמש בתמונות של המוצר שלי?</summary><p>כן. אפשר לבנות על תמונות, לוגו וחומרים קיימים של המותג.</p></details><details><summary>מה עם זכויות שימוש?</summary><p>הכל שקוף מראש: באילו כלים משתמשים ואיך מותר לפרסם. בלי דמויות של אנשים אמיתיים בלי אישור.</p></details><details><summary>התחום שלי לא מופיע. זה רלוונטי?</summary><p>כנראה שכן. כתבו לי מה העסק עושה ונבדוק יחד מה הכי נכון.</p></details></div>
+    <div class="head reveal">
+      <span class="eyebrow">שאלות נפוצות</span>
+      <h2>לפני שמתחילים</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>מה צריך לשלוח כדי להתחיל?</summary>
+        <p>תוכניות קומה, חזיתות או קובץ מהאדריכל. אם עדיין אין, אפשר להתחיל מתמונה של הבניין הקיים או של המגרש ומכמה הנחיות.</p>
+      </details>
+      <details>
+        <summary>כמה זמן זה לוקח?</summary>
+        <p>בדרך כלל כמה ימים מהרגע שיש חומרים ועד שיש כיוון ראשון, תלוי בכמות ובמורכבות.</p>
+      </details>
+      <details>
+        <summary>יש תיקונים?</summary>
+        <p>כן. כל פרויקט כולל סבב תיקונים, כדי שהתוצאה תתאים בדיוק לפרויקט ולמסר.</p>
+      </details>
+      <details>
+        <summary>כמה זה עולה?</summary>
+        <p>תלוי בהיקף: מספר הזוויות, פנים או חוץ, וסרטון. אחרי שאראה את החומרים אחזור עם הצעת מחיר מדויקת.</p>
+      </details>
+      <details>
+        <summary>ההדמיות תואמות לתוכנית המאושרת?</summary>
+        <p>כן, עובדים לפי התוכניות שאתם שולחים. לשימוש שיווקי מוסיפים את ההערה המקובלת ״להמחשה בלבד״.</p>
+      </details>
+      <details>
+        <summary>אפשר לעבוד באופן קבוע?</summary>
+        <p>כן. ליזמים ולמשרדי שיווק עם כמה פרויקטים יש אפשרות לעבודה חודשית קבועה עם עדיפות בתור.</p>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -114,23 +547,48 @@
   <div class="wrap contact">
     <div class="contact-side reveal">
       <span class="eyebrow">יצירת קשר</span>
-      <h2>יש לכם מוצר?<br/>בואו נעשה לו פריים.</h2>
-      <p>השאירו פרטים או כתבו בוואטסאפ. אחזור אליכם מהר.</p>
+      <h2>יש לכם פרויקט<br/>שצריך להיראות?</h2>
+      <p>השאירו פרטים ואחזור אליכם לשיחה קצרה. אפשר גם לשלוח הודעה ישירות.</p>
       <div class="contact-links">
-        <a href="https://api.whatsapp.com/send?phone=972503838810&amp;text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%99%D7%95%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%AA%D7%95%D7%9B%D7%9F%20AI%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>וואטסאפ: 050-3838810</a>
+        <a href="https://api.whatsapp.com/send?phone=972503838810&text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%99%D7%95%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%93%D7%9E%D7%99%D7%95%D7%AA%20%D7%9C%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>וואטסאפ: 050-3838810</a>
         <a href="https://www.instagram.com/tzarich_ai" target="_blank" rel="noopener"><i class="fab fa-instagram"></i>@tzarich_ai</a>
       </div>
     </div>
     <div class="reveal">
-      <form id="leadForm" novalidate data-page="דף ראשי">
-        <div class="field"><label for="name">שם מלא</label><input id="name" type="text" autocomplete="name" /><div class="err" id="nameErr">נא להזין שם</div></div>
-        <div class="field"><label for="phone">טלפון</label><input id="phone" type="tel" autocomplete="tel" placeholder="050-0000000" /><div class="err" id="phoneErr">נא להזין מספר טלפון תקין</div></div>
-        <div class="field"><label for="company">שם העסק</label><input id="company" type="text" autocomplete="organization" /></div>
-        <div class="field"><label for="role">סוג העסק</label><select id="role"><option value="">בחרו...</option><option value="נדל״ן">נדל״ן</option><option value="תכשיטים ואופנה">תכשיטים ואופנה</option><option value="מסעדות ואוכל">מסעדות ואוכל</option><option value="אפליקציות ו-SaaS">אפליקציות ו-SaaS</option><option value="מותג / עסק אחר">מותג / עסק אחר</option><option value="מעוניין בסקיל לדפי נחיתה">מעוניין בסקיל לדפי נחיתה</option></select><div class="err" id="roleErr">נא לבחור סוג עסק</div></div>
+      <form id="leadForm" novalidate>
+        <div class="field">
+          <label for="name">שם מלא</label>
+          <input id="name" type="text" autocomplete="name" />
+          <div class="err" id="nameErr">נא להזין שם</div>
+        </div>
+        <div class="field">
+          <label for="phone">טלפון</label>
+          <input id="phone" type="tel" autocomplete="tel" placeholder="050-0000000" />
+          <div class="err" id="phoneErr">נא להזין מספר טלפון תקין</div>
+        </div>
+        <div class="field">
+          <label for="company">חברה</label>
+          <input id="company" type="text" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label for="role">סוג פעילות</label>
+          <select id="role">
+            <option value="">בחרו...</option>
+            <option value="נדלן – יזם התחדשות עירונית">יזם התחדשות עירונית</option>
+            <option value="נדלן – יזם / חברת בנייה">יזם / חברת בנייה</option>
+            <option value="נדלן – משרד שיווק">משרד שיווק נדל״ן</option>
+            <option value="נדלן – משרד אדריכלים">משרד אדריכלים</option>
+            <option value="אחר">אחר</option>
+          </select>
+          <div class="err" id="roleErr">נא לבחור סוג פעילות</div>
+        </div>
         <button class="btn btn-solid" type="submit" id="submitBtn">שליחה</button>
         <p style="font-size:0.8rem;color:var(--muted);margin-top:0.9rem">בשליחת הטופס אתם מאשרים שניצור איתכם קשר. <a href="privacy.html">מדיניות פרטיות</a></p>
       </form>
-      <div class="success" id="success"><h3>הפנייה התקבלה</h3><p>אחזור אליכם בהקדם.</p></div>
+      <div class="success" id="success">
+        <h3>הפנייה התקבלה</h3>
+        <p>אחזור אליכם בהקדם לשיחה קצרה.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -138,16 +596,255 @@
 <footer>
   <div class="wrap">
     <span class="f-brand">CUT<span>.</span> productions</span>
-    <span><a href="index.html" style="color:inherit">ראשי</a> · <a href="nadlan.html" style="color:inherit">נדל״ן</a> · <a href="fashion.html" style="color:inherit">תכשיטים ואופנה</a> · <a href="food.html" style="color:inherit">מסעדות ואוכל</a> · <a href="saas.html" style="color:inherit">אפליקציות ו-SaaS</a> · <a href="skill.html" style="color:inherit">סקיל לדפי נחיתה</a></span>
     <span>© 2026 · שליו רביבו · <a href="privacy.html" style="color:inherit">מדיניות פרטיות</a></span>
   </div>
 </footer>
-<div class="sticky"><a href="https://api.whatsapp.com/send?phone=972503838810&amp;text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%99%D7%95%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%AA%D7%95%D7%9B%D7%9F%20AI%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" class="btn btn-solid" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a></div>
-<a class="wa-float" href="https://api.whatsapp.com/send?phone=972503838810&amp;text=%D7%94%D7%99%D7%99%20%D7%A9%D7%9C%D7%99%D7%95%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%AA%D7%95%D7%9B%D7%9F%20AI%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" rel="noopener" aria-label="וואטסאפ"><i class="fab fa-whatsapp"></i></a>
-<div class="modal" id="modal" role="dialog" aria-modal="true"><button class="modal-x" id="modalX" aria-label="סגירה">&times;</button><div id="modalBody"></div></div>
 
-<script src="media-index.js"></script>
-<script src="site.js"></script>
-<script type="module" src="lead.js"></script>
+<div class="sticky"><a href="#contact" class="btn btn-solid">שלחו פרויקט לבדיקה</a></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <button class="modal-x" id="modalX" aria-label="סגירה">&times;</button>
+  <div id="modalBody"></div>
+</div>
+
+<script src="media.js"></script>
+<script src="promo.js"></script>
+<script>
+  var M = window.SITE_MEDIA || {};
+  function el(tag, attrs, html) { var e = document.createElement(tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (html) e.innerHTML = html; return e; }
+  function esc(t) { return String(t || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  // Nav border on scroll
+  var nav = document.getElementById('nav');
+
+  // ── Scroll fly-through: the video's time follows the scroll position ──
+  var fly = document.getElementById('top'), vid = document.getElementById('flyVideo');
+  var bar = document.getElementById('flyBar'), hint = document.getElementById('flyHint');
+  var steps = fly.querySelectorAll('.fly-step');
+  document.getElementById('flyPoster').src = M.scrollPoster || '';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var target = 0, current = 0;
+  // Without a scroll video (or with reduced motion) the section is a normal one-screen hero.
+  var isStatic = !M.scrollVideo || reduce;
+  if (isStatic) fly.classList.add('static');
+  if (isStatic && !M.scrollPoster) fly.classList.add('plain');
+  var scrollSrc = (window.innerWidth < 900 && M.scrollVideoMobile) || M.scrollVideo;
+  if (!isStatic) {
+    // Load the whole file into memory so seeking is instant; fall back to streaming if the host blocks it.
+    fetch(scrollSrc).then(function (r) { if (!r.ok) throw 0; return r.blob(); })
+      .then(function (b) { vid.src = URL.createObjectURL(b); })
+      .catch(function () { vid.src = scrollSrc; });
+    vid.addEventListener('loadeddata', function () { vid.classList.add('ready'); });
+    // iOS only allows seeking after the video has been "played" once.
+    var unlock = function () { vid.play().then(function () { vid.pause(); }).catch(function () {}); window.removeEventListener('touchstart', unlock); };
+    window.addEventListener('touchstart', unlock, { passive: true });
+  }
+  function progress() {
+    var r = fly.getBoundingClientRect(), span = fly.offsetHeight - window.innerHeight;
+    return Math.min(1, Math.max(0, -r.top / span));
+  }
+  function onScroll() {
+    nav.classList.toggle('solid', window.scrollY > 40);
+    if (isStatic) { document.body.classList.toggle('past-fly', window.scrollY > window.innerHeight * 0.6); return; }
+    var p = progress();
+    document.body.classList.toggle('past-fly', p >= 1);
+    bar.style.setProperty('--p', p);
+    hint.style.opacity = p > 0.03 ? 0 : 1;
+    steps.forEach(function (s) { s.classList.toggle('on', p >= +s.dataset.from && p < +s.dataset.to); });
+    if (vid.duration) target = p * (vid.duration - 0.05);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  (function tick() {
+    if (vid.duration && Math.abs(target - current) > 0.01) {
+      current += (target - current) * 0.15;
+      if (!vid.seeking) vid.currentTime = current;
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  // ── Explainer ──
+  var ex = document.getElementById('explainer');
+  if (M.explainer) { ex.src = M.explainer; ex.poster = (M.gallery && M.gallery[0] && M.gallery[0].src) || ''; }
+  else document.getElementById('explainer-sec').hidden = true;
+
+  // ── Promo: vertical animation drawn on a canvas, plays muted while on screen ──
+  var promoSec = document.getElementById('promo-sec');
+  if (!M.promo || !window.CutPromo) promoSec.hidden = true;
+  else {
+    var promo = CutPromo.create(document.getElementById('promo'), { scale: window.innerWidth < 900 ? 0.5 : 0.66 });
+    var promoBar = document.getElementById('promoBar'), soundBtn = document.getElementById('promoSound'), promoMuted = true, promoSeen = false;
+    promo.onFrame(function (t) { promoBar.style.width = (t / promo.duration * 100) + '%'; });
+    soundBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      promoMuted = !promoMuted; promo.setMuted(promoMuted);
+      soundBtn.innerHTML = '<i class="fa-solid fa-volume-' + (promoMuted ? 'xmark' : 'high') + '"></i>';
+      if (!promo.isPlaying()) promo.play();
+    });
+    document.querySelector('.promo-frame').addEventListener('click', function () { promo.isPlaying() ? promo.pause() : promo.play(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        en.forEach(function (e) {
+          if (e.isIntersecting) { if (!promoSeen) { promoSeen = true; promo.seek(0); } promo.play(); }
+          else promo.pause();
+        });
+      }, { threshold: 0.35 }).observe(document.querySelector('.promo-frame'));
+    } else promo.play();
+  }
+
+  // ── Videos play by themselves (muted, looping) while on screen, and pause off screen to save battery ──
+  var vio = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); } else e.target.pause(); });
+  }, { threshold: 0.15 }) : null;
+  function watchVideos(root) {
+    root.querySelectorAll('video.auto').forEach(function (v) {
+      v.muted = true; v.defaultMuted = true;
+      if (vio) vio.observe(v); else v.play().catch(function () {});
+    });
+  }
+
+  // ── Gallery: manual items from media.js, then every file in media/works (loaded automatically) ──
+  var sizeClass = { lg: 'w-lg', md: 'w-md' }, gal = document.getElementById('gallery'), galCount = 0;
+  function videoTag(src) { return '<video class="auto" src="' + esc(src) + '" muted loop playsinline autoplay preload="auto"></video>'; }
+  function addWork(g, shown) {
+    var i = galCount++;
+    var cls = sizeClass[g.size] || (i === 0 ? 'w-lg' : (i % 5 === 1 ? 'w-sm' : 'w-third'));
+    var fig = el('figure', { 'class': 'work reveal ' + cls + (shown ? ' in' : '') });
+    var media = g.type === 'video' ? videoTag(g.src) : '<img src="' + esc(g.src) + '" alt="' + esc(g.title || 'עבודה') + '" loading="lazy" />';
+    var cap = (g.title || g.sub) ? '<figcaption><b>' + esc(g.title) + '</b>' + esc(g.sub) + '</figcaption>' : '';
+    fig.innerHTML = media + cap;
+    fig.addEventListener('click', function () {
+      openModal(g.type === 'video' ? '<video src="' + esc(g.src) + '" controls autoplay playsinline style="max-width:100%;max-height:90vh"></video>' : '<img src="' + esc(g.src) + '" alt="' + esc(g.title) + '">');
+    });
+    gal.appendChild(fig);
+    document.getElementById('work').hidden = false;
+    watchVideos(fig);
+  }
+  document.getElementById('work').hidden = true;
+  (M.gallery || []).forEach(function (g) { addWork(g, false); });
+
+  // Compare names loosely: ignore spaces, underscores and quote marks (נדלן = נדל״ן = נדל"ן).
+  function norm(t) { return String(t).normalize('NFC').replace(/[\s_\-"'״׳.]+/g, ''); }
+  // ── Featured video (plays by itself) and more videos (play on click) ──
+  function setFeature(src) {
+    var box = document.getElementById('feature');
+    box.innerHTML = '<video class="auto" src="' + esc(src) + '" muted loop playsinline autoplay preload="auto"></video>';
+    box.hidden = false; box.classList.add('in'); document.getElementById('work').hidden = false;
+    watchVideos(box);
+  }
+  function addMoreVideo(src, title) {
+    var wrap = document.getElementById('moreVideos');
+    var f = el('figure');
+    // "#t=0.1" makes the browser show the first frame as a preview before playing.
+    f.innerHTML = '<video src="' + esc(src) + '#t=0.1" controls playsinline preload="metadata"></video>' + (title ? '<figcaption>' + esc(title) + '</figcaption>' : '');
+    wrap.appendChild(f); wrap.hidden = false; document.getElementById('work').hidden = false;
+  }
+  if (M.featured) setFeature(M.featured);
+  (M.moreVideos || []).forEach(function (v) { addMoreVideo(v.src, v.title); });
+
+  // Files uploaded to media/works on GitHub appear here by themselves, sorted by file name.
+  // A file named "מגדל בתל אביב - הדמיית חוץ.jpg" gets the title and subtitle from its name.
+  var WORKS_API = 'https://api.github.com/repos/pillowlife2000-creator/-my-site/contents/media/works';
+  fetch(WORKS_API).then(function (r) { return r.ok ? r.json() : []; }).then(function (files) {
+    (files || []).filter(function (f) { return f.type === 'file'; })
+      .sort(function (a, b) { return a.name.localeCompare(b.name, 'he', { numeric: true }); })
+      .forEach(function (f) {
+        var ext = (f.name.split('.').pop() || '').toLowerCase();
+        var type = /^(mp4|webm|mov|m4v)$/.test(ext) ? 'video' : (/^(jpe?g|png|webp|gif|avif)$/.test(ext) ? 'image' : null);
+        if (!type) return;
+        var base = f.name.replace(/\.[^.]+$/, '').replace(/^\d+[\s._-]+/, '');
+        var parts = base.split(' - '), title = parts[0].replace(/[_]+/g, ' ').trim(), sub = (parts[1] || '').trim();
+        if (/^(img|dsc|vid|pxl|whatsapp|screenshot|photo|video)[\s_-]*\d/i.test(title) || /^\d+$/.test(title)) { title = ''; sub = ''; }
+        var src = 'media/works/' + f.name;
+        if (type === 'video' && M.featuredName && norm(f.name).indexOf(norm(M.featuredName)) !== -1) setFeature(src);
+        else if (type === 'video') addMoreVideo(src, title);
+        else addWork({ type: type, src: src, title: title, sub: sub }, true);
+      });
+  }).catch(function () {});
+
+  // ── Before / after ──
+  var baWrap = document.getElementById('baWrap');
+  (M.beforeAfter || []).forEach(function (b) {
+    var box = el('div', { 'class': 'reveal' });
+    box.innerHTML = '<div class="ba"><img src="' + esc(b.before) + '" alt="לפני" loading="lazy" /><img class="after" src="' + esc(b.after) + '" alt="אחרי" loading="lazy" />'
+      + '<span class="ba-tag r">היום</span><span class="ba-tag l">אחרי ההתחדשות</span><div class="ba-line"></div>'
+      + '<div class="ba-knob"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-left"></i></div>'
+      + '<input type="range" min="0" max="100" value="50" aria-label="השוואה בין לפני לאחרי" /></div>'
+      + (b.title ? '<p class="ba-title">' + esc(b.title) + '</p>' : '');
+    var ba = box.querySelector('.ba');
+    // In RTL the range value grows right-to-left, while --pos is measured from the left.
+    box.querySelector('input').addEventListener('input', function (e) { ba.style.setProperty('--pos', (100 - e.target.value) + '%'); });
+    baWrap.appendChild(box);
+  });
+  if (!(M.beforeAfter || []).length) document.getElementById('renewal').hidden = true;
+
+  // ── Reels ──
+  var reels = document.getElementById('reels');
+  (M.reels || []).forEach(function (r) {
+    var f = el('figure');
+    f.innerHTML = (r.type === 'youtube'
+      ? '<iframe src="https://www.youtube.com/embed/' + esc(r.id) + '" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>'
+      : videoTag(r.src))
+      + (r.title ? '<figcaption>' + esc(r.title) + '</figcaption>' : '');
+    reels.appendChild(f);
+  });
+  if ((M.reels || []).length) { document.getElementById('reelsSec').hidden = false; watchVideos(reels); }
+
+  watchVideos(document);
+
+  // ── Reveal on scroll ──
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px' }) : null;
+  document.querySelectorAll('.reveal').forEach(function (e) { io ? io.observe(e) : e.classList.add('in'); });
+
+  // ── Lightbox ──
+  var modal = document.getElementById('modal'), mbody = document.getElementById('modalBody');
+  function openModal(html) { mbody.innerHTML = html; modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { modal.classList.remove('open'); mbody.innerHTML = ''; document.body.style.overflow = ''; }
+  document.getElementById('modalX').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+  // ── Remember the campaign that brought the visitor (UTM) for the lead form ──
+  (function () {
+    var q = new URLSearchParams(location.search), u = ['utm_source', 'utm_medium', 'utm_campaign'].map(function (k) { return q.get(k) || ''; });
+    try { if (u[0]) sessionStorage.setItem('utm', u.join('/')); } catch (e) {}
+  })();
+</script>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const supabase = createClient(
+    'https://kynnuobrybwdcixoefwu.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt5bm51b2JyeWJ3ZGNpeG9lZnd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3NjM5NzAsImV4cCI6MjA5NzMzOTk3MH0.tY6J0ig66nw3MT3oGBiuVYTf-yYkWAwoopauC9f6aPk'
+  );
+
+  document.getElementById('leadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const role = document.getElementById('role').value;
+    const btn = document.getElementById('submitBtn');
+
+    ['nameErr', 'phoneErr', 'roleErr'].forEach(id => document.getElementById(id).style.display = 'none');
+    let valid = true;
+    if (name.length < 2)                     { document.getElementById('nameErr').style.display = 'block'; valid = false; }
+    if (phone.replace(/\D/g, '').length < 9) { document.getElementById('phoneErr').style.display = 'block'; valid = false; }
+    if (!role)                               { document.getElementById('roleErr').style.display = 'block'; valid = false; }
+    if (!valid) return;
+
+    btn.disabled = true; btn.textContent = 'שולח...';
+    let utm = '';
+    try { utm = sessionStorage.getItem('utm') || ''; } catch (err) {}
+    const businessType = [role, company, utm && 'utm: ' + utm].filter(Boolean).join(' | ');
+    const { error } = await supabase.from('leads').insert({ name, phone, business_type: businessType });
+    if (error) { btn.disabled = false; btn.textContent = 'שליחה'; alert('אירעה שגיאה, נסו שוב.'); return; }
+    window.trackLead?.(role);
+    document.getElementById('leadForm').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+  });
+</script>
 </body>
 </html>
