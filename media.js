@@ -45,6 +45,7 @@ window.SITE_MEDIA = {
   featured: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201194118-main_web.mp4', // נדלן לעצמי (מכווץ לאתר, 1080p)
   // שאר הסרטונים בתיקייה מופיעים מתחת לראשי, ונפתחים בלחיצה. אפשר להוסיף גם כאן ידנית:
   moreVideos: [
+    { src: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793228522051-shviro_v.mp4', title: 'שבירו בחיפה' },
     { src: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201199911-y38_web.mp4', title: 'פרויקט נדל״ן Y38' },
     // { src: 'media/works/סרטון.mp4', title: 'שם' },
   ],
