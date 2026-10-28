@@ -24,8 +24,8 @@ window.SITE_MEDIA = {
   // תמונות אמיתיות (צילומי סטוק מ-Pexels ו-Unsplash, שמורים ב-Kolbo). לפני/אחרי נשאר הדמיה.
   promo: {
     music: 'https://media.kolbo.ai/kolboai-media/generated-music/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/CUT-productions-real-24b6f6bb-91b3-45e2-bedd-02d11f749f11-chirp-hawk%20-%20Track%201.mp3',
-    main: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201194118-main_web.mp4',
-    y38: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793201199911-y38_web.mp4',
+    main: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793228522051-shviro_v.mp4',
+    y38: 'https://media.kolbo.ai/kolboai-media/uploaded-videos/6a90b7820d92b30dd2560541/6ae168392f760bb97affd0b4/1793228522051-shviro_v.mp4',
     street: K + 'Image-1-shows-the-residen-6ae16b22a7f161b80422821a-nano-banana-2-image.jpeg',
     lobby: K + 'Photorealistic-interior-v-6ae1684da7f161b804227c3e-nano-banana-pro.jpeg',
     living: K + 'Photorealistic-interior-v-6ae1684ef3b2fe48fff74f5b-nano-banana-pro.jpeg',
