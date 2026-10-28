@@ -186,8 +186,8 @@
   // ── ציר הזמן ──
   // כל סרטון: מתי הוא על המסך, ומאיזו שנייה בקובץ המקור מתחילים.
   var VIDEO_LAYERS = [
-    { key: 'main', a: 3.4, b: 8.6, src: 14 },
-    { key: 'y38', a: 16.8, b: 21.8, src: 9 }
+    { key: 'main', a: 3.4, b: 8.6, src: 2 },
+    { key: 'y38', a: 16.8, b: 21.8, src: 12 }
   ];
   var CUTS = ['tower', 'villa', 'penthouse', 'aerial', 'kitchen', 'tower'];
   var CUT_A = 21.6, CUT_LEN = 0.74;
@@ -221,10 +221,10 @@
       grade(ctx, 0.8);
       shade(ctx, 0.35, 0.85);
       tag(ctx, 'סרטוני פרויקט', W / 2, 190, life(t, 3.7, 8.4, 0.4, 0.3));
-      var hw = measure(ctx, 'שמחתימות דיירים', 104) + 70;
+      var hw = measure(ctx, 'שמוכרות דירות', 104) + 70;
       highlight(ctx, W / 2 - hw / 2, 1528, hw, 140, prog(t, 4.5, 5.1) * (1 - prog(t, 8.1, 8.45)));
-      kinetic(ctx, 'הדמיות', W / 2, 1460, 150, t, 4.0, { out: 8.1 });
-      kinetic(ctx, 'שמחתימות דיירים', W / 2, 1636, 104, t, 4.6, { out: 8.15, shadow: false });
+      kinetic(ctx, 'פרסומות', W / 2, 1460, 150, t, 4.0, { out: 8.1 });
+      kinetic(ctx, 'שמוכרות דירות', W / 2, 1636, 104, t, 4.6, { out: 8.15, shadow: false });
     }
 
     // 3. פנים: לובי וסלון
@@ -280,7 +280,7 @@
       shade(ctx, 0.35, 0.85);
       tag(ctx, 'רילס וסרטוני השקה', W / 2, 190, life(t, 17.0, 21.5, 0.4, 0.3));
       kinetic(ctx, 'סרטונים', W / 2, 1480, 150, t, 17.2, { out: 21.2 });
-      kinetic(ctx, 'שעוצרים את הגלילה', W / 2, 1630, 92, t, 17.75, { out: 21.25, weight: 700 });
+      kinetic(ctx, 'שנשארים בראש', W / 2, 1630, 92, t, 17.75, { out: 21.25, weight: 700 });
     }
 
     // 6. חיתוכים מהירים בין זוויות
