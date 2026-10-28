@@ -199,7 +199,7 @@
     // 1. פתיח: מוכרים פרויקט שעוד לא קיים?
     if (t < 3.6) {
       var o = life(t, 0, 3.6, 0.01, 0.3);
-      ctx.globalAlpha = 0.42 * o;
+      ctx.globalAlpha = 0.62 * o;
       if (A.street) drawCover(ctx, A.street, lerp(1.22, 1.06, outCubic(prog(t, 0, 3.6))), 0.15, 0);
       ctx.globalAlpha = 1;
       shade(ctx, 0.5, 0.75);
@@ -340,7 +340,7 @@
   function loadImage(src) {
     return new Promise(function (res) {
       if (!src) return res(null);
-      var im = new Image(); im.crossOrigin = 'anonymous'; im.decoding = 'async';
+      var im = new Image(); im.decoding = 'async';
       im.onload = function () { res(im); }; im.onerror = function () { res(null); };
       im.src = src;
     });
@@ -348,7 +348,7 @@
   function makeVideo(src) {
     if (!src) return null;
     var v = document.createElement('video');
-    v.crossOrigin = 'anonymous'; v.muted = true; v.playsInline = true; v.setAttribute('playsinline', '');
+    v.muted = true; v.playsInline = true; v.setAttribute('playsinline', '');
     v.preload = 'auto'; v.src = src;
     return v;
   }
@@ -376,7 +376,7 @@
     var playing = false, t0 = 0, cur = 0, raf = 0, listeners = [];
 
     VIDEO_LAYERS.forEach(function (L) { vids[L.key] = makeVideo(P[L.key]); A[L.key] = vids[L.key]; });
-    if (P.music) { music = new Audio(); music.crossOrigin = 'anonymous'; music.preload = 'auto'; music.src = P.music; music.muted = opts.muted !== false; }
+    if (P.music) { music = new Audio(); music.preload = 'auto'; music.src = P.music; music.muted = opts.muted !== false; }
 
     var imgKeys = ['street', 'lobby', 'living', 'before', 'after', 'tower', 'villa', 'penthouse', 'aerial', 'kitchen'];
     var ready = Promise.all(imgKeys.map(function (k) { return loadImage(P[k]).then(function (im) { A[k] = im; }); })
