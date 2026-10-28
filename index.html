@@ -252,6 +252,16 @@
     .fly.static video, .fly.static .fly-hint, .fly.static .fly-bar { display: none; }
     @media (prefers-reduced-motion: reduce) { .fly-step { transition: none; } }
 
+    /* PROMO (vertical animation drawn by promo.js) */
+    .promo-wrap { display: grid; grid-template-columns: 1fr minmax(260px, 400px); gap: 4rem; align-items: center; }
+    .promo-copy p { color: var(--muted); max-width: 30rem; margin: 1rem 0 1.8rem; }
+    .promo-frame { position: relative; aspect-ratio: 9 / 16; background: #0f1110; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(31,31,27,0.45); cursor: pointer; }
+    .promo-frame canvas { width: 100%; height: 100%; display: block; }
+    .promo-sound { position: absolute; top: 14px; left: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(15,17,16,0.55); color: #fff; font-size: 1rem; cursor: pointer; backdrop-filter: blur(6px); }
+    .promo-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,0.15); }
+    .promo-bar span { display: block; height: 100%; width: 0; background: var(--teal); margin-inline-start: auto; }
+    @media (max-width: 860px) { .promo-wrap { grid-template-columns: 1fr; gap: 2rem; } .promo-frame { max-width: 380px; width: 100%; margin: 0 auto; } }
+
     /* EXPLAINER */
     .explainer { position: relative; aspect-ratio: 16 / 9; background: var(--ink); border-radius: 4px; overflow: hidden; }
     .explainer video { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -366,6 +376,22 @@
       <h2>מה אנחנו עושים</h2>
     </div>
     <div class="explainer reveal"><video id="explainer" controls playsinline preload="metadata"></video></div>
+  </div>
+</section>
+
+<section class="sec" id="promo-sec">
+  <div class="wrap promo-wrap">
+    <div class="promo-copy reveal">
+      <span class="eyebrow">סרטון תדמית · 30 שניות</span>
+      <h2>ככה נראה פרויקט<br />לפני שהוא קיים</h2>
+      <p>הדמיות חוץ ופנים, ״לפני ואחרי״ להתחדשות עירונית, וסרטוני פרויקט ורילס. הכל בסרטון אנכי אחד, כמו שהוא עולה לאינסטגרם.</p>
+      <a class="btn btn-solid" href="promo.html" target="_blank" rel="noopener">צפייה במסך מלא</a>
+    </div>
+    <div class="promo-frame reveal">
+      <canvas id="promo" aria-label="סרטון תדמית של CUT productions"></canvas>
+      <button class="promo-sound" id="promoSound" type="button" aria-label="הפעלת סאונד"><i class="fa-solid fa-volume-xmark"></i></button>
+      <div class="promo-bar"><span id="promoBar"></span></div>
+    </div>
   </div>
 </section>
 
@@ -582,6 +608,7 @@
 </div>
 
 <script src="media.js"></script>
+<script src="promo.js"></script>
 <script>
   var M = window.SITE_MEDIA || {};
   function el(tag, attrs, html) { var e = document.createElement(tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (html) e.innerHTML = html; return e; }
@@ -639,6 +666,30 @@
   var ex = document.getElementById('explainer');
   if (M.explainer) { ex.src = M.explainer; ex.poster = (M.gallery && M.gallery[0] && M.gallery[0].src) || ''; }
   else document.getElementById('explainer-sec').hidden = true;
+
+  // ── Promo: vertical animation drawn on a canvas, plays muted while on screen ──
+  var promoSec = document.getElementById('promo-sec');
+  if (!M.promo || !window.CutPromo) promoSec.hidden = true;
+  else {
+    var promo = CutPromo.create(document.getElementById('promo'), { scale: window.innerWidth < 900 ? 0.5 : 0.66 });
+    var promoBar = document.getElementById('promoBar'), soundBtn = document.getElementById('promoSound'), promoMuted = true, promoSeen = false;
+    promo.onFrame(function (t) { promoBar.style.width = (t / promo.duration * 100) + '%'; });
+    soundBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      promoMuted = !promoMuted; promo.setMuted(promoMuted);
+      soundBtn.innerHTML = '<i class="fa-solid fa-volume-' + (promoMuted ? 'xmark' : 'high') + '"></i>';
+      if (!promo.isPlaying()) promo.play();
+    });
+    document.querySelector('.promo-frame').addEventListener('click', function () { promo.isPlaying() ? promo.pause() : promo.play(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        en.forEach(function (e) {
+          if (e.isIntersecting) { if (!promoSeen) { promoSeen = true; promo.seek(0); } promo.play(); }
+          else promo.pause();
+        });
+      }, { threshold: 0.35 }).observe(document.querySelector('.promo-frame'));
+    } else promo.play();
+  }
 
   // ── Videos play by themselves (muted, looping) while on screen, and pause off screen to save battery ──
   var vio = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
