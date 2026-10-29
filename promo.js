@@ -321,7 +321,7 @@
       roundRect(ctx, W / 2 - 330, 1560, 660, 120, 60); ctx.fillStyle = INK; ctx.fill();
       ctx.font = '700 50px ' + FONT; ctx.fillStyle = WHITE; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.direction = 'ltr';
       ctx.fillText('050-3838810', W / 2, 1622);
-      ctx.font = '400 38px ' + FONT; ctx.fillStyle = '#5e615c'; ctx.fillText('@tzarich_ai', W / 2, 1750);
+      ctx.font = '400 38px ' + FONT; ctx.fillStyle = '#5e615c'; ctx.fillText('@shalev_ai.revivo', W / 2, 1750);
       ctx.restore();
     }
 
